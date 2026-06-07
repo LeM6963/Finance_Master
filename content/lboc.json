@@ -1,0 +1,291 @@
+{
+  "modules": [],
+  "flashcards": [],
+  "qcm": [],
+  "exercises": [],
+  "cases": [
+    {
+      "id": "case.lbo.sponsor",
+      "type": "caseStudy",
+      "level": 4,
+      "topic": "LBO",
+      "tags": ["LBO", "LevFin", "Valuation", "MoM", "IRR"],
+      "difficulty": 4,
+      "source": {"flag": "EXEMPLE_PEDAGOGIQUE", "ref": "Cas pédagogique inspiré d'un LBO mid-cap français (style Bridgepoint/PAI/Ardian)"},
+      "title": {
+        "fr": "LBO sponsor mid-cap : de la valorisation d'entrée au calcul du MoM/IRR",
+        "en": "Mid-cap sponsor LBO: from entry valuation to MoM/IRR"
+      },
+      "dealType": "LBO-sponsor",
+      "realDeal": false,
+      "scenario": {
+        "fr": "Un fonds européen mid-market — appelons-le « Garonne Capital » dans la lignée de Bridgepoint, PAI Partners ou Ardian — étudie le rachat de Proxima, ETI française de services techniques B2B basée à Lyon. Proxima réalise 200 M€ de chiffre d'affaires et 30 M€ d'[[EBITDA]] (marge 15 %), avec une croissance organique de 6 %/an et des [[capex]] modérés. Le management reste en place et co-investit. L'horizon de détention visé est de 5 ans. Vous êtes l'associate qui construit le [[LBO]] : prix d'entrée, structuration de la dette, désendettement, puis sortie. Tous les chiffres sont illustratifs.",
+        "en": "A European mid-market fund — call it \"Garonne Capital,\" in the vein of Bridgepoint, PAI Partners or Ardian — is studying the buyout of Proxima, a French mid-cap B2B technical-services company based in Lyon. Proxima posts 200 M€ revenue and 30 M€ of [[EBITDA]] (15% margin), with 6%/yr organic growth and moderate [[capex]]. Management stays on and co-invests. The targeted holding period is 5 years. You are the associate building the [[LBO]]: entry price, debt structuring, deleveraging, then exit. All figures are illustrative."
+      },
+      "data": [
+        {
+          "caption": {"fr": "P&L et cash-flow prévisionnels (M€)", "en": "Projected P&L and cash flow (€m)"},
+          "columns": ["", "Entrée (Y0)", "Y1", "Y2", "Y3", "Y4", "Y5 (sortie)"],
+          "rows": [
+            ["Chiffre d'affaires", 200, 212, 225, 238, 252, 267],
+            ["EBITDA", 30.0, 32.5, 35.1, 37.8, 40.6, 43.5],
+            ["Marge EBITDA %", 15.0, 15.3, 15.6, 15.9, 16.1, 16.3],
+            ["FCF after debt service (cumul paydown)", 0, 8, 17, 27, 38, 50]
+          ]
+        },
+        {
+          "caption": {"fr": "Sources & Uses à l'entrée (M€)", "en": "Sources & Uses at entry (€m)"},
+          "columns": ["Sources", "M€", "Uses", "M€"],
+          "rows": [
+            ["Dette senior (Term Loan B)", 120, "Enterprise Value (8,0x)", 240],
+            ["Dette subordonnée / mezzanine", 30, "Frais de transaction (2%)", 5],
+            ["Équity sponsor + management", 95, "", 0],
+            ["Total Sources", 245, "Total Uses", 245]
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "prompt": {
+            "fr": "Étape 1 — Valorisation d'entrée. Sur la base de 30 M€ d'[[EBITDA]] et d'un multiple d'entrée de 8,0x [[EV/EBITDA]] (cohérent avec un actif de services de qualité mid-cap en France), calculez l'[[Enterprise Value]] d'entrée. La cible a 10 M€ de dette nette existante : quel est le prix des fonds propres (equity value) payé aux vendeurs ?",
+            "en": "Stage 1 — Entry valuation. With 30 M€ of [[EBITDA]] and an entry multiple of 8.0x [[EV/EBITDA]] (consistent with a quality mid-cap French services asset), compute the entry [[Enterprise Value]]. The target carries 10 M€ of existing net debt: what is the equity price paid to the sellers?"
+          },
+          "guidedQuestions": [
+            {"fr": "EV = multiple × EBITDA ?", "en": "EV = multiple × EBITDA?"},
+            {"fr": "Equity value vendeurs = EV − dette nette existante ?", "en": "Sellers' equity value = EV − existing net debt?"}
+          ],
+          "reveal": {
+            "fr": "EV d'entrée = 8,0x × 30 M€ = 240 M€. Equity value payée aux vendeurs = 240 − 10 (dette nette existante) = 230 M€. C'est l'[[Enterprise Value]] qui sert d'ancrage au financement : 8,0x sur un actif mid-cap de services en France est un multiple plausible (souvent 7–10x selon la qualité et la récurrence du revenu).",
+            "en": "Entry EV = 8.0x × 30 M€ = 240 M€. Equity value paid to sellers = 240 − 10 (existing net debt) = 230 M€. The [[Enterprise Value]] anchors the financing: 8.0x for a French mid-cap services asset is plausible (often 7–10x depending on quality and revenue recurrence)."
+          }
+        },
+        {
+          "prompt": {
+            "fr": "Étape 2 — Sources & Uses. On structure 4,0x d'[[EBITDA]] de dette senior et 1,0x de mezzanine, plus 5 M€ de frais de transaction (~2 % de l'EV). Construisez le tableau Sources & Uses et déduisez le chèque d'[[equity]] du sponsor (et management).",
+            "en": "Stage 2 — Sources & Uses. We structure 4.0x [[EBITDA]] of senior debt and 1.0x of mezzanine, plus 5 M€ of transaction fees (~2% of EV). Build the Sources & Uses table and derive the sponsor (and management) [[equity]] check."
+          },
+          "guidedQuestions": [
+            {"fr": "Total Uses = EV + frais ?", "en": "Total Uses = EV + fees?"},
+            {"fr": "Equity = Uses − dette totale ?", "en": "Equity = Uses − total debt?"}
+          ],
+          "reveal": {
+            "fr": "Uses : EV 240 + frais 5 = 245 M€. Sources : dette senior 4,0x × 30 = 120 ; mezzanine 1,0x × 30 = 30 ; soit 150 M€ de dette totale (5,0x). Équity = 245 − 150 = 95 M€. Le [[leverage]] d'entrée à 5,0x est dans la fourchette mid-cap FR (typiquement 4,5–5,5x). Le sponsor met l'essentiel des 95 M€, le management ~3–5 M€ en co-investissement.",
+            "en": "Uses: EV 240 + fees 5 = 245 M€. Sources: senior debt 4.0x × 30 = 120; mezzanine 1.0x × 30 = 30; i.e. 150 M€ total debt (5.0x). Equity = 245 − 150 = 95 M€. Entry [[leverage]] at 5.0x sits in the FR mid-cap range (typically 4.5–5.5x). The sponsor funds most of the 95 M€, with management co-investing ~3–5 M€."
+          }
+        },
+        {
+          "prompt": {
+            "fr": "Étape 3 — Structuration de la dette et service annuel. Le Term Loan B (120 M€) porte ~5,5 % d'intérêt, la mezzanine (30 M€) ~9 %. Estimez la charge d'intérêts de la première année et commentez la couverture par l'EBITDA.",
+            "en": "Stage 3 — Debt structuring and annual service. The Term Loan B (120 M€) bears ~5.5% interest, the mezzanine (30 M€) ~9%. Estimate Year 1 interest expense and comment on EBITDA coverage."
+          },
+          "guidedQuestions": [
+            {"fr": "Intérêts = 5,5% × 120 + 9% × 30 ?", "en": "Interest = 5.5% × 120 + 9% × 30?"},
+            {"fr": "Ratio de couverture EBITDA / intérêts ?", "en": "EBITDA / interest coverage ratio?"}
+          ],
+          "reveal": {
+            "fr": "Intérêts Y1 ≈ 0,055 × 120 + 0,09 × 30 = 6,6 + 2,7 = 9,3 M€. Couverture = 32,5 / 9,3 ≈ 3,5x — confortable. Le TLB est typiquement [[bullet]] (remboursé in fine) avec un [[cash sweep]] sur le FCF excédentaire ; la mezzanine est souvent en [[PIK]] partiel. La charge d'intérêts pèse mais l'[[EBITDA]] croissant l'allège chaque année.",
+            "en": "Y1 interest ≈ 0.055 × 120 + 0.09 × 30 = 6.6 + 2.7 = 9.3 M€. Coverage = 32.5 / 9.3 ≈ 3.5x — comfortable. The TLB is typically [[bullet]] (repaid at maturity) with a [[cash sweep]] on excess FCF; mezzanine is often partly [[PIK]]. Interest is heavy but rising [[EBITDA]] eases it each year."
+          }
+        },
+        {
+          "prompt": {
+            "fr": "Étape 4 — [[Paydown]] sur la période de détention. Le tableau de cash-flow montre un FCF after debt service cumulé de 50 M€ sur 5 ans, intégralement affecté au remboursement de la dette via le [[cash sweep]]. Quelle est la dette nette à la sortie (Y5) ?",
+            "en": "Stage 4 — [[Paydown]] over the holding period. The cash-flow table shows cumulative FCF after debt service of 50 M€ over 5 years, fully applied to debt repayment via the [[cash sweep]]. What is net debt at exit (Y5)?"
+          },
+          "guidedQuestions": [
+            {"fr": "Dette nette sortie = dette entrée − paydown cumulé ?", "en": "Exit net debt = entry debt − cumulative paydown?"},
+            {"fr": "Le levier net a-t-il baissé ?", "en": "Has net leverage fallen?"}
+          ],
+          "reveal": {
+            "fr": "Dette nette à la sortie = 150 (dette d'entrée) − 50 (paydown cumulé) = 100 M€. Le [[paydown]] de 50 M€ provient du FCF généré et balayé par le [[cash sweep]]. Le levier net passe de 5,0x (150/30) à l'entrée à 100/43,5 ≈ 2,3x à la sortie : le désendettement combiné à la croissance d'EBITDA crée de la valeur pour l'[[equity]].",
+            "en": "Exit net debt = 150 (entry debt) − 50 (cumulative paydown) = 100 M€. The 50 M€ [[paydown]] comes from generated FCF swept by the [[cash sweep]]. Net leverage falls from 5.0x (150/30) at entry to 100/43.5 ≈ 2.3x at exit: deleveraging plus EBITDA growth creates equity value."
+          }
+        },
+        {
+          "prompt": {
+            "fr": "Étape 5 — Valorisation de sortie. On vend en Y5 à 43,5 M€ d'[[EBITDA]]. Hypothèse de base : multiple de sortie stable à 8,0x (pas d'expansion de multiple). Calculez l'[[Enterprise Value]] de sortie, puis l'equity de sortie (rappel : equity de sortie = EV sortie − dette nette de sortie).",
+            "en": "Stage 5 — Exit valuation. We sell in Y5 at 43.5 M€ of [[EBITDA]]. Base case: stable exit multiple of 8.0x (no multiple expansion). Compute the exit [[Enterprise Value]], then exit equity (recall: exit equity = exit EV − exit net debt)."
+          },
+          "guidedQuestions": [
+            {"fr": "EV sortie = 8,0x × 43,5 ?", "en": "Exit EV = 8.0x × 43.5?"},
+            {"fr": "Equity sortie = EV sortie − 100 ?", "en": "Exit equity = exit EV − 100?"}
+          ],
+          "reveal": {
+            "fr": "EV de sortie = 8,0x × 43,5 = 348 M€. Equity de sortie = 348 − 100 (dette nette de sortie) = 248 M€. À multiple constant, toute la création de valeur vient de la croissance d'[[EBITDA]] (+45 % sur 5 ans) et du [[paydown]] de la dette — c'est le moteur d'un bon LBO sans pari sur l'expansion de multiple.",
+            "en": "Exit EV = 8.0x × 43.5 = 348 M€. Exit equity = 348 − 100 (exit net debt) = 248 M€. At a constant multiple, all value creation comes from [[EBITDA]] growth (+45% over 5 years) and debt [[paydown]] — the engine of a sound LBO without betting on multiple expansion."
+          }
+        },
+        {
+          "prompt": {
+            "fr": "Étape 6 — [[MoM]] et [[IRR]]. Avec 95 M€ d'equity investie à l'entrée et 248 M€ récupérés à la sortie sur 5 ans, calculez le [[MoM]] et l'[[IRR]] (cash unique en entrée, cash unique en sortie).",
+            "en": "Stage 6 — [[MoM]] and [[IRR]]. With 95 M€ of equity invested at entry and 248 M€ returned at exit over 5 years, compute the [[MoM]] and [[IRR]] (single cash in, single cash out)."
+          },
+          "guidedQuestions": [
+            {"fr": "MoM = equity sortie / equity entrée ?", "en": "MoM = exit equity / entry equity?"},
+            {"fr": "IRR = MoM^(1/5) − 1 ?", "en": "IRR = MoM^(1/5) − 1?"}
+          ],
+          "reveal": {
+            "fr": "[[MoM]] = 248 / 95 ≈ 2,6x. [[IRR]] = 2,6^(1/5) − 1 ≈ 0,212, soit ~21 %. Un MoM de 2,5–2,7x et un IRR ~20 % sur 5 ans constituent un résultat solide pour un LBO mid-cap européen. Décomposition de la valeur : croissance d'EBITDA (~71 M€ d'effet sur l'EV), paydown (50 M€), expansion de multiple (0 dans la base case).",
+            "en": "[[MoM]] = 248 / 95 ≈ 2.6x. [[IRR]] = 2.6^(1/5) − 1 ≈ 0.212, i.e. ~21%. A MoM of 2.5–2.7x and ~20% IRR over 5 years is a solid outcome for a European mid-cap LBO. Value bridge: EBITDA growth (~71 M€ of EV effect), paydown (50 M€), multiple expansion (0 in the base case)."
+          }
+        },
+        {
+          "prompt": {
+            "fr": "Étape 7 — Sensibilité au multiple de sortie. Que devient le [[MoM]] si le marché se dégrade et qu'on sort à 7,0x au lieu de 8,0x ? Et s'il s'améliore à 9,0x ?",
+            "en": "Stage 7 — Exit-multiple sensitivity. What happens to [[MoM]] if the market deteriorates and we exit at 7.0x instead of 8.0x? And if it improves to 9.0x?"
+          },
+          "guidedQuestions": [
+            {"fr": "EV sortie à 7,0x et 9,0x ?", "en": "Exit EV at 7.0x and 9.0x?"},
+            {"fr": "Equity et MoM correspondants ?", "en": "Corresponding equity and MoM?"}
+          ],
+          "reveal": {
+            "fr": "À 7,0x : EV = 304,5 → equity = 204,5 → [[MoM]] ≈ 2,15x ([[IRR]] ~17 %). À 9,0x : EV = 391,5 → equity = 291,5 → MoM ≈ 3,07x (IRR ~25 %). Chaque tour de multiple (±1,0x) déplace le MoM d'environ ±0,45x : la sensibilité au multiple de sortie est forte, d'où l'intérêt de ne pas dépendre d'une expansion de multiple dans le cas de base.",
+            "en": "At 7.0x: EV = 304.5 → equity = 204.5 → [[MoM]] ≈ 2.15x ([[IRR]] ~17%). At 9.0x: EV = 391.5 → equity = 291.5 → MoM ≈ 3.07x (IRR ~25%). Each multiple turn (±1.0x) shifts MoM by about ±0.45x: exit-multiple sensitivity is high, which is why the base case should not rely on multiple expansion."
+          }
+        }
+      ]
+    },
+    {
+      "id": "case.lbo.buildup",
+      "type": "caseStudy",
+      "level": 5,
+      "topic": "LBO",
+      "tags": ["LBO", "M&A", "build-up", "MoM", "Valuation"],
+      "difficulty": 5,
+      "source": {"flag": "EXEMPLE_PEDAGOGIQUE", "ref": "Cas pédagogique buy-and-build mid-cap européen (style Ardian/Eurazeo)"},
+      "title": {
+        "fr": "Buy-and-build : arbitrage de multiple et création de valeur par la consolidation",
+        "en": "Buy-and-build: multiple arbitrage and value creation through consolidation"
+      },
+      "dealType": "build-up",
+      "realDeal": false,
+      "scenario": {
+        "fr": "« Eurazeo-style » lance une stratégie de [[buy-and-build]] dans la maintenance multitechnique en Europe. La plateforme, Méridien Services, est acquise à 10,0x [[EV/EBITDA]] avec 40 M€ d'[[EBITDA]]. La thèse : un marché fragmenté de PME (« bolt-ons ») se rachète à 6,0x seulement. En consolidant plusieurs bolt-ons sous la plateforme, le fonds capture un [[multiple arbitrage]] : ce qui est acheté à 6,0x est revalorisé au multiple de plateforme à la sortie. Horizon 5 ans. Vous modélisez l'[[EBITDA]] consolidé, le levier et le [[MoM]] final. Chiffres illustratifs.",
+        "en": "An \"Eurazeo-style\" fund launches a [[buy-and-build]] strategy in European multi-technical maintenance. The platform, Méridien Services, is acquired at 10.0x [[EV/EBITDA]] with 40 M€ of [[EBITDA]]. The thesis: a fragmented market of SMEs (\"bolt-ons\") trades at only 6.0x. By consolidating several bolt-ons under the platform, the fund captures a [[multiple arbitrage]]: what is bought at 6.0x is revalued at the platform multiple on exit. 5-year horizon. You model consolidated [[EBITDA]], leverage and final [[MoM]]. Illustrative figures."
+      },
+      "data": [
+        {
+          "caption": {"fr": "Plateforme et bolt-ons (M€ d'EBITDA et multiples)", "en": "Platform and bolt-ons (€m EBITDA and multiples)"},
+          "columns": ["", "EBITDA", "Multiple d'achat", "EV payée", "Financement"],
+          "rows": [
+            ["Plateforme Méridien (Y0)", 40.0, 10.0, 400, "Dette 200 + Equity 220 (frais 20)"],
+            ["Bolt-on A (Y1)", 8.0, 6.0, 48, "Dette + cash"],
+            ["Bolt-on B (Y2)", 6.0, 6.0, 36, "Dette + cash"],
+            ["Bolt-on C (Y3)", 6.0, 6.0, 36, "Dette + cash"]
+          ]
+        },
+        {
+          "caption": {"fr": "Pont d'EBITDA consolidé (M€)", "en": "Consolidated EBITDA bridge (€m)"},
+          "columns": ["", "Y0", "Y1", "Y2", "Y3", "Y4", "Y5"],
+          "rows": [
+            ["EBITDA plateforme (organique +5%)", 40.0, 42.0, 44.1, 46.3, 48.6, 51.1],
+            ["EBITDA bolt-ons acquis", 0, 8.0, 14.0, 20.0, 21.0, 22.0],
+            ["Synergies", 0, 0, 1.0, 2.0, 3.0, 4.0],
+            ["EBITDA consolidé", 40.0, 50.0, 59.1, 68.3, 72.6, 77.1]
+          ]
+        }
+      ],
+      "stages": [
+        {
+          "prompt": {
+            "fr": "Étape 1 — Acquisition de la plateforme. Méridien (40 M€ d'[[EBITDA]]) est acquise à 10,0x. On finance avec 5,0x de dette (mid-cap haut de gamme) et le solde en [[equity]], plus 20 M€ de frais. Calculez l'[[Enterprise Value]], la dette, et le chèque d'equity initial.",
+            "en": "Stage 1 — Platform acquisition. Méridien (40 M€ [[EBITDA]]) is acquired at 10.0x. We finance with 5.0x of debt (upper mid-cap) and the rest in [[equity]], plus 20 M€ of fees. Compute the [[Enterprise Value]], the debt, and the initial equity check."
+          },
+          "guidedQuestions": [
+            {"fr": "EV plateforme = 10,0x × 40 ?", "en": "Platform EV = 10.0x × 40?"},
+            {"fr": "Dette = 5,0x × 40 ; equity = EV + frais − dette ?", "en": "Debt = 5.0x × 40; equity = EV + fees − debt?"}
+          ],
+          "reveal": {
+            "fr": "EV plateforme = 10,0x × 40 = 400 M€. Dette = 5,0x × 40 = 200 M€. Uses = 400 + 20 (frais) = 420 ; equity = 420 − 200 = 220 M€. Le multiple de plateforme à 10,0x reflète la prime de taille/qualité d'un actif consolidateur ; c'est ce multiple qui rend l'[[multiple arbitrage]] attractif vs des bolt-ons à 6,0x.",
+            "en": "Platform EV = 10.0x × 40 = 400 M€. Debt = 5.0x × 40 = 200 M€. Uses = 400 + 20 (fees) = 420; equity = 420 − 200 = 220 M€. The 10.0x platform multiple reflects the size/quality premium of a consolidator asset; this multiple is what makes the [[multiple arbitrage]] attractive vs bolt-ons at 6.0x."
+          }
+        },
+        {
+          "prompt": {
+            "fr": "Étape 2 — Premier bolt-on et arbitrage de multiple. En Y1, on acquiert Bolt-on A (8 M€ d'[[EBITDA]]) à 6,0x. Quelle EV payée ? Quel est le gain de valeur immédiat « jour 1 » dès que cet EBITDA est valorisé au multiple de plateforme (10,0x) ?",
+            "en": "Stage 2 — First bolt-on and multiple arbitrage. In Y1, we acquire Bolt-on A (8 M€ [[EBITDA]]) at 6.0x. What EV is paid? What is the immediate \"day-1\" value gain once that EBITDA is valued at the platform multiple (10.0x)?"
+          },
+          "guidedQuestions": [
+            {"fr": "EV payée = 6,0x × 8 ?", "en": "EV paid = 6.0x × 8?"},
+            {"fr": "Valeur au multiple plateforme = 10,0x × 8 ; gain = différence ?", "en": "Value at platform multiple = 10.0x × 8; gain = difference?"}
+          ],
+          "reveal": {
+            "fr": "EV payée = 6,0x × 8 = 48 M€. Valorisé à 10,0x à la sortie : 80 M€. Gain d'arbitrage = (10,0 − 6,0) × 8 = 32 M€ de valeur créée sur ce seul EBITDA, indépendamment de toute croissance. C'est le cœur de la thèse [[buy-and-build]] : acheter petit et cher en multiple bas, vendre gros au multiple élevé de la plateforme consolidée.",
+            "en": "EV paid = 6.0x × 8 = 48 M€. Valued at 10.0x on exit: 80 M€. Arbitrage gain = (10.0 − 6.0) × 8 = 32 M€ of value created on that EBITDA alone, before any growth. This is the heart of the [[buy-and-build]] thesis: buy small and cheap on a low multiple, sell big at the consolidated platform's high multiple."
+          }
+        },
+        {
+          "prompt": {
+            "fr": "Étape 3 — Programme de bolt-ons et EBITDA consolidé. Trois bolt-ons (A: 8 ; B: 6 ; C: 6 M€ d'EBITDA) sont ajoutés sur 3 ans, plus la croissance organique de la plateforme (+5 %/an) et des synergies. En vous appuyant sur le pont d'EBITDA, donnez l'[[EBITDA]] consolidé en Y5.",
+            "en": "Stage 3 — Bolt-on program and consolidated EBITDA. Three bolt-ons (A: 8; B: 6; C: 6 M€ EBITDA) are added over 3 years, plus the platform's organic growth (+5%/yr) and synergies. Using the EBITDA bridge, give the consolidated [[EBITDA]] in Y5."
+          },
+          "guidedQuestions": [
+            {"fr": "EBITDA plateforme Y5 organique ?", "en": "Y5 organic platform EBITDA?"},
+            {"fr": "+ bolt-ons + synergies = consolidé ?", "en": "+ bolt-ons + synergies = consolidated?"}
+          ],
+          "reveal": {
+            "fr": "Plateforme organique Y5 ≈ 40 × 1,05^5 ≈ 51,1 M€. Bolt-ons matures ≈ 22 M€ (avec leur propre croissance). Synergies ≈ 4 M€. [[EBITDA]] consolidé Y5 ≈ 51,1 + 22 + 4 ≈ 77 M€, soit près du double des 40 M€ de départ. La consolidation combine croissance organique, EBITDA acquis et synergies de coûts (achats, back-office, cross-selling).",
+            "en": "Y5 organic platform ≈ 40 × 1.05^5 ≈ 51.1 M€. Mature bolt-ons ≈ 22 M€ (with their own growth). Synergies ≈ 4 M€. Y5 consolidated [[EBITDA]] ≈ 51.1 + 22 + 4 ≈ 77 M€, nearly double the starting 40 M€. Consolidation combines organic growth, acquired EBITDA and cost synergies (procurement, back-office, cross-selling)."
+          }
+        },
+        {
+          "prompt": {
+            "fr": "Étape 4 — Financement des bolt-ons et dette nette. Les 3 bolt-ons coûtent 48 + 36 + 36 = 120 M€ d'EV, financés à ~60 % en dette incrémentale et 40 % par le FCF de la plateforme. Sur 5 ans, le FCF cumulé rembourse aussi 60 M€ de principal. Estimez la dette nette à la sortie.",
+            "en": "Stage 4 — Bolt-on financing and net debt. The 3 bolt-ons cost 48 + 36 + 36 = 120 M€ of EV, funded ~60% with incremental debt and 40% from platform FCF. Over 5 years, cumulative FCF also repays 60 M€ of principal. Estimate net debt at exit."
+          },
+          "guidedQuestions": [
+            {"fr": "Dette incrémentale bolt-ons = 60% × 120 ?", "en": "Incremental bolt-on debt = 60% × 120?"},
+            {"fr": "Dette nette sortie = 200 + dette incrémentale − paydown ?", "en": "Exit net debt = 200 + incremental debt − paydown?"}
+          ],
+          "reveal": {
+            "fr": "Dette incrémentale = 0,60 × 120 = 72 M€. Dette nette sortie = 200 (plateforme) + 72 (bolt-ons) − 60 ([[paydown]] cumulé) = 212 M€. Levier net de sortie = 212 / 77 ≈ 2,75x, en forte baisse vs 5,0x à l'entrée malgré les acquisitions : l'EBITDA consolidé croît plus vite que la dette nette. Acheter les bolt-ons à 6,0x consomme peu de dette par euro d'EBITDA ajouté.",
+            "en": "Incremental debt = 0.60 × 120 = 72 M€. Exit net debt = 200 (platform) + 72 (bolt-ons) − 60 (cumulative [[paydown]]) = 212 M€. Exit net leverage = 212 / 77 ≈ 2.75x, sharply down vs 5.0x at entry despite the acquisitions: consolidated EBITDA grows faster than net debt. Buying bolt-ons at 6.0x consumes little debt per euro of added EBITDA."
+          }
+        },
+        {
+          "prompt": {
+            "fr": "Étape 5 — Valorisation de sortie. On sort en Y5 à 77 M€ d'[[EBITDA]], au multiple de plateforme de 10,0x (la taille et la diversification justifient le maintien du multiple). Calculez l'[[Enterprise Value]] et l'equity de sortie (equity = EV sortie − dette nette de sortie).",
+            "en": "Stage 5 — Exit valuation. We exit in Y5 at 77 M€ of [[EBITDA]], at the platform multiple of 10.0x (size and diversification justify holding the multiple). Compute the [[Enterprise Value]] and exit equity (equity = exit EV − exit net debt)."
+          },
+          "guidedQuestions": [
+            {"fr": "EV sortie = 10,0x × 77 ?", "en": "Exit EV = 10.0x × 77?"},
+            {"fr": "Equity sortie = EV − 212 ?", "en": "Exit equity = EV − 212?"}
+          ],
+          "reveal": {
+            "fr": "EV de sortie = 10,0x × 77 = 770 M€. Equity de sortie = 770 − 212 = 558 M€. Maintenir le multiple à 10,0x est cohérent avec une plateforme plus grande, diversifiée et plus liquide à la revente (potentiellement éligible à un acquéreur stratégique ou à un fonds large-cap), parfois même au prix d'une légère expansion de multiple — non supposée ici.",
+            "en": "Exit EV = 10.0x × 77 = 770 M€. Exit equity = 770 − 212 = 558 M€. Holding the 10.0x multiple is consistent with a larger, diversified, more liquid platform at resale (potentially eligible for a strategic buyer or a large-cap fund), sometimes even at a slight multiple expansion — not assumed here."
+          }
+        },
+        {
+          "prompt": {
+            "fr": "Étape 6 — [[MoM]] final et rôle de l'arbitrage. L'equity investie cumulée est de 220 (plateforme) + 48 (la part equity des bolt-ons, ~40 % × 120) = 268 M€. Avec 558 M€ d'equity à la sortie sur 5 ans, calculez le [[MoM]] et l'[[IRR]], et chiffrez la part venant de l'arbitrage de multiple.",
+            "en": "Stage 6 — Final [[MoM]] and the role of arbitrage. Cumulative equity invested is 220 (platform) + 48 (the equity portion of bolt-ons, ~40% × 120) = 268 M€. With 558 M€ of exit equity over 5 years, compute the [[MoM]] and [[IRR]], and quantify the share coming from multiple arbitrage."
+          },
+          "guidedQuestions": [
+            {"fr": "MoM = equity sortie / equity investie ?", "en": "MoM = exit equity / invested equity?"},
+            {"fr": "Gain d'arbitrage = (10 − 6) × EBITDA bolt-ons acquis ?", "en": "Arbitrage gain = (10 − 6) × acquired bolt-on EBITDA?"}
+          ],
+          "reveal": {
+            "fr": "[[MoM]] = 558 / 268 ≈ 2,08x. [[IRR]] = 2,08^(1/5) − 1 ≈ 0,158, soit ~16 %. Arbitrage de multiple : (10,0 − 6,0) × ~20 M€ d'EBITDA bolt-ons ≈ 80 M€ de valeur créée par le seul re-rating — soit environ un quart de la plus-value d'equity (558 − 268 = 290 M€). Le reste vient de la croissance organique, des synergies et du [[paydown]].",
+            "en": "[[MoM]] = 558 / 268 ≈ 2.08x. [[IRR]] = 2.08^(1/5) − 1 ≈ 0.158, i.e. ~16%. Multiple arbitrage: (10.0 − 6.0) × ~20 M€ of bolt-on EBITDA ≈ 80 M€ of value created by re-rating alone — roughly a quarter of the equity gain (558 − 268 = 290 M€). The rest comes from organic growth, synergies and [[paydown]]."
+          }
+        },
+        {
+          "prompt": {
+            "fr": "Étape 7 — Risques et limites du modèle. Quels sont les pièges classiques d'une stratégie [[buy-and-build]] qui peuvent détruire le [[MoM]] modélisé ci-dessus ?",
+            "en": "Stage 7 — Risks and model limits. What are the classic pitfalls of a [[buy-and-build]] strategy that can destroy the modeled [[MoM]] above?"
+          },
+          "guidedQuestions": [
+            {"fr": "L'arbitrage de multiple tient-il toujours ?", "en": "Does the multiple arbitrage always hold?"},
+            {"fr": "Quel risque sur l'intégration et la dette ?", "en": "What risk on integration and debt?"}
+          ],
+          "reveal": {
+            "fr": "Pièges : (1) l'[[multiple arbitrage]] s'érode quand la concurrence sur les bolt-ons fait monter les prix d'achat de 6,0x vers 8,0x+ ; (2) les synergies sont surestimées et l'intégration dilue les marges ; (3) la dette d'acquisition empile les covenants et un FCF surpromis peut casser le [[cash sweep]] ; (4) à la sortie, l'acheteur peut refuser le multiple de plateforme si la croissance est surtout « achetée » et non organique. Une discipline sur le prix d'entrée des bolt-ons et une vraie intégration opérationnelle sont décisives.",
+            "en": "Pitfalls: (1) the [[multiple arbitrage]] erodes when competition for bolt-ons pushes purchase prices from 6.0x toward 8.0x+; (2) synergies are overestimated and integration dilutes margins; (3) acquisition debt stacks covenants and over-promised FCF can break the [[cash sweep]]; (4) at exit, a buyer may reject the platform multiple if growth is mostly \"bought\" rather than organic. Discipline on bolt-on entry prices and genuine operational integration are decisive."
+          }
+        }
+      ]
+    }
+  ],
+  "glossary": []
+}

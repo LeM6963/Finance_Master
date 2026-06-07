@@ -1,0 +1,532 @@
+{
+  "glossary": [
+    {
+      "id": "gl.nopat",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Valuation",
+      "tags": ["Valuation", "DCF"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "NOPAT",
+      "aliases": ["nopat", "net operating profit after tax", "résultat opérationnel après impôt", "resultat operationnel apres impot", "EBIT après impôt", "EBIT apres impot"],
+      "definition": {
+        "fr": "Net Operating Profit After Tax : résultat d'exploitation (EBIT) diminué de l'impôt théorique, soit EBIT × (1 − taux d'impôt). C'est le profit opérationnel qu'on obtiendrait sans aucune dette, base du free cash flow non endetté.",
+        "en": "Net Operating Profit After Tax: EBIT minus a notional tax charge, i.e. EBIT × (1 − tax rate). It is the unlevered operating profit and the starting point for unlevered free cash flow."
+      },
+      "related": ["gl.capital-structure"]
+    },
+    {
+      "id": "gl.operating-lease-finance-lease",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Accounting",
+      "tags": ["Accounting"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "operating lease / finance lease",
+      "aliases": ["operating lease", "finance lease", "capital lease", "leases", "lease", "contrats de location", "contrat de location", "location-financement", "location financement", "crédit-bail", "credit-bail", "location simple"],
+      "definition": {
+        "fr": "Un finance lease (location-financement / crédit-bail) transfère l'essentiel des risques et avantages de propriété et est capitalisé au bilan ; un operating lease (location simple) était historiquement hors bilan. Sous IFRS 16, presque tous les contrats sont au bilan côté preneur (droit d'usage + dette de loyer).",
+        "en": "A finance lease transfers substantially all the risks and rewards of ownership and is capitalised on the balance sheet; an operating lease was historically off-balance-sheet. Under IFRS 16 nearly all leases sit on the lessee's balance sheet (right-of-use asset plus lease liability)."
+      },
+      "related": []
+    },
+    {
+      "id": "gl.preferred-stock",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "VC",
+      "tags": ["VC", "Accounting"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "preferred stock",
+      "aliases": ["preferred stock", "preferred shares", "preferred", "actions de préférence", "actions de preference", "action de préférence", "actions privilégiées", "actions privilegiees"],
+      "definition": {
+        "fr": "Catégorie d'actions assortie de droits prioritaires sur les ordinaires : dividende préférentiel, priorité de liquidation, parfois droits de vote ou conversion renforcés. Très utilisée en venture capital et private equity pour protéger l'investisseur.",
+        "en": "A class of shares carrying rights senior to common stock: preferential dividend, liquidation preference, and sometimes enhanced voting or conversion rights. Heavily used in venture capital and private equity to protect the investor."
+      },
+      "related": ["gl.absolute-priority-rule"]
+    },
+    {
+      "id": "gl.fully-diluted-shares",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Valuation",
+      "tags": ["Valuation", "M&A"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "fully diluted shares",
+      "aliases": ["fully diluted shares", "fully diluted share count", "fully diluted", "diluted shares", "actions pleinement diluées", "actions pleinement diluees", "nombre d'actions dilué", "nombre dactions dilue", "actions diluées"],
+      "definition": {
+        "fr": "Nombre total d'actions en circulation en intégrant tous les instruments dilutifs dans la monnaie (options, warrants, convertibles, RSU), généralement via la treasury stock method. Sert au calcul de l'equity value par action.",
+        "en": "Total share count including all in-the-money dilutive instruments (options, warrants, convertibles, RSUs), typically via the treasury stock method. Used to compute equity value per share."
+      },
+      "related": ["gl.treasury-stock", "gl.in-the-money", "gl.control-premium"]
+    },
+    {
+      "id": "gl.treasury-stock",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Accounting",
+      "tags": ["Accounting", "Valuation"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "treasury stock",
+      "aliases": ["treasury stock", "treasury shares", "treasury stock method", "actions auto-détenues", "actions auto-detenues", "auto-détention", "auto-detention", "actions propres", "actions autodétenues"],
+      "definition": {
+        "fr": "Actions rachetées par l'émetteur et détenues par lui-même ; elles ne portent ni droit de vote ni dividende et viennent en déduction des capitaux propres. La treasury stock method estime la dilution nette des options en supposant que le produit d'exercice rachète des actions au cours de marché.",
+        "en": "Shares repurchased and held by the issuing company; they carry no voting or dividend rights and reduce equity. The treasury stock method estimates net option dilution by assuming exercise proceeds buy back shares at the market price."
+      },
+      "related": ["gl.fully-diluted-shares"]
+    },
+    {
+      "id": "gl.in-the-money",
+      "type": "glossaryTerm",
+      "level": 1,
+      "topic": "Markets",
+      "tags": ["Markets", "Valuation"],
+      "difficulty": 1,
+      "source": { "flag": "VERIFIED" },
+      "term": "in the money",
+      "aliases": ["in the money", "in-the-money", "ITM", "dans la monnaie", "en dedans"],
+      "definition": {
+        "fr": "Se dit d'une option (ou d'un instrument dilutif) dont l'exercice est avantageux : prix d'exercice inférieur au cours pour un call, supérieur pour un put. Seuls les instruments dans la monnaie sont retenus dans le nombre d'actions dilué.",
+        "en": "Describes an option (or dilutive instrument) whose exercise is profitable: strike below the share price for a call, above it for a put. Only in-the-money instruments are counted in the fully diluted share count."
+      },
+      "related": ["gl.fully-diluted-shares"]
+    },
+    {
+      "id": "gl.capital-structure",
+      "type": "glossaryTerm",
+      "level": 1,
+      "topic": "LevFin",
+      "tags": ["LevFin", "LBO"],
+      "difficulty": 1,
+      "source": { "flag": "VERIFIED" },
+      "term": "capital structure",
+      "aliases": ["capital structure", "cap structure", "structure de capital", "structure du capital", "structure financière", "structure financiere", "capitalisation"],
+      "definition": {
+        "fr": "Combinaison de dette et de capitaux propres (et d'instruments hybrides) finançant une entreprise, ordonnée par séniorité. Elle détermine le coût du capital, le risque et l'ordre de remboursement en cas de défaut.",
+        "en": "The mix of debt and equity (and hybrid instruments) financing a company, ranked by seniority. It drives the cost of capital, risk profile, and the order of repayment in a default."
+      },
+      "related": ["gl.waterfall", "gl.fulcrum-security", "gl.absolute-priority-rule"]
+    },
+    {
+      "id": "gl.sauvegarde",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Restructuring",
+      "tags": ["Restructuring"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "sauvegarde",
+      "aliases": ["sauvegarde", "procédure de sauvegarde", "procedure de sauvegarde", "safeguard", "sauvegarde accélérée", "sauvegarde acceleree"],
+      "definition": {
+        "fr": "Procédure collective préventive de droit français ouverte à la demande d'un débiteur non encore en cessation des paiements, qui suspend les poursuites et permet l'adoption d'un plan de sauvegarde. Le dirigeant conserve la gestion de l'entreprise.",
+        "en": "A French preventive insolvency procedure opened at the request of a debtor not yet insolvent (cessation des paiements); it stays creditor actions and allows a safeguard plan. Management stays in control of the business."
+      },
+      "related": ["gl.redressement-judiciaire", "gl.automatic-stay"]
+    },
+    {
+      "id": "gl.redressement-judiciaire",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Restructuring",
+      "tags": ["Restructuring"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "redressement judiciaire",
+      "aliases": ["redressement judiciaire", "redressement", "judicial reorganisation", "judicial reorganization"],
+      "definition": {
+        "fr": "Procédure collective française ouverte lorsqu'une entreprise est en cessation des paiements mais que son redressement reste possible. Elle vise la poursuite de l'activité, le maintien de l'emploi et l'apurement du passif via un plan de continuation ou de cession.",
+        "en": "A French insolvency procedure opened when a company is in payment default (cessation des paiements) but recovery is still possible. It aims to continue the business, preserve jobs, and clear liabilities through a continuation or disposal plan."
+      },
+      "related": ["gl.sauvegarde", "gl.liquidation-judiciaire", "gl.plan-de-cession"]
+    },
+    {
+      "id": "gl.liquidation-judiciaire",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Restructuring",
+      "tags": ["Restructuring"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "liquidation judiciaire",
+      "aliases": ["liquidation judiciaire", "liquidation", "compulsory liquidation", "judicial liquidation"],
+      "definition": {
+        "fr": "Procédure collective française ouverte lorsqu'une entreprise est en cessation des paiements et que son redressement est manifestement impossible. L'activité cesse (sauf cession) et les actifs sont réalisés pour désintéresser les créanciers selon leur rang.",
+        "en": "A French insolvency procedure opened when a company is insolvent and recovery is clearly impossible. The business stops (unless sold) and assets are realised to repay creditors according to their ranking."
+      },
+      "related": ["gl.redressement-judiciaire", "gl.liquidation-value", "gl.waterfall"]
+    },
+    {
+      "id": "gl.chapter-11",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Restructuring",
+      "tags": ["Restructuring"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "Chapter 11",
+      "aliases": ["chapter 11", "chap 11", "ch.11", "ch 11", "redressement américain", "redressement americain"],
+      "definition": {
+        "fr": "Procédure de réorganisation du droit américain des faillites (US Bankruptcy Code) permettant au débiteur de poursuivre son activité en debtor-in-possession, sous protection d'un automatic stay, le temps d'élaborer et faire voter un plan de réorganisation.",
+        "en": "A reorganisation procedure under the US Bankruptcy Code allowing the debtor to keep operating as debtor-in-possession, protected by an automatic stay, while it builds and gets creditor approval for a plan of reorganisation."
+      },
+      "related": ["gl.chapter-7", "gl.debtor-in-possession", "gl.automatic-stay", "gl.363-sale"]
+    },
+    {
+      "id": "gl.chapter-7",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Restructuring",
+      "tags": ["Restructuring"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "Chapter 7",
+      "aliases": ["chapter 7", "chap 7", "ch.7", "ch 7", "liquidation américaine", "liquidation americaine"],
+      "definition": {
+        "fr": "Procédure de liquidation du droit américain des faillites : un trustee réalise les actifs du débiteur et distribue le produit aux créanciers selon l'ordre de priorité. L'entreprise cesse son activité.",
+        "en": "A liquidation procedure under the US Bankruptcy Code: a trustee sells the debtor's assets and distributes the proceeds to creditors in priority order. The business ceases to operate."
+      },
+      "related": ["gl.chapter-11", "gl.liquidation-value", "gl.absolute-priority-rule"]
+    },
+    {
+      "id": "gl.debtor-in-possession",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "Restructuring",
+      "tags": ["Restructuring", "LevFin"],
+      "difficulty": 3,
+      "source": { "flag": "VERIFIED" },
+      "term": "debtor-in-possession",
+      "aliases": ["debtor-in-possession", "debtor in possession", "DIP", "DIP financing", "financement DIP"],
+      "definition": {
+        "fr": "En Chapter 11, le débiteur qui conserve la gestion et le contrôle de ses actifs pendant la procédure. Le financement DIP (debtor-in-possession) est un crédit nouveau, souvent super-prioritaire, accordé pour financer l'activité pendant la réorganisation.",
+        "en": "In Chapter 11, the debtor that keeps managing and controlling its assets during the case. DIP (debtor-in-possession) financing is new, often super-priority, lending provided to fund operations through the reorganisation."
+      },
+      "related": ["gl.chapter-11", "gl.loan-to-own", "gl.fulcrum-security"]
+    },
+    {
+      "id": "gl.automatic-stay",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "Restructuring",
+      "tags": ["Restructuring"],
+      "difficulty": 3,
+      "source": { "flag": "VERIFIED" },
+      "term": "automatic stay",
+      "aliases": ["automatic stay", "stay", "suspension des poursuites", "gel des poursuites", "moratoire"],
+      "definition": {
+        "fr": "Suspension automatique des poursuites des créanciers déclenchée par l'ouverture d'une procédure d'insolvabilité (automatic stay en Chapter 11, suspension des poursuites en droit français). Elle gèle saisies, exécutions et actions en paiement.",
+        "en": "An automatic freeze on creditor enforcement triggered by the filing of an insolvency case (the automatic stay in Chapter 11, suspension des poursuites in France). It halts seizures, enforcement, and collection actions."
+      },
+      "related": ["gl.chapter-11", "gl.sauvegarde"]
+    },
+    {
+      "id": "gl.debt-to-equity-swap",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "Restructuring",
+      "tags": ["Restructuring", "LevFin"],
+      "difficulty": 3,
+      "source": { "flag": "VERIFIED" },
+      "term": "debt-to-equity swap",
+      "aliases": ["debt-to-equity swap", "debt to equity swap", "debt-equity swap", "equitisation", "conversion dette/equity", "conversion dette equity", "conversion de dette en capital", "conversion de créances en actions"],
+      "definition": {
+        "fr": "Opération de restructuration par laquelle des créanciers convertissent tout ou partie de leur dette en capitaux propres de l'emprunteur, réduisant l'endettement en échange d'une prise de contrôle au capital. Les actionnaires existants sont fortement dilués.",
+        "en": "A restructuring in which creditors convert all or part of their debt into equity of the borrower, cutting leverage in exchange for ownership. Existing shareholders are heavily diluted or wiped out."
+      },
+      "related": ["gl.fulcrum-security", "gl.loan-to-own", "gl.capital-structure"]
+    },
+    {
+      "id": "gl.absolute-priority-rule",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "Restructuring",
+      "tags": ["Restructuring"],
+      "difficulty": 3,
+      "source": { "flag": "VERIFIED" },
+      "term": "absolute priority rule",
+      "aliases": ["absolute priority rule", "APR", "absolute priority", "règle de priorité absolue", "regle de priorite absolue", "priorité absolue", "priorite absolue"],
+      "definition": {
+        "fr": "Principe selon lequel, en cas de réorganisation ou liquidation, une classe de créanciers doit être intégralement désintéressée avant qu'une classe junior ne reçoive quoi que ce soit. Elle structure la cascade de distribution (waterfall).",
+        "en": "The principle that, in a reorganisation or liquidation, a class of claims must be paid in full before any junior class recovers anything. It governs the distribution waterfall."
+      },
+      "related": ["gl.waterfall", "gl.fulcrum-security", "gl.capital-structure"]
+    },
+    {
+      "id": "gl.waterfall",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Restructuring",
+      "tags": ["Restructuring", "LevFin"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "waterfall",
+      "aliases": ["waterfall", "recovery waterfall", "payment waterfall", "cascade de recouvrement", "cascade de paiement", "cascade", "ordre de remboursement"],
+      "definition": {
+        "fr": "Ordre séquentiel de distribution du produit disponible (cession, liquidation, cash) entre les détenteurs de capital, du plus senior au plus junior. Chaque rang est servi entièrement avant le suivant.",
+        "en": "The sequential order in which available proceeds (sale, liquidation, cash) are distributed across the capital structure, from most senior to most junior. Each tranche is paid in full before the next receives anything."
+      },
+      "related": ["gl.absolute-priority-rule", "gl.fulcrum-security", "gl.liquidation-value"]
+    },
+    {
+      "id": "gl.liquidation-value",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Restructuring",
+      "tags": ["Restructuring", "Valuation"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "liquidation value",
+      "aliases": ["liquidation value", "valeur de liquidation", "valeur liquidative", "valeur de réalisation", "valeur de realisation"],
+      "definition": {
+        "fr": "Valeur estimée des actifs vendus séparément dans un scénario de liquidation, généralement à prix décoté et nette des coûts de réalisation. Elle sert de plancher de recouvrement et de point de comparaison au plan de réorganisation.",
+        "en": "The estimated value of assets sold piecemeal in a liquidation scenario, usually at distressed prices net of realisation costs. It serves as a recovery floor and a benchmark against a reorganisation plan."
+      },
+      "related": ["gl.waterfall", "gl.chapter-7", "gl.liquidation-judiciaire"]
+    },
+    {
+      "id": "gl.plan-de-cession",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "Restructuring",
+      "tags": ["Restructuring", "M&A"],
+      "difficulty": 3,
+      "source": { "flag": "VERIFIED" },
+      "term": "plan de cession",
+      "aliases": ["plan de cession", "cession totale ou partielle", "going-concern sale", "sale plan"],
+      "definition": {
+        "fr": "En procédure collective française, plan par lequel tout ou partie de l'activité est cédée à un repreneur en vue d'assurer le maintien de l'emploi et l'apurement du passif. Le tribunal arbitre entre les offres de reprise.",
+        "en": "Under French insolvency law, a plan whereby all or part of the business is sold to a buyer to preserve jobs and clear liabilities. The court selects among competing takeover bids."
+      },
+      "related": ["gl.redressement-judiciaire", "gl.363-sale"]
+    },
+    {
+      "id": "gl.363-sale",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "Restructuring",
+      "tags": ["Restructuring", "M&A"],
+      "difficulty": 3,
+      "source": { "flag": "VERIFIED" },
+      "term": "363 sale",
+      "aliases": ["363 sale", "section 363 sale", "363", "vente 363", "vente sous 363"],
+      "definition": {
+        "fr": "Vente d'actifs réalisée sous la section 363 du US Bankruptcy Code pendant une procédure Chapter 11, généralement libre et quitte de la plupart des sûretés et passifs, souvent via une enchère avec stalking horse. Elle est plus rapide qu'un plan complet de réorganisation.",
+        "en": "An asset sale conducted under section 363 of the US Bankruptcy Code during Chapter 11, typically free and clear of most liens and liabilities, often via an auction with a stalking-horse bidder. It is faster than a full plan of reorganisation."
+      },
+      "related": ["gl.chapter-11", "gl.plan-de-cession", "gl.loan-to-own"]
+    },
+    {
+      "id": "gl.loan-to-own",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "Restructuring",
+      "tags": ["Restructuring", "LevFin"],
+      "difficulty": 3,
+      "source": { "flag": "VERIFIED" },
+      "term": "loan-to-own",
+      "aliases": ["loan-to-own", "loan to own", "stratégie loan-to-own", "strategie loan-to-own"],
+      "definition": {
+        "fr": "Stratégie d'investisseurs distressed consistant à acheter la dette (souvent la fulcrum security) d'une entreprise en difficulté avec l'objectif de prendre le contrôle du capital via un debt-to-equity swap lors de la restructuration.",
+        "en": "A distressed-investing strategy of buying a troubled company's debt (often the fulcrum security) with the goal of taking ownership through a debt-to-equity swap in the restructuring."
+      },
+      "related": ["gl.fulcrum-security", "gl.debt-to-equity-swap", "gl.debtor-in-possession"]
+    },
+    {
+      "id": "gl.platform",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LBO",
+      "tags": ["LBO", "M&A"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "platform",
+      "aliases": ["platform", "platform deal", "platform acquisition", "plateforme", "build-up", "buy-and-build", "buy and build"],
+      "definition": {
+        "fr": "Acquisition initiale servant de base à une stratégie de build-up : la société plateforme réalise ensuite des acquisitions complémentaires (bolt-ons) pour gagner en taille et en multiple à la sortie.",
+        "en": "The initial acquisition used as the base for a buy-and-build strategy: the platform company then makes bolt-on acquisitions to gain scale and a higher exit multiple."
+      },
+      "related": ["gl.bolt-on", "gl.acquisition-facility"]
+    },
+    {
+      "id": "gl.bolt-on",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LBO",
+      "tags": ["LBO", "M&A"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "bolt-on",
+      "aliases": ["bolt-on", "bolt on", "bolt-on acquisition", "add-on", "tuck-in", "acquisition complémentaire", "acquisition complementaire"],
+      "definition": {
+        "fr": "Acquisition complémentaire de taille modeste réalisée par une société plateforme pour renforcer son périmètre (géographie, produit, clientèle) et créer des synergies, souvent à un multiple inférieur à celui de la plateforme.",
+        "en": "A smaller add-on acquisition made by a platform company to extend its scope (geography, product, customers) and create synergies, often bought at a lower multiple than the platform."
+      },
+      "related": ["gl.platform", "gl.acquisition-facility"]
+    },
+    {
+      "id": "gl.acquisition-facility",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LevFin",
+      "tags": ["LevFin", "LBO"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "acquisition facility",
+      "aliases": ["acquisition facility", "acquisition line", "capex/acquisition facility", "ligne d'acquisition", "ligne dacquisition", "ligne de financement d'acquisition", "tranche d'acquisition"],
+      "definition": {
+        "fr": "Ligne de crédit engagée dans le financement d'un LBO permettant de tirer des fonds supplémentaires pour financer des acquisitions complémentaires (bolt-ons) après le closing, généralement soumise à des conditions de levier.",
+        "en": "A committed credit line in an LBO financing package allowing further drawdowns to fund bolt-on acquisitions after closing, usually subject to leverage conditions."
+      },
+      "related": ["gl.bolt-on", "gl.platform", "gl.certain-funds"]
+    },
+    {
+      "id": "gl.fairness-opinion",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "M&A",
+      "tags": ["M&A", "ECM"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "fairness opinion",
+      "aliases": ["fairness opinion", "attestation d'équité", "attestation dequite", "attestation d equite", "expertise indépendante", "expertise independante", "rapport de l'expert indépendant"],
+      "definition": {
+        "fr": "Avis écrit d'une banque ou d'un expert indépendant attestant que le prix d'une opération est équitable d'un point de vue financier pour les actionnaires. En France, l'attestation d'équité de l'expert indépendant est requise dans certaines offres publiques.",
+        "en": "A written opinion from a bank or independent expert stating that the price of a transaction is fair, from a financial point of view, to shareholders. In France an independent expert's attestation d'équité is required in certain public offers."
+      },
+      "related": ["gl.amf", "gl.squeeze-out", "gl.control-premium"]
+    },
+    {
+      "id": "gl.scheme-of-arrangement",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "M&A",
+      "tags": ["M&A", "Restructuring"],
+      "difficulty": 3,
+      "source": { "flag": "VERIFIED" },
+      "term": "scheme of arrangement",
+      "aliases": ["scheme of arrangement", "scheme", "UK scheme", "plan d'arrangement"],
+      "definition": {
+        "fr": "Procédure de droit anglais homologuée par un tribunal permettant de réaliser une acquisition (takeover) ou une restructuration de dette en liant tous les actionnaires ou créanciers d'une classe dès lors qu'une majorité qualifiée a approuvé. Très utilisée pour les rachats de sociétés cotées au Royaume-Uni.",
+        "en": "A court-sanctioned procedure under English law used to implement a takeover or debt restructuring, binding all shareholders or creditors in a class once a qualified majority approves. Widely used for UK public company acquisitions."
+      },
+      "related": ["gl.irrevocable-undertakings", "gl.bidco", "gl.squeeze-out"]
+    },
+    {
+      "id": "gl.irrevocable-undertakings",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "M&A",
+      "tags": ["M&A"],
+      "difficulty": 3,
+      "source": { "flag": "VERIFIED" },
+      "term": "irrevocable undertakings",
+      "aliases": ["irrevocable undertakings", "irrevocable", "irrevocables", "engagements irrévocables", "engagements irrevocables", "engagement irrévocable"],
+      "definition": {
+        "fr": "Engagements pris par certains actionnaires (souvent dirigeants ou actionnaires de référence) d'apporter leurs titres à une offre ou de voter en faveur d'un scheme, sécurisant à l'avance un bloc de soutien pour l'acquéreur.",
+        "en": "Commitments given by certain shareholders (often directors or anchor holders) to tender their shares into an offer or vote in favour of a scheme, locking in a block of support for the bidder in advance."
+      },
+      "related": ["gl.scheme-of-arrangement", "gl.bidco"]
+    },
+    {
+      "id": "gl.bidco",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LBO",
+      "tags": ["LBO", "M&A"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "bidco",
+      "aliases": ["bidco", "bid co", "bidder vehicle", "société d'acquisition", "societe dacquisition", "véhicule d'acquisition", "vehicule dacquisition"],
+      "definition": {
+        "fr": "Société véhicule (newco) créée pour porter une offre d'acquisition et lever la dette du LBO ; elle absorbe ou détient la cible après closing. Elle s'insère dans une structure type Topco/Midco/Bidco.",
+        "en": "A special-purpose vehicle (newco) set up to make a takeover bid and raise the LBO debt; it acquires or holds the target after closing. It typically sits within a Topco/Midco/Bidco structure."
+      },
+      "related": ["gl.scheme-of-arrangement", "gl.certain-funds", "gl.capital-structure"]
+    },
+    {
+      "id": "gl.amf",
+      "type": "glossaryTerm",
+      "level": 1,
+      "topic": "Markets",
+      "tags": ["Markets", "M&A", "ECM"],
+      "difficulty": 1,
+      "source": { "flag": "VERIFIED" },
+      "term": "AMF",
+      "aliases": ["AMF", "Autorité des marchés financiers", "Autorite des marches financiers", "autorité des marchés"],
+      "definition": {
+        "fr": "Autorité des marchés financiers : régulateur boursier français qui supervise les marchés financiers, les sociétés cotées, les offres publiques et la gestion d'actifs, et veille à la protection de l'épargne.",
+        "en": "The Autorité des marchés financiers: France's securities regulator, which oversees financial markets, listed companies, public offers, and asset management, and protects investors."
+      },
+      "related": ["gl.squeeze-out", "gl.fairness-opinion"]
+    },
+    {
+      "id": "gl.fulcrum-security",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "Restructuring",
+      "tags": ["Restructuring", "LevFin"],
+      "difficulty": 3,
+      "source": { "flag": "VERIFIED" },
+      "term": "fulcrum security",
+      "aliases": ["fulcrum security", "fulcrum", "fulcrum debt", "tranche pivot", "titre pivot"],
+      "definition": {
+        "fr": "Tranche pivot de la structure de capital : le titre dont la valeur d'entreprise s'arrête de couvrir le nominal, de sorte que ses porteurs ne sont que partiellement remboursés et reçoivent typiquement le capital de la société restructurée. Cible privilégiée des stratégies loan-to-own.",
+        "en": "The security at the point in the capital structure where enterprise value runs out, so its holders are only partly repaid and typically receive the equity of the restructured company. The prime target of loan-to-own strategies."
+      },
+      "related": ["gl.waterfall", "gl.loan-to-own", "gl.debt-to-equity-swap", "gl.absolute-priority-rule"]
+    },
+    {
+      "id": "gl.certain-funds",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "LevFin",
+      "tags": ["LevFin", "M&A"],
+      "difficulty": 3,
+      "source": { "flag": "VERIFIED" },
+      "term": "certain funds",
+      "aliases": ["certain funds", "certain funds period", "certitude des fonds", "financement certain"],
+      "definition": {
+        "fr": "Régime du financement d'acquisition (notamment de cibles cotées) où les prêteurs s'engagent de façon quasi inconditionnelle, limitant fortement les conditions de tirage afin que l'acquéreur dispose de fonds certains pour payer le prix. Imposé par les règles boursières au Royaume-Uni et apprécié par l'AMF en France.",
+        "en": "An acquisition-financing regime (notably for listed targets) where lenders commit on a near-unconditional basis, sharply limiting drawdown conditions so the bidder has assured funds to pay the price. Required by UK takeover rules and expected by the AMF in France."
+      },
+      "related": ["gl.bidco", "gl.acquisition-facility", "gl.amf"]
+    },
+    {
+      "id": "gl.squeeze-out",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "M&A",
+      "tags": ["M&A", "ECM"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "squeeze-out",
+      "aliases": ["squeeze-out", "squeeze out", "retrait obligatoire", "rachat forcé", "rachat force", "expropriation des minoritaires"],
+      "definition": {
+        "fr": "Retrait obligatoire : procédure permettant à un actionnaire majoritaire ayant franchi un seuil élevé (90 % en France) de racheter de force les titres des minoritaires après une offre publique, moyennant une indemnisation jugée équitable.",
+        "en": "A squeeze-out: the procedure letting a majority holder above a high threshold (90% in France) compulsorily buy out minority shares after a public offer, against fair compensation."
+      },
+      "related": ["gl.amf", "gl.fairness-opinion", "gl.control-premium"]
+    },
+    {
+      "id": "gl.control-premium",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "M&A",
+      "tags": ["M&A", "Valuation"],
+      "difficulty": 2,
+      "source": { "flag": "VERIFIED" },
+      "term": "control premium",
+      "aliases": ["control premium", "prime de contrôle", "prime de controle", "prime d'acquisition", "prime de prise de contrôle"],
+      "definition": {
+        "fr": "Surcoût payé par un acquéreur au-dessus du cours de marché pour obtenir le contrôle d'une société, reflétant la valeur des synergies et du pouvoir de décision. En Europe, les primes d'offre publique se situent souvent autour de 20-40 %.",
+        "en": "The premium an acquirer pays above the prevailing market price to gain control of a company, reflecting the value of synergies and decision-making power. European public-offer premia often sit around 20-40%."
+      },
+      "related": ["gl.squeeze-out", "gl.fairness-opinion", "gl.fully-diluted-shares"]
+    }
+  ]
+}

@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>PE/IB Mastery — Préparation entretiens Private Equity & Banque d'investissement</title>
+<style>
+:root{
+  --accent:#E8743B; --accent-soft:#FCEDE4; --accent-ink:#B5481E;
+  --gold:#C9A227; --green:#1E9E6A; --blue:#2F6FED; --violet:#7C5CE0; --red:#C0392B;
+  --bg:#FAF8F4; --surface:#FFFFFF; --surface-2:#F4F1EA;
+  --ink:#1B1A18; --ink-2:#54514B; --muted:#8A867E; --line:#ECE7DD;
+  --shadow:0 1px 2px rgba(20,16,8,.04), 0 8px 24px rgba(20,16,8,.05);
+  --radius:18px; --radius-sm:12px; --maxw:1180px;
+}
+[data-theme=dark]{
+  --accent:#F2865A; --accent-soft:#3A2519; --accent-ink:#F6A782;
+  --bg:#15140F; --surface:#1E1C17; --surface-2:#26241D;
+  --ink:#F3F0E9; --ink-2:#C4BFB4; --muted:#8E8A7F; --line:#312E26;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;min-height:100%;}
+body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;cursor:pointer;}
+button{font:inherit;cursor:pointer;}
+::selection{background:var(--accent-soft);}
+h1,h2,h3,h4{letter-spacing:-.01em;}
+.hidden{display:none !important;}
+
+/* shell */
+.app{display:grid;grid-template-columns:248px 1fr;min-height:100vh;}
+.sidebar{background:var(--surface);border-right:1px solid var(--line);padding:16px 14px;display:flex;flex-direction:column;gap:2px;position:sticky;top:0;height:100vh;overflow:auto;}
+.brand{display:flex;align-items:center;gap:10px;padding:6px 10px 14px;}
+.logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--gold));display:grid;place-items:center;color:#fff;font-weight:800;font-size:14px;flex:none;}
+.brand b{font-size:14.5px;} .brand span{display:block;font-size:11px;color:var(--muted);}
+.nav-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:14px 10px 6px;}
+.nav a{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:10px;color:var(--ink-2);font-weight:500;font-size:14px;}
+.nav a:hover{background:var(--surface-2);color:var(--ink);}
+.nav a.active{background:var(--accent-soft);color:var(--accent-ink);font-weight:600;}
+.nav a .ic{width:18px;text-align:center;flex:none;}
+.nav a .badge{margin-left:auto;font-size:11px;font-weight:700;background:var(--accent);color:#fff;border-radius:999px;padding:1px 7px;}
+.side-foot{margin-top:auto;padding-top:10px;border-top:1px solid var(--line);}
+.rankmini{display:flex;align-items:center;gap:10px;padding:8px 6px;}
+.rankmini .av{width:34px;height:34px;border-radius:10px;background:var(--surface-2);display:grid;place-items:center;font-size:16px;flex:none;}
+.rankmini b{font-size:13px;display:block;} .rankmini span{font-size:11px;color:var(--muted);}
+
+.main{display:flex;flex-direction:column;min-width:0;}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:12px 24px;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line);}
+.burger{display:none;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 11px;}
+.search{flex:1;max-width:520px;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 13px;color:var(--muted);font-size:14px;}
+.search .kbd{margin-left:auto;font-size:11px;border:1px solid var(--line);border-radius:6px;padding:1px 6px;background:var(--surface-2);}
+.tb-btn{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 12px;font-size:13px;font-weight:600;color:var(--ink-2);display:flex;align-items:center;gap:7px;}
+.tb-btn:hover{color:var(--ink);}
+.seg{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.seg button{border:0;background:transparent;font-size:13px;font-weight:600;color:var(--muted);padding:8px 12px;}
+.seg button.on{background:var(--accent-soft);color:var(--accent-ink);}
+
+.content{padding:26px 24px 70px;max-width:var(--maxw);width:100%;margin:0 auto;}
+.hello h1{font-size:25px;margin:0 0 2px;}
+.hello p{color:var(--ink-2);margin:0 0 20px;}
+.grid{display:grid;gap:18px;}
+.cols-3{grid-template-columns:repeat(3,1fr);} .cols-2{grid-template-columns:1.4fr 1fr;} .cols-2e{grid-template-columns:1fr 1fr;}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);}
+.card h3{margin:0 0 2px;font-size:15px;} .card .cap{font-size:12px;color:var(--muted);margin:0 0 14px;}
+.stat .v{font-size:30px;font-weight:750;} .stat .l{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+.flame{color:var(--accent);} .up{color:var(--green);font-size:12px;font-weight:700;}
+.ladder{display:flex;align-items:center;gap:6px;margin-top:8px;}
+.ladder .step{flex:1;height:6px;border-radius:999px;background:var(--surface-2);}
+.ladder .step.done{background:linear-gradient(90deg,var(--accent),var(--gold));}
+.ladder .step.cur{background:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+.ranknames{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:8px;}
+.ranknames b{color:var(--accent-ink);}
+.ring{width:96px;height:96px;border-radius:50%;flex:none;display:grid;place-items:center;}
+.ring .inner{width:74px;height:74px;border-radius:50%;background:var(--surface);display:grid;place-items:center;text-align:center;}
+.ring .inner b{font-size:20px;} .ring .inner span{font-size:10px;color:var(--muted);display:block;}
+.goal-list{margin:0;padding:0;list-style:none;font-size:14px;}
+.goal-list li{display:flex;align-items:center;gap:10px;padding:6px 0;color:var(--ink-2);}
+.goal-list .chk{width:18px;height:18px;border-radius:6px;border:1.5px solid var(--line);display:grid;place-items:center;font-size:11px;flex:none;}
+.goal-list .chk.done{background:var(--green);border-color:var(--green);color:#fff;}
+.goal-list .done-txt{text-decoration:line-through;color:var(--muted);}
+.mrow{display:flex;align-items:center;gap:12px;margin:11px 0;}
+.mrow .name{width:130px;font-size:13.5px;font-weight:600;}
+.mrow .track{flex:1;height:9px;background:var(--surface-2);border-radius:999px;overflow:hidden;}
+.mrow .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--gold));}
+.mrow .pct{width:42px;text-align:right;font-size:12.5px;color:var(--muted);font-weight:700;}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-weight:700;border:0;border-radius:11px;padding:11px 16px;font-size:14px;}
+.btn:hover{filter:brightness(1.05);} .btn.ghost{background:var(--surface-2);color:var(--ink);} .btn.sm{padding:7px 12px;font-size:13px;border-radius:9px;}
+.btn:disabled{opacity:.5;cursor:not-allowed;}
+.due{display:flex;align-items:center;gap:14px;padding:11px 12px;border:1px solid var(--line);border-radius:13px;}
+.due+.due{margin-top:9px;}
+.tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--surface-2);color:var(--ink-2);white-space:nowrap;}
+.due b{font-size:14px;} .due small{color:var(--muted);} .due .go{margin-left:auto;font-weight:700;color:var(--accent);}
+.section-h{display:flex;align-items:center;justify-content:space-between;margin:28px 0 14px;gap:12px;flex-wrap:wrap;}
+.section-h h2{font-size:19px;margin:0;}
+.muted{color:var(--muted);font-size:13px;}
+.badges{display:flex;gap:12px;flex-wrap:wrap;}
+.badge2{width:74px;text-align:center;font-size:10.5px;color:var(--ink-2);}
+.badge2 .b{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;font-size:22px;margin:0 auto 5px;background:var(--surface-2);}
+.badge2.lit .b{background:linear-gradient(135deg,var(--accent),var(--gold));color:#fff;box-shadow:var(--shadow);}
+.badge2.locked{opacity:.42;}
+.flag{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.04em;padding:2px 6px;border-radius:6px;vertical-align:middle;}
+.flag.v{background:rgba(30,158,106,.15);color:var(--green);} .flag.a{background:rgba(201,162,39,.2);color:#9A7B12;}
+.flag.e{background:rgba(124,92,224,.16);color:var(--violet);} .flag.corr{background:rgba(232,116,59,.16);color:var(--accent-ink);}
+.note{font-size:12.5px;color:var(--accent-ink);background:var(--accent-soft);border-radius:10px;padding:9px 12px;margin-top:10px;}
+.term{border-bottom:1.5px dotted var(--accent);cursor:help;position:relative;}
+.term .tip{position:absolute;left:0;bottom:135%;width:260px;max-width:72vw;background:var(--ink);color:#fff;padding:10px 12px;border-radius:10px;font-size:12.5px;line-height:1.45;font-weight:400;opacity:0;pointer-events:none;transform:translateY(4px);transition:.15s;z-index:40;box-shadow:var(--shadow);}
+.term .tip b{color:var(--accent);}
+.term:hover .tip,.term:focus .tip{opacity:1;transform:translateY(0);}
+.prose{font-size:15px;color:var(--ink-2);} .prose h4{color:var(--ink);font-size:16px;margin:18px 0 6px;} .prose p{margin:8px 0;} .prose b{color:var(--ink);}
+.prose ul{margin:8px 0;padding-left:20px;} .prose li{margin:4px 0;}
+.figtable{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px;}
+.figtable th,.figtable td{border:1px solid var(--line);padding:7px 10px;text-align:right;}
+.figtable th:first-child,.figtable td:first-child{text-align:left;}
+.figtable th{background:var(--surface-2);font-weight:700;color:var(--ink);}
+.figcap{font-size:12px;color:var(--muted);margin-top:4px;}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:6px;} .crumb a{color:var(--accent);}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--surface-2);color:var(--ink-2);margin-right:6px;}
+
+/* flashcard */
+.fc{perspective:1200px;}
+.fc .inner{border-radius:16px;border:1px solid var(--line);background:var(--surface);padding:30px;min-height:190px;display:grid;place-items:center;text-align:center;box-shadow:var(--shadow);cursor:pointer;}
+.fc .q{font-size:18px;font-weight:600;} .fc .a{font-size:15px;color:var(--ink-2);margin-top:14px;}
+.srs{display:flex;gap:8px;margin-top:14px;}
+.srs button{flex:1;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:11px 6px;font-size:12.5px;font-weight:700;}
+.srs .again{color:var(--red);} .srs .hard{color:var(--gold);} .srs .good{color:var(--blue);} .srs .easy{color:var(--green);}
+.progressbar{height:7px;background:var(--surface-2);border-radius:999px;overflow:hidden;margin-bottom:18px;}
+.progressbar > div{height:100%;background:var(--accent);transition:width .3s;}
+
+/* qcm */
+.opt{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:9px 0;font-size:14.5px;}
+.opt:hover{border-color:var(--accent);}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft);}
+.opt.right{border-color:var(--green);background:rgba(30,158,106,.08);}
+.opt.wrong{border-color:var(--red);background:rgba(192,57,43,.07);}
+.opt .mk{width:21px;height:21px;border-radius:50%;border:1.5px solid var(--line);flex:none;display:grid;place-items:center;font-size:12px;}
+.opt .why{display:block;font-size:12.5px;color:var(--muted);margin-top:4px;}
+.expl{font-size:13.5px;color:var(--ink-2);background:var(--surface-2);border-radius:12px;padding:13px 15px;margin-top:10px;}
+
+/* excel grid */
+.sheet{overflow:auto;border:1px solid var(--line);border-radius:12px;}
+table.xl{border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums;min-width:100%;}
+table.xl th,table.xl td{border:1px solid var(--line);padding:0;min-width:92px;height:34px;text-align:right;}
+table.xl thead th,table.xl tbody th{background:var(--surface-2);color:var(--muted);font-weight:600;text-align:center;min-width:34px;width:34px;}
+table.xl td .lbl{padding:6px 9px;color:var(--ink-2);text-align:left;}
+table.xl td .inp{padding:6px 9px;color:var(--blue);font-weight:600;}
+table.xl td.link .inp{color:var(--green);}
+table.xl td input{width:100%;height:34px;border:0;background:rgba(232,116,59,.06);padding:6px 9px;text-align:right;font:inherit;color:var(--ink);outline:2px solid transparent;}
+table.xl td input:focus{outline:2px solid var(--accent);}
+table.xl td.ok{background:rgba(30,158,106,.12);} table.xl td.ko{background:rgba(192,57,43,.1);}
+.kbdkey{display:inline-block;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 7px;font-size:12px;background:var(--surface-2);font-weight:600;margin:0 2px;}
+
+/* command palette */
+.modal-bg{position:fixed;inset:0;background:rgba(20,16,8,.4);backdrop-filter:blur(2px);z-index:60;display:flex;align-items:flex-start;justify-content:center;padding-top:12vh;}
+.cmdk{width:560px;max-width:92vw;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.25);overflow:hidden;}
+.cmdk input{width:100%;border:0;border-bottom:1px solid var(--line);padding:16px 18px;font-size:16px;background:transparent;color:var(--ink);outline:none;}
+.cmdk .res{max-height:50vh;overflow:auto;padding:6px;}
+.cmdk .r{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:10px;font-size:14px;}
+.cmdk .r:hover,.cmdk .r.hl{background:var(--surface-2);}
+.cmdk .r .k{font-size:11px;color:var(--muted);margin-left:auto;text-transform:uppercase;letter-spacing:.05em;}
+.empty{text-align:center;color:var(--muted);padding:40px 20px;}
+.empty .big{font-size:34px;margin-bottom:8px;}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 18px;border-radius:12px;font-size:14px;font-weight:600;z-index:80;box-shadow:var(--shadow);opacity:0;transition:.25s;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-4px);}
+.toast.xp{background:linear-gradient(135deg,var(--accent),var(--gold));}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;margin:4px 6px 0 0;}
+.chip.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-ink);}
+.field{margin:12px 0;} .field label{display:block;font-size:12.5px;color:var(--muted);font-weight:600;margin-bottom:5px;}
+.field input[type=range]{width:100%;} .field select,.field input[type=number],.field input[type=text]{width:100%;border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:var(--surface);color:var(--ink);font:inherit;}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.modcard{display:flex;flex-direction:column;gap:8px;}
+.modcard .top{display:flex;align-items:center;gap:8px;}
+.modcard .lvl{font-size:11px;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);border-radius:6px;padding:2px 7px;}
+.modcard .ttl{font-size:15.5px;font-weight:650;}
+.modcard .obj{font-size:13px;color:var(--ink-2);}
+.modcard .meta{font-size:12px;color:var(--muted);margin-top:auto;display:flex;gap:10px;align-items:center;}
+.donebadge{color:var(--green);font-weight:700;}
+.list-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
+
+@media(max-width:920px){
+  .app{grid-template-columns:1fr;}
+  .sidebar{position:fixed;z-index:50;width:248px;transform:translateX(-110%);transition:.2s;box-shadow:var(--shadow);}
+  .sidebar.open{transform:none;}
+  .burger{display:block;}
+  .cols-3,.cols-2,.cols-2e{grid-template-columns:1fr;}
+  .content{padding:18px 16px 70px;}
+}
+</style>
+</head>
+<body data-theme="light">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="burger" id="burger">☰</button>
+      <div class="search" id="searchbar"><span>⌕</span><span data-t="search">Rechercher…</span><span class="kbd">⌘K</span></div>
+      <div class="seg" id="langseg">
+        <button data-lang="fr">FR</button><button data-lang="en">EN</button>
+      </div>
+      <button class="tb-btn" id="themebtn">🌙</button>
+    </div>
+    <div class="content" id="view"></div>
+  </div>
+</div>
+<div id="modal-root"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================================
+   PE/IB Mastery — single-file, data-driven interview-prep platform.
+   Engines: persistence, i18n, SRS (SM-2), QCM, Excel evaluator, case,
+   gamification, personalization, dashboard, Cmd+K. Content is injected below.
+   ========================================================================= */
+
+/* ---------- 1. PERSISTENCE (window.storage → memory → JSON export/import) ---------- */
+const Store = (function(){
+  const KEY='pe_ib_platform_state_v1', VER=1;
+  function memBackend(){const m=Object.create(null);return{durable:false,async get(k){return k in m?m[k]:null},async set(k,v){m[k]=v},async remove(k){delete m[k]}};}
+  function wsBackend(ws){
+    if(!ws||typeof ws!=='object')return null; let g,s,r;
+    if(typeof ws.getItem==='function'&&typeof ws.setItem==='function'){g=k=>ws.getItem(k);s=(k,v)=>ws.setItem(k,v);r=typeof ws.removeItem==='function'?k=>ws.removeItem(k):null;}
+    else if(typeof ws.get==='function'&&typeof ws.set==='function'){g=k=>ws.get(k);s=(k,v)=>ws.set(k,v);r=typeof ws.remove==='function'?k=>ws.remove(k):(typeof ws.delete==='function'?k=>ws.delete(k):null);}
+    else return null;
+    return{durable:true,async get(k){return await g(k)},async set(k,v){await s(k,v)},async remove(k){r?await r(k):await s(k,null)}};
+  }
+  const backend = wsBackend(typeof window!=='undefined'?window.storage:undefined) || memBackend();
+  let cache=null, loaded=false;
+  async function getState(){ if(!loaded){const raw=await backend.get(KEY); try{const o=raw==null?null:(typeof raw==='string'?JSON.parse(raw):raw); cache=o&&o.__v?o.state:o;}catch(e){cache=null;} loaded=true;} return cache; }
+  async function setState(s){ cache=s;loaded=true; await backend.set(KEY,JSON.stringify({__v:VER,state:s})); return s; }
+  async function exportJSON(){ return JSON.stringify({app:'pe-ib-platform',schemaVersion:VER,exportedAt:new Date().toISOString(),state:await getState()},null,2); }
+  async function importJSON(t){ let p; try{p=JSON.parse(t)}catch(e){throw new Error('JSON invalide')} const inc=(p&&p.state!==undefined)?p.state:p; if(!inc||typeof inc!=='object')throw new Error('État introuvable'); return setState(inc); }
+  return {getState,setState,exportJSON,importJSON,durable:backend.durable};
+})();
+
+/* ---------- 2. CONTENT (injected at build) ---------- */
+const CONTENT = /*<<CONTENT>>*/{"modules":[],"flashcards":[],"qcm":[],"exercises":[],"cases":[],"glossary":[]}/*<<END>>*/;
+
+/* ---------- 3. INDEXES ---------- */
+const IDX = {
+  modules:CONTENT.modules||[], flashcards:CONTENT.flashcards||[], qcm:CONTENT.qcm||[],
+  exercises:CONTENT.exercises||[], cases:CONTENT.cases||[], glossary:CONTENT.glossary||[],
+};
+IDX.moduleById={}; IDX.modules.forEach(m=>IDX.moduleById[m.id]=m);
+IDX.exerciseById={}; IDX.exercises.forEach(e=>IDX.exerciseById[e.id]=e);
+IDX.caseById={}; IDX.cases.forEach(c=>IDX.caseById[c.id]=c);
+IDX.glossMap={}; IDX.glossary.forEach(g=>{ const keys=[g.term].concat(g.aliases||[]); keys.forEach(k=>{ if(k) IDX.glossMap[norm(k)]=g; }); });
+function norm(s){return String(s).toLowerCase().replace(/\s+/g,' ').replace(/[.,;:]+$/,'').trim();}
+const TOPICS=['M&A','LBO','DCF','WACC','Valuation','LevFin','Restructuring','VC','ECM','DCM','Accounting','ProjectFinance','Excel','Markets','Fit'];
+function cardsOfTopic(t){return IDX.flashcards.filter(c=>c.topic===t);}
+function fcByModule(id){return IDX.flashcards.filter(c=>c.moduleId===id);}
+function qcmByModule(id){return IDX.qcm.filter(q=>q.moduleId===id);}
+
+/* ---------- 4. STATE ---------- */
+let S=null, LANG='fr';
+function todayStr(){return new Date().toISOString().slice(0,10);}
+function defaultState(){
+  return {
+    schemaVersion:1,
+    settings:{lang:'fr',theme:'light',dailyCardGoal:15,dailySectionGoal:1},
+    profile:{selfLevel:null,diagnosticLevel:null,goals:[],weakTopics:[],onboarded:false},
+    game:{xp:0,rank:'stagiaire',streak:{current:0,best:0,lastActiveDate:null},
+      mastery:{}, badges:[], dailyProgress:{date:todayStr(),cards:0,sections:0}},
+    srs:{}, qcmHistory:[], completedSections:[], completedExercises:[], completedCases:[],
+    counters:{reviews:0, correctQcm:0}, topicStats:{}, paths:[], presets:[],
+  };
+}
+async function loadState(){ S=await Store.getState(); if(!S){S=defaultState();await Store.setState(S);} migrate(); LANG=S.settings.lang||'fr'; }
+function migrate(){ const d=defaultState(); for(const k in d){ if(S[k]===undefined)S[k]=d[k]; } if(!S.game.dailyProgress||S.game.dailyProgress.date!==todayStr()){S.game.dailyProgress={date:todayStr(),cards:0,sections:0};} }
+let saveTimer=null;
+function save(){ clearTimeout(saveTimer); saveTimer=setTimeout(()=>Store.setState(S),120); }
+
+/* ---------- 5. I18N + TEXT RENDERING ([[term]] tooltips, light markdown) ---------- */
+const UI = {
+  fr:{search:"Rechercher un module, une carte, un terme…",dashboard:"Tableau de bord",modules:"Modules",review:"Révision",qcm:"QCM",excel:"Track Excel",cases:"Case studies",paths:"Mes parcours",generate:"Générateur",glossary:"Glossaire",badges:"Succès",settings:"Réglages",diagnostic:"Diagnostic",
+    streak:"Série",rank:"Rang",dailygoal:"Objectif du jour",duetoday:"À réviser aujourd'hui",recommended:"Recommandé pour toi",mastery:"Maîtrise par thème",done:"complété",start:"Commencer",reveal:"Révéler la réponse",check:"Vérifier",next:"Suivant",solution:"Voir le corrigé",
+    again:"À revoir",hard:"Difficile",good:"Correct",easy:"Facile",noDue:"Aucune carte due — reviens plus tard ou lance une session libre.",finishSession:"Session terminée",backDash:"Retour au tableau de bord",empty:"Rien ici pour l'instant"},
+  en:{search:"Search a module, a card, a term…",dashboard:"Dashboard",modules:"Modules",review:"Review",qcm:"Quizzes",excel:"Excel track",cases:"Case studies",paths:"My paths",generate:"Generator",glossary:"Glossary",badges:"Achievements",settings:"Settings",diagnostic:"Diagnostic",
+    streak:"Streak",rank:"Rank",dailygoal:"Daily goal",duetoday:"Due today",recommended:"Recommended for you",mastery:"Mastery by topic",done:"done",start:"Start",reveal:"Reveal answer",check:"Check",next:"Next",solution:"Show solution",
+    again:"Again",hard:"Hard",good:"Good",easy:"Easy",noDue:"No cards due — come back later or start a free session.",finishSession:"Session complete",backDash:"Back to dashboard",empty:"Nothing here yet"}
+};
+function tt(k){return (UI[LANG]&&UI[LANG][k])||UI.fr[k]||k;}
+function L(loc){ if(loc==null)return''; if(typeof loc==='string')return loc; return loc[LANG]||loc.fr||loc.en||''; }
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function renderText(raw){
+  if(raw==null)return'';
+  let s=esc(typeof raw==='string'?raw:L(raw));
+  // [[term]] → glossary tooltip
+  s=s.replace(/\[\[([^\]]+)\]\]/g,(m,inner)=>{
+    const g=IDX.glossMap[norm(inner)];
+    if(g){const def=esc(L(g.definition));return `<span class="term" tabindex="0">${esc(inner)}<span class="tip"><b>${esc(g.term)}</b> — ${def}</span></span>`;}
+    return `<span class="term" style="border-color:var(--muted);cursor:default">${esc(inner)}</span>`;
+  });
+  // light markdown
+  s=s.replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+  s=s.replace(/\n{2,}/g,'</p><p>').replace(/\n/g,'<br>');
+  return s;
+}
+function prose(loc){return '<p>'+renderText(loc)+'</p>';}
+function figTable(fig){
+  if(!fig)return''; const cols=fig.columns||[]; const rows=fig.rows||[];
+  let h='<table class="figtable"><thead><tr>'+cols.map(c=>`<th>${esc(c)}</th>`).join('')+'</tr></thead><tbody>';
+  rows.forEach(r=>{h+='<tr>'+r.map(c=>`<td>${esc(c)}</td>`).join('')+'</tr>';});
+  h+='</tbody></table>'; if(fig.caption&&L(fig.caption))h+=`<div class="figcap">${renderText(fig.caption)}</div>`; return h;
+}
+function flagBadge(src){ if(!src)return''; const f=src.flag; const map={VERIFIED:['v','VÉRIFIÉ','VERIFIED'],APPROXIMATE:['a','APPROX.','APPROX.'],EXEMPLE_PEDAGOGIQUE:['e','EXEMPLE','EXAMPLE']}; const x=map[f]; if(!x)return''; return `<span class="flag ${x[0]}" title="${esc(src.ref||'')}">${LANG==='fr'?x[1]:x[2]}</span>`; }
+function corrNote(c){ if(!c)return''; return `<div class="note">⚠ ${renderText(c.note)}${c.needsReview?' <b>(à revoir)</b>':''}</div>`; }
+
+/* ---------- 6. GAMIFICATION ---------- */
+const RANKS=[['stagiaire','Stagiaire','Intern',0],['analyst','Analyst','Analyst',500],['associate','Associate','Associate',2000],['vp','VP','VP',5000],['director','Director','Director',9000],['md','Managing Partner','Managing Partner',15000]];
+function rankFor(xp){let r=RANKS[0];for(const x of RANKS){if(xp>=x[3])r=x;}return r;}
+function nextRank(xp){for(const x of RANKS){if(xp<x[3])return x;}return null;}
+function rankLabel(id){const r=RANKS.find(x=>x[0]===id)||RANKS[0];return LANG==='fr'?r[1]:r[2];}
+function rankIndex(id){return RANKS.findIndex(x=>x[0]===id);}
+function addXP(n,reason){
+  S.game.xp+=n; const r=rankFor(S.game.xp); const up=r[0]!==S.game.rank; S.game.rank=r[0];
+  toast(`+${n} XP${reason?' · '+reason:''}`,'xp');
+  if(up)setTimeout(()=>toast((LANG==='fr'?'Nouveau rang : ':'New rank: ')+rankLabel(r[0]),'xp'),900);
+  if(r[0]==='vp')awardBadge('level_vp'); if(r[0]==='md')awardBadge('level_md');
+  save();
+}
+function tickActivity(){ // streak + daily
+  const t=todayStr(), st=S.game.streak;
+  if(st.lastActiveDate!==t){
+    const y=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    st.current = st.lastActiveDate===y ? st.current+1 : 1;
+    st.lastActiveDate=t; st.best=Math.max(st.best,st.current);
+    if(st.current>=7)awardBadge('streak_7'); if(st.current>=30)awardBadge('streak_30');
+  }
+}
+function bumpDaily(kind){ const d=S.game.dailyProgress; if(d.date!==todayStr())Object.assign(d,{date:todayStr(),cards:0,sections:0}); d[kind]=(d[kind]||0)+1; }
+function recomputeMastery(){
+  const m={};
+  TOPICS.forEach(t=>{
+    const cards=IDX.flashcards.filter(c=>c.topic===t), qs=IDX.qcm.filter(q=>q.topic===t);
+    const total=cards.length+qs.length; if(!total){m[t]=0;return;}
+    let got=0;
+    cards.forEach(c=>{const r=S.srs[c.id]; if(r&&r.reps>0)got+=Math.min(1,r.reps/2);});
+    qs.forEach(q=>{ if(S.qcmHistory.some(h=>h.qcmId===q.id&&h.correct))got+=1; });
+    m[t]=Math.max(0,Math.min(1,got/total));
+  });
+  S.game.mastery=m; return m;
+}
+const BADGES={
+  first_module:['🎯',{fr:'1er module',en:'First module'}], first_lbo:['🏗️',{fr:'1er LBO',en:'First LBO'}],
+  streak_7:['🔥',{fr:'Série 7 jours',en:'7-day streak'}], streak_30:['🗓️',{fr:'Série 30 jours',en:'30-day streak'}],
+  cards_100:['💯',{fr:'100 cartes revues',en:'100 cards reviewed'}], perfect_qcm:['✅',{fr:'QCM parfait',en:'Perfect quiz'}],
+  excel_ace:['⚡',{fr:'Excel maîtrisé',en:'Excel ace'}], first_case:['🧩',{fr:'1er case study',en:'First case study'}],
+  level_vp:['🎓',{fr:'Niveau VP',en:'VP level'}], level_md:['👑',{fr:'Managing Partner',en:'Managing Partner'}],
+};
+function awardBadge(id){ if(!BADGES[id]||S.game.badges.includes(id))return; S.game.badges.push(id); const b=BADGES[id]; toast((LANG==='fr'?'Succès débloqué : ':'Achievement: ')+b[0]+' '+L(b[1]),'xp'); save(); }
+
+/* ---------- 7. SRS (SM-2) ---------- */
+function srsCard(id){ return S.srs[id]||{ease:2.5,interval:0,reps:0,lapses:0,due:todayStr()}; }
+function isDue(id){ const c=S.srs[id]; if(!c)return true; return c.due<=todayStr(); }
+function reviewCard(id,grade){ // grade: 0 again,1 hard,2 good,3 easy
+  const c=srsCard(id); const q=[0,3,4,5][grade];
+  if(grade===0){ c.reps=0; c.interval=1; c.lapses++; }
+  else{ if(c.reps===0)c.interval=1; else if(c.reps===1)c.interval=6; else c.interval=Math.round(c.interval*c.ease); c.reps++; }
+  c.ease=Math.max(1.3, c.ease+(0.1-(5-q)*(0.08+(5-q)*0.02)));
+  const d=new Date(); d.setDate(d.getDate()+c.interval); c.due=d.toISOString().slice(0,10);
+  S.srs[id]=c; S.counters.reviews++; if(S.counters.reviews>=100)awardBadge('cards_100');
+  tickActivity(); bumpDaily('cards'); addXP(grade===0?3:grade>=2?8:5); recomputeMastery(); save();
+}
+
+/* ---------- 8. EXCEL ENGINE (formula evaluator) ---------- */
+const XL=(function(){
+  function colToNum(c){let n=0;for(let i=0;i<c.length;i++)n=n*26+(c.charCodeAt(i)-64);return n;}
+  function tokenize(f){
+    const t=[]; let i=0; const s=f;
+    while(i<s.length){ const ch=s[i];
+      if(ch===' '){i++;continue;}
+      if(/[0-9.]/.test(ch)){let j=i;while(j<s.length&&/[0-9.]/.test(s[j]))j++;t.push({t:'num',v:parseFloat(s.slice(i,j))});i=j;continue;}
+      if(/[A-Za-z]/.test(ch)){let j=i;while(j<s.length&&/[A-Za-z0-9_]/.test(s[j]))j++;let name=s.slice(i,j);
+        if(s[j]==='('){t.push({t:'func',v:name.toUpperCase()});}
+        else if(/^[A-Za-z]{1,3}[0-9]{1,4}$/.test(name)){t.push({t:'ref',v:name.toUpperCase()});}
+        else {t.push({t:'name',v:name.toUpperCase()});}
+        i=j;continue;}
+      if(ch==='"'){let j=i+1;while(j<s.length&&s[j]!=='"')j++;t.push({t:'str',v:s.slice(i+1,j)});i=j+1;continue;}
+      const two=s.slice(i,i+2); if(['<=','>=','<>'].includes(two)){t.push({t:'op',v:two});i+=2;continue;}
+      if('+-*/^(),:&=<>%'.includes(ch)){t.push({t:'op',v:ch});i++;continue;}
+      i++;
+    }
+    return t;
+  }
+  function parse(tokens){
+    let p=0;
+    const peek=()=>tokens[p], eat=()=>tokens[p++];
+    function parseExpr(){return parseCmp();}
+    function parseCmp(){let l=parseAdd();while(peek()&&peek().t==='op'&&['=','<','>','<=','>=','<>'].includes(peek().v)){const op=eat().v;const r=parseAdd();l={n:'cmp',op,l,r};}return l;}
+    function parseAdd(){let l=parseMul();while(peek()&&peek().t==='op'&&['+','-','&'].includes(peek().v)){const op=eat().v;const r=parseMul();l={n:'bin',op,l,r};}return l;}
+    function parseMul(){let l=parsePow();while(peek()&&peek().t==='op'&&['*','/'].includes(peek().v)){const op=eat().v;const r=parsePow();l={n:'bin',op,l,r};}return l;}
+    function parsePow(){let l=parseUnary();while(peek()&&peek().t==='op'&&peek().v==='^'){eat();const r=parseUnary();l={n:'bin',op:'^',l,r};}return l;}
+    function parseUnary(){if(peek()&&peek().t==='op'&&peek().v==='-'){eat();return{n:'neg',e:parseUnary()};}if(peek()&&peek().t==='op'&&peek().v==='+'){eat();return parseUnary();}return parsePost();}
+    function parsePost(){let a=parseAtom();if(peek()&&peek().t==='op'&&peek().v==='%'){eat();a={n:'pct',e:a};}return a;}
+    function parseAtom(){
+      const tk=peek(); if(!tk)throw new Error('fin inattendue');
+      if(tk.t==='num'){eat();return{n:'num',v:tk.v};}
+      if(tk.t==='str'){eat();return{n:'str',v:tk.v};}
+      if(tk.t==='func'){const name=eat().v;eat();/*(*/ const args=[]; if(peek()&&!(peek().t==='op'&&peek().v===')')){args.push(parseExpr());while(peek()&&peek().t==='op'&&peek().v===','){eat();args.push(parseExpr());}} if(peek()&&peek().t==='op'&&peek().v===')')eat(); return{n:'call',name,args};}
+      if(tk.t==='ref'){eat(); if(peek()&&peek().t==='op'&&peek().v===':'){eat();const r2=eat();return{n:'range',a:tk.v,b:r2.v};} return{n:'ref',v:tk.v};}
+      if(tk.t==='name'){eat();return{n:'name',v:tk.v};}
+      if(tk.t==='op'&&tk.v==='('){eat();const e=parseExpr();if(peek()&&peek().v===')')eat();return e;}
+      throw new Error('token inattendu '+JSON.stringify(tk));
+    }
+    const ast=parseExpr(); return ast;
+  }
+  function expandRange(a,b){
+    const ma=a.match(/^([A-Z]+)([0-9]+)$/),mb=b.match(/^([A-Z]+)([0-9]+)$/); if(!ma||!mb)return[];
+    const c1=colToNum(ma[1]),c2=colToNum(mb[1]),r1=+ma[2],r2=+mb[2]; const out=[];
+    for(let r=Math.min(r1,r2);r<=Math.max(r1,r2);r++)for(let c=Math.min(c1,c2);c<=Math.max(c1,c2);c++){let cc='';let n=c;while(n>0){cc=String.fromCharCode(64+((n-1)%26)+1)+cc;n=Math.floor((n-1)/26);}out.push(cc+r);}
+    return out;
+  }
+  function npv(rate,vals){let s=0;for(let i=0;i<vals.length;i++)s+=vals[i]/Math.pow(1+rate,i+1);return s;}
+  function irr(vals){ // vals[0] at t0
+    let lo=-0.9999,hi=10; const f=r=>{let s=0;for(let i=0;i<vals.length;i++)s+=vals[i]/Math.pow(1+r,i);return s;};
+    let flo=f(lo),fhi=f(hi); if(flo*fhi>0){ // fallback scan
+      let best=null,bestAbs=Infinity; for(let r=-0.99;r<=5;r+=0.0005){const v=Math.abs(f(r));if(v<bestAbs){bestAbs=v;best=r;}} return best; }
+    for(let k=0;k<200;k++){const mid=(lo+hi)/2,fm=f(mid);if(Math.abs(fm)<1e-9)return mid;if(flo*fm<0){hi=mid;fhi=fm;}else{lo=mid;flo=fm;}}
+    return (lo+hi)/2;
+  }
+  function pmt(rate,nper,pv,fv,type){fv=fv||0;type=type||0;if(rate===0)return -(pv+fv)/nper;const r=rate;const p=Math.pow(1+r,nper);return -(pv*p+fv)*r/((p-1)*(1+r*type));}
+  function evaluate(ast,getRef){
+    function num(x){ if(typeof x==='boolean')return x?1:0; if(typeof x==='string'){const n=parseFloat(x);return isNaN(n)?0:n;} return x||0; }
+    function ev(a){
+      switch(a.n){
+        case 'num':return a.v; case 'str':return a.v;
+        case 'neg':return -num(ev(a.e)); case 'pct':return num(ev(a.e))/100;
+        case 'ref':return getRef(a.v);
+        case 'range':return expandRange(a.a,a.b).map(getRef);
+        case 'name': if(a.v==='TRUE')return true; if(a.v==='FALSE')return false; return 0;
+        case 'bin':{const l=ev(a.l),r=ev(a.r); if(a.op==='&')return String(l)+String(r); const x=num(l),y=num(r); switch(a.op){case'+':return x+y;case'-':return x-y;case'*':return x*y;case'/':return y===0?'#DIV/0!':x/y;case'^':return Math.pow(x,y);}}
+        case 'cmp':{const x=ev(a.l),y=ev(a.r);const nx=typeof x==='number'?x:num(x),ny=typeof y==='number'?y:num(y);switch(a.op){case'=':return x===y||nx===ny;case'<>':return!(x===y||nx===ny);case'<':return nx<ny;case'>':return nx>ny;case'<=':return nx<=ny;case'>=':return nx>=ny;}}
+        case 'call':{
+          const A=a.args; const flat=()=>{const o=[];A.forEach(x=>{const v=ev(x);if(Array.isArray(v))v.forEach(z=>o.push(num(z)));else o.push(num(v));});return o;};
+          switch(a.name){
+            case'SUM':return flat().reduce((s,x)=>s+x,0);
+            case'AVERAGE':{const f=flat();return f.length?f.reduce((s,x)=>s+x,0)/f.length:0;}
+            case'MIN':return Math.min(...flat()); case'MAX':return Math.max(...flat());
+            case'COUNT':return flat().length; case'ABS':return Math.abs(num(ev(A[0])));
+            case'ROUND':{const v=num(ev(A[0])),d=A[1]?num(ev(A[1])):0,p=Math.pow(10,d);return Math.round(v*p)/p;}
+            case'IF':{return ev(A[0])?ev(A[1]):(A[2]!==undefined?ev(A[2]):false);}
+            case'IFERROR':{try{const v=ev(A[0]);if(v==='#DIV/0!'||(typeof v==='number'&&!isFinite(v)))return ev(A[1]);return v;}catch(e){return ev(A[1]);}}
+            case'AND':return A.every(x=>!!ev(x)); case'OR':return A.some(x=>!!ev(x)); case'NOT':return!ev(A[0]);
+            case'NPV':{const rate=num(ev(A[0]));const vals=[];for(let i=1;i<A.length;i++){const v=ev(A[i]);if(Array.isArray(v))v.forEach(z=>vals.push(num(z)));else vals.push(num(v));}return npv(rate,vals);}
+            case'IRR':{const v=ev(A[0]);const vals=Array.isArray(v)?v.map(num):[num(v)];return irr(vals);}
+            case'PMT':return pmt(num(ev(A[0])),num(ev(A[1])),num(ev(A[2])),A[3]?num(ev(A[3])):0,A[4]?num(ev(A[4])):0);
+            case'POWER':return Math.pow(num(ev(A[0])),num(ev(A[1])));
+            case'SUMPRODUCT':{const arrs=A.map(x=>{const v=ev(x);return Array.isArray(v)?v.map(num):[num(v)];});const n=arrs[0].length;let s=0;for(let i=0;i<n;i++){let p=1;arrs.forEach(ar=>p*=(ar[i]||0));s+=p;}return s;}
+            default:return '#NAME?';
+          }
+        }
+      }
+    }
+    return ev(ast);
+  }
+  // Evaluate a whole sheet: cells = {ref:{value|formula}}; returns {ref:value}
+  function evalSheet(cells){
+    const out={}, stack={};
+    function getRef(ref){
+      if(out[ref]!==undefined)return out[ref];
+      const c=cells[ref]; if(!c)return 0;
+      if(c.value!==undefined&&c.value!==null&&c.formula===undefined)return out[ref]=(typeof c.value==='number'?c.value:c.value);
+      if(typeof c.formula==='string'&&c.formula[0]==='='){
+        if(stack[ref])return '#CYCLE'; stack[ref]=1;
+        try{const ast=parse(tokenize(c.formula.slice(1)));const v=evaluate(ast,getRef);out[ref]=v;}catch(e){out[ref]='#ERR';}
+        stack[ref]=0; return out[ref];
+      }
+      return out[ref]=(c.value!==undefined?c.value:0);
+    }
+    Object.keys(cells).forEach(getRef); return out;
+  }
+  function evalFormula(formula,cells){ // formula string like "=B1/B3", cells map of values
+    try{const ast=parse(tokenize(formula.replace(/^=/,'')));return evaluate(ast,r=>{const c=cells[r];if(!c)return 0;return c.value!==undefined?c.value:0;});}catch(e){return '#ERR';}
+  }
+  return {tokenize,parse,evaluate,evalSheet,evalFormula,expandRange,irr,npv,pmt};
+})();
+window.XL=XL;
+
+/* ---------- 9. ROUTER ---------- */
+const routes={};
+function route(path,fn){routes[path]=fn;}
+function go(hash){location.hash=hash;}
+function parseHash(){const h=(location.hash||'#/dashboard').slice(1);const [p,q]=h.split('?');const parts=p.split('/').filter(Boolean);const query={};(q||'').split('&').forEach(kv=>{if(kv){const[a,b]=kv.split('=');query[a]=decodeURIComponent(b||'');}});return{parts,query};}
+function render(){
+  const {parts,query}=parseHash(); const view=document.getElementById('view');
+  let key=parts[0]||'dashboard';
+  renderSidebar(key);
+  document.getElementById('sidebar').classList.remove('open');
+  try{
+    if(key==='dashboard')viewDashboard(view);
+    else if(key==='modules')viewModules(view);
+    else if(key==='module')viewModule(view,parts[1]);
+    else if(key==='review')viewReview(view,query);
+    else if(key==='qcm')viewQcmList(view,query);
+    else if(key==='quiz')viewQuiz(view,query);
+    else if(key==='excel')parts[1]?viewExercise(view,parts[1]):viewExcelList(view);
+    else if(key==='cases')viewCasesList(view);
+    else if(key==='case')viewCase(view,parts[1]);
+    else if(key==='glossary')viewGlossary(view,query);
+    else if(key==='paths')viewPaths(view);
+    else if(key==='generate')viewGenerator(view);
+    else if(key==='badges')viewBadges(view);
+    else if(key==='settings')viewSettings(view);
+    else if(key==='diagnostic')viewDiagnostic(view);
+    else if(key==='onboarding')viewOnboarding(view);
+    else viewDashboard(view);
+  }catch(e){ view.innerHTML=`<div class="card"><h3>Erreur de rendu</h3><pre style="white-space:pre-wrap;font-size:12px;color:var(--red)">${esc(e.stack||e.message)}</pre></div>`; }
+  window.scrollTo(0,0);
+}
+
+/* ---------- 10. SIDEBAR ---------- */
+function renderSidebar(active){
+  const due=IDX.flashcards.filter(c=>isDue(c.id)).length;
+  const r=rankFor(S.game.xp), nx=nextRank(S.game.xp);
+  const items=[
+    ['dashboard','◆','dashboard'],['modules','▦','modules'],['review','⚡','review',due||''],
+    ['qcm','▤','qcm'],['excel','⊞','excel'],['cases','◈','cases'],
+    ['paths','✦','paths'],['generate','✚','generate'],
+  ];
+  const more=[['glossary','≣','glossary'],['badges','★','badges'],['settings','⚙','settings']];
+  function link(it){const[route,ic,key,badge]=it;return `<a href="#/${route}" class="${active===route?'active':''}"><span class="ic">${ic}</span><span>${tt(key)}</span>${badge?`<span class="badge">${badge}</span>`:''}</a>`;}
+  document.getElementById('sidebar').innerHTML=`
+    <div class="brand"><div class="logo">PE</div><div><b>PE/IB Mastery</b><span>${LANG==='fr'?'Du Stagiaire au Managing Partner':'From Intern to Managing Partner'}</span></div></div>
+    <nav class="nav">${items.map(link).join('')}<div class="nav-label">${LANG==='fr'?'Ressources':'Resources'}</div>${more.map(link).join('')}</nav>
+    <div class="side-foot"><div class="rankmini"><div class="av">📈</div><div><b>${rankLabel(r[0])}</b><span>${nx?((nx[3]-S.game.xp)+' XP → '+rankLabel(nx[0])):'Niveau max'}</span></div></div></div>`;
+}
+
+/* ---------- 11. VIEWS ---------- */
+function viewDashboard(v){
+  if(!S.profile.onboarded){ return viewOnboarding(v); }
+  const due=IDX.flashcards.filter(c=>isDue(c.id));
+  const r=rankFor(S.game.xp), idx=rankIndex(r[0]);
+  const mastery=recomputeMastery();
+  const goalC=S.settings.dailyCardGoal,prog=S.game.dailyProgress;
+  const pctGoal=Math.min(100,Math.round(((Math.min(prog.cards,goalC)/goalC)*0.7+(Math.min(prog.sections,S.settings.dailySectionGoal)/S.settings.dailySectionGoal)*0.3)*100));
+  // recommended = lowest mastery topic with modules
+  const weakest=TOPICS.filter(t=>IDX.modules.some(m=>m.topic===t)).sort((a,b)=>mastery[a]-mastery[b])[0];
+  const recMod=IDX.modules.filter(m=>m.topic===weakest).sort((a,b)=>a.level-b.level).find(m=>!isModuleDone(m.id))||IDX.modules.find(m=>!isModuleDone(m.id))||IDX.modules[0];
+  const dueByMod={}; due.forEach(c=>{(dueByMod[c.moduleId]=dueByMod[c.moduleId]||[]).push(c);});
+  const dueRows=Object.keys(dueByMod).slice(0,5).map(mid=>{const m=IDX.moduleById[mid];const n=dueByMod[mid].length;return `<a class="due" href="#/review?module=${mid}"><span class="tag">${m?m.topic:'—'}</span><div><b>${m?renderText(m.title):mid}</b><br><small>${n} ${LANG==='fr'?'cartes':'cards'}</small></div><span class="go">→</span></a>`;}).join('')||`<div class="muted">${tt('noDue')}</div>`;
+  const masteryRows=TOPICS.filter(t=>cardsOfTopic(t).length||IDX.qcm.some(q=>q.topic===t)).map(t=>`<div class="mrow"><div class="name">${t}</div><div class="track"><div class="fill" style="width:${Math.round(mastery[t]*100)}%"></div></div><div class="pct">${Math.round(mastery[t]*100)}%</div></div>`).join('');
+  const badgeRow=Object.keys(BADGES).slice(0,8).map(id=>{const b=BADGES[id];const lit=S.game.badges.includes(id);return `<div class="badge2 ${lit?'lit':'locked'}"><div class="b">${b[0]}</div><span>${L(b[1])}</span></div>`;}).join('');
+  v.innerHTML=`
+  <div class="hello"><h1>${LANG==='fr'?'Bonjour':'Hello'} 👋</h1><p>${due.length?`${LANG==='fr'?'Tu as':'You have'} <b>${due.length} ${LANG==='fr'?'cartes à réviser':'cards due'}</b> ${LANG==='fr'?"aujourd'hui.":'today.'}`:tt('noDue')}</p></div>
+  <div class="grid cols-3">
+    <div class="card stat"><div class="l">${tt('streak')}</div><div class="v"><span class="flame">🔥 ${S.game.streak.current}</span></div><div class="cap" style="margin:6px 0 0">${LANG==='fr'?'Record':'Best'} : ${S.game.streak.best} ${LANG==='fr'?'jours':'days'}</div></div>
+    <div class="card stat"><div class="l">XP</div><div class="v">${S.game.xp.toLocaleString('fr-FR')}</div><div class="cap" style="margin:6px 0 0">${rankLabel(r[0])}</div></div>
+    <div class="card stat"><div class="l">${tt('rank')}</div><div class="v" style="font-size:22px;margin-top:6px">${rankLabel(r[0])}</div>
+      <div class="ladder">${RANKS.map((x,i)=>`<div class="step ${i<idx?'done':''} ${i===idx?'cur':''}"></div>`).join('')}</div>
+      <div class="ranknames"><span>${rankLabel('stagiaire')}</span><b>${rankLabel(r[0])}</b><span>MP</span></div></div>
+  </div>
+  <div class="grid cols-2" style="margin-top:18px">
+    <div class="card"><h3>${tt('duetoday')}</h3><p class="cap">${LANG==='fr'?'File de répétition espacée (SM-2)':'Spaced-repetition queue (SM-2)'} · ${due.length} ${LANG==='fr'?'dues':'due'}</p>${dueRows}
+      <div style="margin-top:14px"><a class="btn" href="#/review">${LANG==='fr'?'Lancer la révision':'Start review'} ▶</a></div></div>
+    <div class="card"><h3>${tt('dailygoal')}</h3><p class="cap">${goalC} ${LANG==='fr'?'cartes':'cards'} + ${S.settings.dailySectionGoal} ${LANG==='fr'?'section de module':'module section'}</p>
+      <div class="row" style="gap:18px"><div class="ring" style="background:conic-gradient(var(--accent) ${pctGoal}%,var(--surface-2) 0)"><div class="inner"><div><b>${pctGoal}%</b><span>${tt('done')}</span></div></div></div>
+      <ul class="goal-list">
+        <li><span class="chk ${prog.cards>=goalC?'done':''}">${prog.cards>=goalC?'✓':''}</span><span class="${prog.cards>=goalC?'done-txt':''}">${LANG==='fr'?'Réviser':'Review'} ${goalC} ${LANG==='fr'?'cartes':'cards'} (${prog.cards}/${goalC})</span></li>
+        <li><span class="chk ${prog.sections>=S.settings.dailySectionGoal?'done':''}">${prog.sections>=S.settings.dailySectionGoal?'✓':''}</span><span class="${prog.sections>=S.settings.dailySectionGoal?'done-txt':''}">${LANG==='fr'?'Terminer 1 section':'Finish 1 section'} (${prog.sections}/${S.settings.dailySectionGoal})</span></li>
+      </ul></div></div>
+  </div>
+  <div class="grid cols-2" style="margin-top:18px">
+    <div class="card"><h3>${tt('recommended')}</h3><p class="cap">${LANG==='fr'?'Basé sur tes points faibles':'Based on your weak spots'}</p>
+      ${recMod?`<div class="modcard"><div class="top"><span class="lvl">N${recMod.level}</span><span class="tag">${recMod.topic}</span></div><div class="ttl">${renderText(recMod.title)}</div><div class="obj">${renderText(recMod.objective)}</div>
+      <div style="margin-top:10px"><a class="btn" href="#/module/${recMod.id}">${tt('start')} ▶</a></div></div>`:`<div class="muted">${tt('empty')}</div>`}
+      ${weakest?`<div class="muted" style="margin-top:10px">${LANG==='fr'?'Thème le plus faible':'Weakest topic'} : <b>${weakest}</b> (${Math.round(mastery[weakest]*100)}%)</div>`:''}</div>
+    <div class="card"><h3>${tt('mastery')}</h3><p class="cap">${LANG==='fr'?'Se remplit avec tes cartes & QCM':'Fills as you clear cards & quizzes'}</p>${masteryRows}</div>
+  </div>
+  <div class="card" style="margin-top:18px"><h3>${tt('badges')}</h3><p class="cap">${LANG==='fr'?'Des jalons concrets':'Concrete milestones'}</p><div class="badges">${badgeRow}</div></div>
+  <p style="text-align:center;color:var(--muted);font-size:12px;margin-top:28px">${IDX.modules.length} modules · ${IDX.flashcards.length} flashcards · ${IDX.qcm.length} QCM · ${IDX.exercises.length} ${LANG==='fr'?'exercices Excel':'Excel drills'} · ${IDX.cases.length} cases · ${IDX.glossary.length} ${LANG==='fr'?'termes':'terms'} &nbsp; <span class="flag v">VÉRIFIÉ</span> <span class="flag a">APPROX.</span> <span class="flag e">EXEMPLE</span> <span class="flag corr">CORRIGÉ</span></p>`;
+}
+
+function isModuleDone(id){ const fc=fcByModule(id); const total=(IDX.moduleById[id].content.concepts||[]).length+1; const secDone=S.completedSections.filter(s=>s.startsWith(id+'#')).length; return secDone>=total; }
+function moduleProgress(id){ const m=IDX.moduleById[id]; if(!m)return 0; const total=(m.content.concepts?m.content.concepts.length:0)+1; const done=S.completedSections.filter(s=>s.startsWith(id+'#')).length; return total?Math.min(1,done/total):0; }
+
+function viewModules(v){
+  const byLevel={}; IDX.modules.forEach(m=>{(byLevel[m.level]=byLevel[m.level]||[]).push(m);});
+  const lvlNames={1:['Débutant','Beginner'],2:['Fondamentaux','Fundamentals'],3:['Intermédiaire','Intermediate'],4:['Avancé','Advanced'],5:['Expert / MP','Expert / MP']};
+  let h=`<div class="hello"><h1>${tt('modules')}</h1><p>${IDX.modules.length} modules · ${LANG==='fr'?'5 niveaux, du débutant au Managing Partner':'5 levels, from beginner to Managing Partner'}</p></div>`;
+  Object.keys(byLevel).sort().forEach(lvl=>{
+    h+=`<div class="section-h"><h2>${LANG==='fr'?'Niveau':'Level'} ${lvl} · ${lvlNames[lvl]?(LANG==='fr'?lvlNames[lvl][0]:lvlNames[lvl][1]):''}</h2><span class="muted">${byLevel[lvl].length} modules</span></div><div class="list-grid">`;
+    byLevel[lvl].forEach(m=>{const p=Math.round(moduleProgress(m.id)*100);h+=`<a class="card modcard" href="#/module/${m.id}"><div class="top"><span class="lvl">N${m.level}</span><span class="tag">${m.topic}</span>${flagBadge(m.source)}${p>=100?'<span class="donebadge" style="margin-left:auto">✓</span>':''}</div><div class="ttl">${renderText(m.title)}</div><div class="obj">${renderText(m.objective)}</div><div class="meta"><span>${m.estMinutes||10} min</span><span>${fcByModule(m.id).length} 🃏</span><span>${qcmByModule(m.id).length} QCM</span>${p>0&&p<100?`<span style="margin-left:auto;color:var(--accent)">${p}%</span>`:''}</div></a>`;});
+    h+=`</div>`;
+  });
+  v.innerHTML=h;
+}
+
+function viewModule(v,id){
+  const m=IDX.moduleById[id]; if(!m){v.innerHTML=`<div class="card">${tt('empty')}</div>`;return;}
+  const c=m.content; const concepts=c.concepts||[];
+  let h=`<div class="crumb"><a href="#/modules">${tt('modules')}</a> › ${m.topic}</div>
+  <div class="hello"><div class="row"><span class="lvl pill">N${m.level}</span><span class="pill">${m.topic}</span>${flagBadge(m.source)}<span class="muted">${m.estMinutes||10} min</span></div>
+  <h1>${renderText(m.title)}</h1><p>${renderText(m.objective)}</p></div>
+  ${corrNote(m.correction)}
+  <div class="card prose"><h4>${LANG==='fr'?'Contexte':'Context'}</h4>${prose(c.contexte)}</div>`;
+  concepts.forEach((cc,i)=>{ h+=`<div class="card prose"><h4>${renderText(cc.heading)}</h4>${prose(cc.body)}</div>`; });
+  if(c.exempleChiffre){ h+=`<div class="card prose"><h4>${renderText(c.exempleChiffre.title||{fr:'Exemple chiffré',en:'Worked example'})}</h4>${prose(c.exempleChiffre.body)}${(c.exempleChiffre.figures||[]).map(figTable).join('')}</div>`; }
+  if(c.piegesEntretien&&c.piegesEntretien.length){ h+=`<div class="card prose"><h4>⚠ ${LANG==='fr'?"Pièges d'entretien":'Interview gotchas'}</h4><ul>${c.piegesEntretien.map(p=>`<li>${renderText(p)}</li>`).join('')}</ul></div>`; }
+  if(c.synthese){ h+=`<div class="card prose" style="background:var(--accent-soft)"><h4>📌 ${LANG==='fr'?'Fiche de synthèse':'Summary sheet'}</h4>${prose(c.synthese)}</div>`; }
+  const fcs=fcByModule(id),qs=qcmByModule(id);
+  h+=`<div class="grid cols-2e" style="margin-top:18px">
+    ${fcs.length?`<a class="card modcard" href="#/review?module=${id}"><div class="ttl">🃏 ${fcs.length} flashcards</div><div class="obj">${LANG==='fr'?'Réviser ce module en répétition espacée':'Review this module with spaced repetition'}</div><div style="margin-top:8px"><span class="btn sm">${tt('start')} ▶</span></div></a>`:''}
+    ${qs.length?`<a class="card modcard" href="#/quiz?module=${id}"><div class="ttl">▤ ${qs.length} QCM</div><div class="obj">${LANG==='fr'?'Tester ta compréhension':'Test your understanding'}</div><div style="margin-top:8px"><span class="btn sm">${tt('start')} ▶</span></div></a>`:''}
+  </div>
+  <div style="margin-top:18px"><button class="btn" id="completeModule">${moduleProgress(id)>=1?(LANG==='fr'?'Module terminé ✓':'Module complete ✓'):(LANG==='fr'?'Marquer comme lu (+XP)':'Mark as read (+XP)')}</button></div>`;
+  v.innerHTML=h;
+  const btn=document.getElementById('completeModule');
+  btn.onclick=()=>{ const total=concepts.length+1; let added=false; for(let i=0;i<total;i++){const k=id+'#'+i; if(!S.completedSections.includes(k)){S.completedSections.push(k);added=true;}} if(added){tickActivity();bumpDaily('sections');awardBadge('first_module'); if(m.topic==='LBO')awardBadge('first_lbo'); addXP(20,LANG==='fr'?'module lu':'module read');recomputeMastery();save();} render(); };
+}
+
+/* ----- Flashcard review session ----- */
+function buildQueue(query){
+  let pool=IDX.flashcards.slice();
+  if(query.module)pool=pool.filter(c=>c.moduleId===query.module);
+  if(query.topic)pool=pool.filter(c=>c.topic===query.topic);
+  let due=pool.filter(c=>isDue(c.id));
+  if(!due.length)due=pool.slice(0,Math.min(20,pool.length)); // free session if nothing due
+  return due.sort(()=>Math.random()-0.5);
+}
+let SESSION=null;
+function viewReview(v,query){
+  if(!SESSION||SESSION.type!=='review'||SESSION.key!==JSON.stringify(query)){ SESSION={type:'review',key:JSON.stringify(query),queue:buildQueue(query),i:0,flipped:false,done:0}; }
+  const s=SESSION;
+  if(s.i>=s.queue.length){ return sessionDone(v,`${s.done} ${LANG==='fr'?'cartes revues':'cards reviewed'}`,'#/dashboard'); }
+  const card=s.queue[s.i];
+  v.innerHTML=`<div class="crumb"><a href="#/dashboard">${tt('dashboard')}</a> › ${tt('review')}</div>
+  <div class="progressbar"><div style="width:${Math.round(s.i/s.queue.length*100)}%"></div></div>
+  <div class="row" style="justify-content:space-between"><span class="pill">${card.topic}</span><span class="muted">${s.i+1} / ${s.queue.length}</span></div>
+  <div class="fc" style="margin-top:12px"><div class="inner" id="fcInner"><div><div class="q">${renderText(card.front)}</div><div class="a" id="fcA">${s.flipped?renderText(card.back):'→ '+tt('reveal')}</div>${s.flipped?corrNote(card.correction):''}</div></div></div>
+  ${s.flipped?`<div class="srs"><button class="again" data-g="0">${tt('again')}</button><button class="hard" data-g="1">${tt('hard')}</button><button class="good" data-g="2">${tt('good')}</button><button class="easy" data-g="3">${tt('easy')}</button></div>`:`<div style="margin-top:14px"><button class="btn" id="flip">${tt('reveal')}</button></div>`}`;
+  const flip=()=>{s.flipped=true;render();};
+  document.getElementById('fcInner').onclick=()=>{if(!s.flipped)flip();};
+  if(document.getElementById('flip'))document.getElementById('flip').onclick=flip;
+  v.querySelectorAll('.srs button').forEach(b=>b.onclick=()=>{reviewCard(card.id,+b.dataset.g);s.done++;s.i++;s.flipped=false;render();});
+}
+function sessionDone(v,msg,back){
+  v.innerHTML=`<div class="card" style="text-align:center;padding:50px 20px"><div style="font-size:42px">🎉</div><h2>${tt('finishSession')}</h2><p class="muted">${msg}</p><div style="margin-top:14px"><a class="btn" href="${back}">${tt('backDash')}</a></div></div>`;
+  SESSION=null;
+}
+
+/* ----- QCM ----- */
+function viewQcmList(v,query){
+  if(query.module)return viewQuiz(v,query);
+  const byTopic={}; IDX.qcm.forEach(q=>{(byTopic[q.topic]=byTopic[q.topic]||[]).push(q);});
+  let h=`<div class="hello"><h1>${tt('qcm')}</h1><p>${IDX.qcm.length} ${LANG==='fr'?'questions · choisis un thème ou lance un mix':'questions · pick a topic or start a mix'}</p></div>
+  <div style="margin-bottom:16px"><a class="btn" href="#/quiz?mix=1">${LANG==='fr'?'Mix aléatoire (10)':'Random mix (10)'} ▶</a></div><div class="list-grid">`;
+  Object.keys(byTopic).forEach(t=>{h+=`<a class="card modcard" href="#/quiz?topic=${encodeURIComponent(t)}"><div class="top"><span class="tag">${t}</span></div><div class="ttl">${t}</div><div class="meta"><span>${byTopic[t].length} QCM</span></div></a>`;});
+  v.innerHTML=h+`</div>`;
+}
+function viewQuiz(v,query){
+  if(!SESSION||SESSION.type!=='quiz'||SESSION.key!==JSON.stringify(query)){
+    let pool=IDX.qcm.slice();
+    if(query.module)pool=pool.filter(q=>q.moduleId===query.module);
+    else if(query.topic)pool=pool.filter(q=>q.topic===query.topic);
+    if(query.mix)pool=pool.sort(()=>Math.random()-0.5).slice(0,10);
+    SESSION={type:'quiz',key:JSON.stringify(query),queue:pool.sort(()=>Math.random()-0.5),i:0,sel:[],answered:false,correct:0};
+  }
+  const s=SESSION;
+  if(s.i>=s.queue.length){ if(s.queue.length&&s.correct===s.queue.length)awardBadge('perfect_qcm'); return sessionDone(v,`${s.correct} / ${s.queue.length} ${LANG==='fr'?'bonnes réponses':'correct'}`,'#/qcm'); }
+  const q=s.queue[s.i];
+  v.innerHTML=`<div class="crumb"><a href="#/qcm">${tt('qcm')}</a> › ${q.topic}</div>
+  <div class="progressbar"><div style="width:${Math.round(s.i/s.queue.length*100)}%"></div></div>
+  <div class="row" style="justify-content:space-between"><span class="pill">${q.topic}</span><span class="muted">${s.i+1} / ${s.queue.length}</span></div>
+  <div class="card" style="margin-top:12px"><div style="font-size:16.5px;font-weight:600;margin-bottom:6px">${renderText(q.stem)}</div>${q.multi?`<div class="muted" style="margin-bottom:6px">${LANG==='fr'?'(plusieurs réponses possibles)':'(multiple answers)'}</div>`:''}
+  <div id="opts">${q.options.map(o=>{let cls='opt';if(s.answered){if(o.correct)cls+=' right';else if(s.sel.includes(o.id))cls+=' wrong';}else if(s.sel.includes(o.id))cls+=' sel';return `<div class="${cls}" data-id="${o.id}"><span class="mk">${s.answered?(o.correct?'✓':(s.sel.includes(o.id)?'✕':'')):''}</span><span>${renderText(o.text)}${s.answered&&o.why?`<span class="why">${renderText(o.why)}</span>`:''}</span></div>`;}).join('')}</div>
+  ${s.answered?`<div class="expl"><b>${LANG==='fr'?'Explication':'Explanation'}.</b> ${renderText(q.explanation)}${q.workings?`<br><br><b>${LANG==='fr'?'Calcul':'Working'} :</b> ${renderText(q.workings)}`:''}</div>${corrNote(q.correction)}
+  <div style="margin-top:12px"><button class="btn" id="nextq">${tt('next')} →</button></div>`:`<div style="margin-top:12px"><button class="btn" id="validate" disabled>${tt('check')}</button></div>`}</div>`;
+  if(!s.answered){
+    v.querySelectorAll('.opt').forEach(el=>el.onclick=()=>{const id=el.dataset.id;if(q.multi){s.sel.includes(id)?s.sel=s.sel.filter(x=>x!==id):s.sel.push(id);}else s.sel=[id];render();});
+    const val=document.getElementById('validate'); if(s.sel.length)val.disabled=false;
+    val.onclick=()=>{s.answered=true;const correctIds=q.options.filter(o=>o.correct).map(o=>o.id).sort();const ok=JSON.stringify(s.sel.slice().sort())===JSON.stringify(correctIds);S.qcmHistory.push({qcmId:q.id,correct:ok,at:new Date().toISOString()});if(ok){s.correct++;S.counters.correctQcm++;tickActivity();addXP(15,LANG==='fr'?'bonne réponse':'correct');}recomputeMastery();save();render();};
+  } else { document.getElementById('nextq').onclick=()=>{s.i++;s.sel=[];s.answered=false;render();}; }
+}
+
+/* ----- Excel exercises ----- */
+function viewExcelList(v){
+  let h=`<div class="hello"><h1>${tt('excel')}</h1><p>${LANG==='fr'?"Excel est un pilier à part entière. Vitesse et propreté de modélisation sont jugées aussi durement que la finance.":'Excel is a first-class pillar — speed and clean modelling are judged as harshly as the finance.'}</p></div>
+  <div class="section-h"><h2>${LANG==='fr'?'Modules Excel':'Excel modules'}</h2></div><div class="list-grid">`;
+  IDX.modules.filter(m=>m.topic==='Excel').forEach(m=>{h+=`<a class="card modcard" href="#/module/${m.id}"><div class="top"><span class="lvl">N${m.level}</span><span class="tag">Excel</span></div><div class="ttl">${renderText(m.title)}</div><div class="obj">${renderText(m.objective)}</div></a>`;});
+  h+=`</div><div class="section-h"><h2>${LANG==='fr'?'Exercices (mini-tableur)':'Drills (mini-spreadsheet)'}</h2><span class="muted">${IDX.exercises.length} ${LANG==='fr'?'exercices':'drills'}</span></div><div class="list-grid">`;
+  IDX.exercises.forEach(e=>{const done=S.completedExercises.includes(e.id);h+=`<a class="card modcard" href="#/excel/${e.id}"><div class="top"><span class="lvl">N${e.level}</span><span class="tag">${e.topic}</span>${flagBadge(e.source)}${done?'<span class="donebadge" style="margin-left:auto">✓</span>':''}</div><div class="ttl">${renderText(e.prompt).slice(0,90)}</div><div class="meta"><span>${(e.kind||'spreadsheet')}</span></div></a>`;});
+  v.innerHTML=h+`</div>`;
+}
+function colName(n){let c='';while(n>0){c=String.fromCharCode(64+((n-1)%26)+1)+c;n=Math.floor((n-1)/26);}return c;}
+function viewExercise(v,id){
+  const e=IDX.exerciseById[id]; if(!e){v.innerHTML=`<div class="card">${tt('empty')}</div>`;return;}
+  if(!SESSION||SESSION.type!=='xl'||SESSION.id!==id){ SESSION={type:'xl',id,inputs:{},checked:false,revealed:false}; }
+  const s=SESSION; const g=e.grid||{rows:1,cols:1,cells:{}};
+  // header
+  let h=`<div class="crumb"><a href="#/excel">${tt('excel')}</a> › ${e.topic}</div>
+  <div class="hello"><div class="row"><span class="pill">N${e.level}</span><span class="pill">${e.topic}</span>${flagBadge(e.source)}</div><h1 style="font-size:20px">${renderText(e.prompt)}</h1></div>`;
+  // grid
+  h+=`<div class="card"><div class="sheet"><table class="xl"><thead><tr><th></th>${Array.from({length:g.cols},(_,c)=>`<th>${colName(c+1)}</th>`).join('')}</tr></thead><tbody>`;
+  for(let r=1;r<=g.rows;r++){ h+=`<tr><th>${r}</th>`;
+    for(let c=1;c<=g.cols;c++){ const ref=colName(c)+r; const cell=g.cells[ref];
+      if(!cell){h+=`<td></td>`;continue;}
+      if(cell.role==='label'){h+=`<td><div class="lbl">${esc(cell.label||L(cell.label)||'')}</div></td>`;}
+      else if(cell.role==='input'||cell.role==='link'){h+=`<td class="${cell.role==='link'?'link':''}"><div class="inp">${fmtNum(cell.value,cell.numFmt)}</div></td>`;}
+      else if(cell.role==='formula'){const val=s.inputs[ref]!==undefined?s.inputs[ref]:'';const status=s.checked?(checkOk(e,ref,s)?'ok':'ko'):'';h+=`<td class="${status}"><input data-ref="${ref}" value="${esc(val)}" placeholder="=…" autocomplete="off"></td>`;}
+      else if(cell.role==='check'){h+=`<td><div class="lbl" style="color:var(--red)">${esc(cell.label||'')}</div></td>`;}
+      else h+=`<td></td>`;
+    } h+=`</tr>`;
+  }
+  h+=`</tbody></table></div>
+  <div class="row" style="margin-top:14px"><button class="btn" id="xlcheck">${tt('check')}</button><button class="btn ghost" id="xlreveal">${tt('solution')}</button></div>`;
+  if(s.checked){ const allok=(e.checks||[]).every(ck=>checkResult(e,ck,s).ok); h+=`<div class="expl" style="margin-top:12px">${(e.checks||[]).map(ck=>{const r=checkResult(e,ck,s);return `<div>${r.ok?'✓':'✕'} <b>${ck.cell}</b> = ${r.ok?'<span style="color:var(--green)">'+fmtNum(r.got,g.cells[ck.cell]?g.cells[ck.cell].numFmt:'')+'</span>':'<span style="color:var(--red)">'+(r.got===''||r.got===undefined?'—':fmtNum(r.got))+'</span> '+(ck.hint?'· '+renderText(ck.hint):'')}</div>`;}).join('')}${allok?`<div style="margin-top:8px;color:var(--green);font-weight:700">✓ ${LANG==='fr'?'Tout est correct !':'All correct!'}</div>`:''}</div>`; }
+  if(s.revealed){ h+=`<div class="card prose" style="margin-top:12px"><h4>${LANG==='fr'?'Corrigé':'Solution'}</h4>${prose(e.solution)}<div class="muted" style="margin-top:8px">${Object.keys(g.cells).filter(k=>g.cells[k].role==='formula').map(k=>`<code>${k}</code> = <code>${esc(g.cells[k].formula||'')}</code>`).join(' &nbsp; ')}</div></div>`; }
+  h+=`</div>`;
+  v.innerHTML=h;
+  v.querySelectorAll('table.xl input').forEach(inp=>{inp.oninput=()=>{s.inputs[inp.dataset.ref]=inp.value;};inp.onkeydown=ev=>{if(ev.key==='Enter')document.getElementById('xlcheck').click();};});
+  document.getElementById('xlcheck').onclick=()=>{s.checked=true;const allok=(e.checks||[]).every(ck=>checkResult(e,ck,s).ok);if(allok&&!S.completedExercises.includes(id)){S.completedExercises.push(id);tickActivity();addXP(30,LANG==='fr'?'exercice résolu':'drill solved');awardBadge('excel_ace');save();}render();};
+  document.getElementById('xlreveal').onclick=()=>{s.revealed=true;render();};
+}
+function buildEvalCells(e,s){ const g=e.grid; const cells={}; Object.keys(g.cells).forEach(ref=>{const c=g.cells[ref]; if(c.role==='input'||c.role==='link')cells[ref]={value:c.value}; else if(c.role==='formula'){const f=s.inputs[ref]; cells[ref]= (f&&f[0]==='=')?{formula:f}:(f!==undefined&&f!==''?{value:isNaN(+f)?f:+f}:{value:0}); }}); return cells; }
+function checkResult(e,ck,s){ const cells=buildEvalCells(e,s); const out=XL.evalSheet(cells); let got=out[ck.cell]; const ok=typeof got==='number'&&Math.abs(got-ck.expected)<=(ck.tolerance||0.01); return {ok,got}; }
+function checkOk(e,ref,s){ const ck=(e.checks||[]).find(c=>c.cell===ref); if(!ck)return true; return checkResult(e,ck,s).ok; }
+function fmtNum(v,fmt){ if(v===''||v===undefined||v===null)return''; if(typeof v!=='number'){return esc(String(v));} if(fmt&&fmt.indexOf('%')>=0)return (v*100).toFixed(fmt.indexOf('0.0')>=0?1:0)+'%'; if(fmt&&fmt.indexOf('x')>=0)return v.toFixed(1)+'x'; if(fmt&&fmt.indexOf('#,##0')>=0)return Math.round(v).toLocaleString('fr-FR'); return (Math.round(v*100)/100).toLocaleString('fr-FR'); }
+
+/* ----- Case studies ----- */
+function viewCasesList(v){
+  let h=`<div class="hello"><h1>${tt('cases')}</h1><p>${IDX.cases.length} ${LANG==='fr'?'études de cas — deal walkthroughs guidés':'case studies — guided deal walkthroughs'}</p></div><div class="list-grid">`;
+  IDX.cases.forEach(c=>{const done=S.completedCases.includes(c.id);h+=`<a class="card modcard" href="#/case/${c.id}"><div class="top"><span class="lvl">N${c.level}</span><span class="tag">${c.dealType||c.topic}</span>${flagBadge(c.source)}${done?'<span class="donebadge" style="margin-left:auto">✓</span>':''}</div><div class="ttl">${renderText(c.title)}</div><div class="obj">${renderText(c.scenario).slice(0,120)}…</div><div class="meta"><span>${(c.stages||[]).length} ${LANG==='fr'?'étapes':'stages'}</span></div></a>`;});
+  v.innerHTML=h+`</div>`;
+}
+function viewCase(v,id){
+  const c=IDX.caseById[id]; if(!c){v.innerHTML=`<div class="card">${tt('empty')}</div>`;return;}
+  if(!SESSION||SESSION.type!=='case'||SESSION.id!==id){SESSION={type:'case',id,revealed:{}};}
+  const s=SESSION;
+  let h=`<div class="crumb"><a href="#/cases">${tt('cases')}</a> › ${c.dealType||c.topic}</div>
+  <div class="hello"><div class="row"><span class="pill">N${c.level}</span><span class="pill">${c.dealType||c.topic}</span>${flagBadge(c.source)}${c.realDeal?'<span class="pill">'+(LANG==='fr'?'deal réel':'real deal')+'</span>':''}</div><h1>${renderText(c.title)}</h1></div>
+  <div class="card prose">${prose(c.scenario)}${(c.data||[]).map(figTable).join('')}</div>${corrNote(c.correction)}`;
+  (c.stages||[]).forEach((st,i)=>{ const rev=s.revealed[i];
+    h+=`<div class="card prose"><h4>${LANG==='fr'?'Étape':'Stage'} ${i+1}</h4>${prose(st.prompt)}
+    ${st.guidedQuestions&&st.guidedQuestions.length?`<ul>${st.guidedQuestions.map(q=>`<li>${renderText(q)}</li>`).join('')}</ul>`:''}
+    ${rev?`<div class="expl"><b>${LANG==='fr'?'Réponse':'Answer'}.</b> ${renderText(st.reveal)}</div>`:`<button class="btn sm" data-stage="${i}">${LANG==='fr'?'Révéler la réponse':'Reveal answer'}</button>`}</div>`;
+  });
+  v.innerHTML=h;
+  v.querySelectorAll('button[data-stage]').forEach(b=>b.onclick=()=>{const i=+b.dataset.stage;s.revealed[i]=true;const all=(c.stages||[]).every((_,j)=>s.revealed[j]);if(all&&!S.completedCases.includes(id)){S.completedCases.push(id);tickActivity();addXP(40,LANG==='fr'?'case study':'case study');awardBadge('first_case');save();}render();});
+}
+
+/* ----- Glossary ----- */
+function viewGlossary(v,query){
+  const q=(query.q||'').toLowerCase();
+  const list=IDX.glossary.filter(g=>!q||norm(g.term).includes(q)||(g.aliases||[]).some(a=>norm(a).includes(q))||norm(L(g.definition)).includes(q)).sort((a,b)=>a.term.localeCompare(b.term));
+  v.innerHTML=`<div class="hello"><h1>${tt('glossary')}</h1><p>${IDX.glossary.length} ${LANG==='fr'?'termes techniques anglais, expliqués':'English technical terms, explained'}</p></div>
+  <div class="field"><input type="text" id="glsearch" placeholder="${LANG==='fr'?'Filtrer…':'Filter…'}" value="${esc(query.q||'')}"></div>
+  <div class="list-grid">${list.map(g=>`<div class="card"><div class="row" style="justify-content:space-between"><h3 style="font-size:16px">${esc(g.term)}</h3><span class="tag">${g.topic}</span></div>${g.aliases&&g.aliases.length?`<div class="muted" style="font-size:12px">${g.aliases.map(esc).join(' · ')}</div>`:''}<p class="prose" style="margin:8px 0 0">${renderText(g.definition)}</p></div>`).join('')||`<div class="muted">${tt('empty')}</div>`}</div>`;
+  const gs=document.getElementById('glsearch'); gs.oninput=()=>{go('#/glossary?q='+encodeURIComponent(gs.value));setTimeout(()=>{const el=document.getElementById('glsearch');if(el){el.focus();el.setSelectionRange(el.value.length,el.value.length);}},0);};
+}
+
+/* ----- Paths (personalized roadmaps) ----- */
+function viewPaths(v){
+  let h=`<div class="hello"><h1>${tt('paths')}</h1><p>${LANG==='fr'?'Génère et ajuste tes parcours de révision personnalisés. Tu peux en avoir plusieurs.':'Generate and tune your personalized revision paths. You can keep several.'}</p></div>
+  <div style="margin-bottom:16px"><button class="btn" id="newpath">＋ ${LANG==='fr'?'Nouveau parcours':'New path'}</button></div>`;
+  if(!S.paths.length)h+=`<div class="card"><div class="empty"><div class="big">✦</div>${LANG==='fr'?'Aucun parcours. Crée-en un à partir de ton niveau et de tes objectifs.':'No path yet. Create one from your level and goals.'}</div></div>`;
+  S.paths.forEach((p,pi)=>{
+    h+=`<div class="card"><div class="row" style="justify-content:space-between"><h3>${esc(p.name)}</h3><div class="row"><span class="pill">N${p.levelTarget}</span><span class="pill">${p.intensity}</span><button class="btn sm ghost" data-del="${pi}">🗑</button></div></div>
+    <div style="margin-top:8px">${p.moduleSequence.map((mid,mi)=>{const m=IDX.moduleById[mid];if(!m)return'';const done=moduleProgress(mid)>=1;return `<div class="due"><span class="tag">${m.topic}</span><div><b>${renderText(m.title)}</b><br><small>N${m.level} · ${done?'✓ '+(LANG==='fr'?'terminé':'done'):Math.round(moduleProgress(mid)*100)+'%'}</small></div><div class="row" style="margin-left:auto"><button class="btn sm ghost" data-up="${pi}:${mi}">↑</button><button class="btn sm ghost" data-down="${pi}:${mi}">↓</button><a class="btn sm" href="#/module/${mid}">▶</a></div></div>`;}).join('')}</div></div>`;
+  });
+  v.innerHTML=h;
+  document.getElementById('newpath').onclick=()=>openPathModal();
+  v.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{S.paths.splice(+b.dataset.del,1);save();render();});
+  v.querySelectorAll('[data-up]').forEach(b=>b.onclick=()=>{const[pi,mi]=b.dataset.up.split(':').map(Number);if(mi>0){const a=S.paths[pi].moduleSequence;[a[mi-1],a[mi]]=[a[mi],a[mi-1]];save();render();}});
+  v.querySelectorAll('[data-down]').forEach(b=>b.onclick=()=>{const[pi,mi]=b.dataset.down.split(':').map(Number);const a=S.paths[pi].moduleSequence;if(mi<a.length-1){[a[mi+1],a[mi]]=[a[mi],a[mi+1]];save();render();}});
+}
+function openPathModal(){
+  const goals=S.profile.goals.length?S.profile.goals:TOPICS.filter(t=>IDX.modules.some(m=>m.topic===t));
+  let lvl=S.profile.diagnosticLevel||S.profile.selfLevel||2, intensity='standard', selGoals=new Set(S.profile.goals);
+  modal(`<h3>${LANG==='fr'?'Nouveau parcours personnalisé':'New personalized path'}</h3>
+  <div class="field"><label>${LANG==='fr'?'Nom':'Name'}</label><input type="text" id="pname" value="${LANG==='fr'?'Mon parcours':'My path'}"></div>
+  <div class="field"><label>${LANG==='fr'?'Niveau cible':'Target level'}</label><select id="plvl">${[1,2,3,4,5].map(n=>`<option value="${n}" ${n==lvl?'selected':''}>N${n}</option>`).join('')}</select></div>
+  <div class="field"><label>${LANG==='fr'?'Intensité':'Intensity'}</label><select id="pint"><option value="light">light</option><option value="standard" selected>standard</option><option value="intense">intense</option></select></div>
+  <div class="field"><label>${LANG==='fr'?'Domaines ciblés':'Target domains'}</label><div id="pgoals">${TOPICS.filter(t=>IDX.modules.some(m=>m.topic===t)).map(t=>`<span class="chip ${selGoals.has(t)?'on':''}" data-t="${t}">${t}</span>`).join('')}</div></div>
+  <div class="row" style="margin-top:14px"><button class="btn" id="pcreate">${LANG==='fr'?'Générer':'Generate'}</button><button class="btn ghost" id="pcancel">${LANG==='fr'?'Annuler':'Cancel'}</button></div>`);
+  document.querySelectorAll('#pgoals .chip').forEach(ch=>ch.onclick=()=>{const t=ch.dataset.t;if(selGoals.has(t))selGoals.delete(t);else selGoals.add(t);ch.classList.toggle('on');});
+  document.getElementById('pcancel').onclick=closeModal;
+  document.getElementById('pcreate').onclick=()=>{
+    const name=document.getElementById('pname').value||'Parcours'; const L2=+document.getElementById('plvl').value; const intn=document.getElementById('pint').value;
+    const goalsArr=[...selGoals]; const seq=IDX.modules.filter(m=>m.level<=L2&&(!goalsArr.length||goalsArr.includes(m.topic))).sort((a,b)=>a.level-b.level||a.topic.localeCompare(b.topic)).map(m=>m.id);
+    S.paths.push({id:'path.'+Date.now(),name,levelTarget:L2,intensity:intn,moduleSequence:seq,createdAt:new Date().toISOString()});
+    if(intn==='intense')S.settings.dailyCardGoal=25;else if(intn==='light')S.settings.dailyCardGoal=10;else S.settings.dailyCardGoal=15;
+    save();closeModal();render();
+  };
+}
+
+/* ----- Generator (custom training sessions) ----- */
+function viewGenerator(v){
+  v.innerHTML=`<div class="hello"><h1>${tt('generate')}</h1><p>${LANG==='fr'?'Compose ta session : format, thèmes, difficulté, longueur. Filtre, génère, relance comme tu veux.':'Compose your session: format, topics, difficulty, length. Filter, generate, relaunch at will.'}</p></div>
+  <div class="card">
+   <div class="field"><label>${LANG==='fr'?'Format':'Format'}</label><div id="gmode">${[['flashcard','Flashcards'],['qcm','QCM'],['mixed',LANG==='fr'?'Mixte':'Mixed']].map((m,i)=>`<span class="chip ${i===0?'on':''}" data-m="${m[0]}">${m[1]}</span>`).join('')}</div></div>
+   <div class="field"><label>${LANG==='fr'?'Thèmes (vide = tous)':'Topics (empty = all)'}</label><div id="gtopics">${TOPICS.filter(t=>cardsOfTopic(t).length||IDX.qcm.some(q=>q.topic===t)).map(t=>`<span class="chip" data-t="${t}">${t}</span>`).join('')}</div></div>
+   <div class="row">
+     <div class="field" style="flex:1"><label>${LANG==='fr'?'Niveau max':'Max level'}</label><select id="glvl">${[1,2,3,4,5].map(n=>`<option value="${n}" ${n===5?'selected':''}>N${n}</option>`).join('')}</select></div>
+     <div class="field" style="flex:1"><label>${LANG==='fr'?'Difficulté max':'Max difficulty'}</label><select id="gdiff">${[1,2,3,4,5].map(n=>`<option value="${n}" ${n===5?'selected':''}>${n}</option>`).join('')}</select></div>
+     <div class="field" style="flex:1"><label>${LANG==='fr'?'Longueur':'Length'}</label><select id="glen"><option>10</option><option>15</option><option>20</option><option>30</option></select></div>
+   </div>
+   <div class="row" style="margin-top:8px"><button class="btn" id="ggen">${LANG==='fr'?'Générer la session':'Generate session'} ▶</button></div>
+   <div class="muted" id="gcount" style="margin-top:10px"></div>
+  </div>`;
+  const sel={mode:'flashcard',topics:new Set()};
+  document.querySelectorAll('#gmode .chip').forEach(c=>c.onclick=()=>{document.querySelectorAll('#gmode .chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');sel.mode=c.dataset.m;upd();});
+  document.querySelectorAll('#gtopics .chip').forEach(c=>c.onclick=()=>{const t=c.dataset.t;sel.topics.has(t)?sel.topics.delete(t):sel.topics.add(t);c.classList.toggle('on');upd();});
+  function pool(){const lvl=+document.getElementById('glvl').value,diff=+document.getElementById('gdiff').value,tp=[...sel.topics];
+    const fcs=IDX.flashcards.filter(c=>c.level<=lvl&&c.difficulty<=diff&&(!tp.length||tp.includes(c.topic)));
+    const qs=IDX.qcm.filter(c=>c.level<=lvl&&c.difficulty<=diff&&(!tp.length||tp.includes(c.topic)));
+    return {fcs,qs};}
+  function upd(){const{fcs,qs}=pool();document.getElementById('gcount').textContent=(LANG==='fr'?'Disponible : ':'Available: ')+`${fcs.length} flashcards · ${qs.length} QCM`;}
+  document.getElementById('glvl').onchange=upd;document.getElementById('gdiff').onchange=upd;upd();
+  document.getElementById('ggen').onclick=()=>{const len=+document.getElementById('glen').value;const{fcs,qs}=pool();
+    if(sel.mode==='qcm'){SESSION={type:'quiz',key:'gen'+Date.now(),queue:qs.sort(()=>Math.random()-.5).slice(0,len),i:0,sel:[],answered:false,correct:0};go('#/quiz?gen=1');}
+    else if(sel.mode==='flashcard'){SESSION={type:'review',key:'gen'+Date.now(),queue:fcs.sort(()=>Math.random()-.5).slice(0,len),i:0,flipped:false,done:0};go('#/review?gen=1');}
+    else{const mix=fcs.sort(()=>Math.random()-.5).slice(0,Math.ceil(len/2));SESSION={type:'review',key:'gen'+Date.now(),queue:mix,i:0,flipped:false,done:0};go('#/review?gen=1');}
+  };
+}
+
+/* ----- Badges ----- */
+function viewBadges(v){
+  v.innerHTML=`<div class="hello"><h1>${tt('badges')}</h1><p>${S.game.badges.length} / ${Object.keys(BADGES).length} ${LANG==='fr'?'débloqués':'unlocked'}</p></div>
+  <div class="card"><div class="badges">${Object.keys(BADGES).map(id=>{const b=BADGES[id];const lit=S.game.badges.includes(id);return `<div class="badge2 ${lit?'lit':'locked'}"><div class="b">${b[0]}</div><span>${L(b[1])}</span></div>`;}).join('')}</div></div>`;
+}
+
+/* ----- Diagnostic ----- */
+function diagnosticSet(){ // ~8 QCM across levels/topics
+  const picks=[]; [1,2,3,4,5].forEach(lv=>{const c=IDX.qcm.filter(q=>q.level===lv);for(let k=0;k<2&&c.length;k++)picks.push(c[Math.floor(Math.random()*c.length)]);});
+  return picks.filter((q,i,a)=>q&&a.indexOf(q)===i).slice(0,8);
+}
+function viewDiagnostic(v){
+  if(!SESSION||SESSION.type!=='diag'){SESSION={type:'diag',queue:diagnosticSet(),i:0,sel:[],answered:false,score:0,levelHits:{}};}
+  const s=SESSION; if(!s.queue.length){v.innerHTML=`<div class="card">${LANG==='fr'?'Pas assez de QCM pour le diagnostic.':'Not enough quizzes for diagnostic.'}</div>`;return;}
+  if(s.i>=s.queue.length){
+    const ratio=s.score/s.queue.length; let lvl=ratio>=0.85?5:ratio>=0.65?4:ratio>=0.45?3:ratio>=0.25?2:1;
+    S.profile.diagnosticLevel=lvl; if(!S.profile.selfLevel)S.profile.selfLevel=lvl; save();
+    v.innerHTML=`<div class="card" style="text-align:center;padding:46px 20px"><div style="font-size:42px">🧭</div><h2>${LANG==='fr'?'Diagnostic terminé':'Diagnostic complete'}</h2><p>${LANG==='fr'?'Score':'Score'} : <b>${s.score}/${s.queue.length}</b></p><p>${LANG==='fr'?'Niveau estimé':'Estimated level'} : <b>N${lvl} — ${['','Débutant','Fondamentaux','Intermédiaire','Avancé','Expert'][lvl]}</b></p><div style="margin-top:14px"><a class="btn" href="#/paths">${LANG==='fr'?'Créer mon parcours':'Build my path'}</a> <a class="btn ghost" href="#/dashboard">${tt('backDash')}</a></div></div>`;
+    SESSION=null;return;
+  }
+  const q=s.queue[s.i];
+  v.innerHTML=`<div class="hello"><h1>${tt('diagnostic')}</h1><p>${LANG==='fr'?'8 questions pour estimer ton niveau':'8 questions to estimate your level'}</p></div>
+  <div class="progressbar"><div style="width:${Math.round(s.i/s.queue.length*100)}%"></div></div>
+  <div class="card"><div style="font-size:16px;font-weight:600;margin-bottom:8px">${renderText(q.stem)}</div>
+  <div id="opts">${q.options.map(o=>{let cls='opt';if(s.answered){if(o.correct)cls+=' right';else if(s.sel.includes(o.id))cls+=' wrong';}else if(s.sel.includes(o.id))cls+=' sel';return `<div class="${cls}" data-id="${o.id}"><span class="mk">${s.answered?(o.correct?'✓':(s.sel.includes(o.id)?'✕':'')):''}</span><span>${renderText(o.text)}</span></div>`;}).join('')}</div>
+  ${s.answered?`<div style="margin-top:12px"><button class="btn" id="nx">${tt('next')} →</button></div>`:`<div style="margin-top:12px"><button class="btn" id="vd" disabled>${tt('check')}</button></div>`}</div>`;
+  if(!s.answered){v.querySelectorAll('.opt').forEach(el=>el.onclick=()=>{s.sel=[el.dataset.id];render();});const vd=document.getElementById('vd');if(s.sel.length)vd.disabled=false;vd.onclick=()=>{s.answered=true;const ok=q.options.find(o=>o.id===s.sel[0])&&q.options.find(o=>o.id===s.sel[0]).correct;if(ok)s.score++;render();};}
+  else document.getElementById('nx').onclick=()=>{s.i++;s.sel=[];s.answered=false;render();};
+}
+
+/* ----- Onboarding ----- */
+function viewOnboarding(v){
+  v.innerHTML=`<div class="hello"><h1>${LANG==='fr'?'Bienvenue 👋':'Welcome 👋'}</h1><p>${LANG==='fr'?'Personnalisons ta préparation. La personnalisation est au cœur du produit.':'Let’s personalize your prep. Personalization is at the heart of the product.'}</p></div>
+  <div class="card"><h3>${LANG==='fr'?'1. Quel est ton niveau ?':'1. What is your level?'}</h3><p class="cap">${LANG==='fr'?'Auto-évalue-toi, ou passe le diagnostic.':'Self-assess, or take the diagnostic.'}</p>
+   <div id="lvlchips">${[[1,'Débutant','Beginner'],[2,'Fondamentaux','Fundamentals'],[3,'Intermédiaire','Intermediate'],[4,'Avancé','Advanced'],[5,'Expert / MP','Expert / MP']].map(x=>`<span class="chip" data-l="${x[0]}">N${x[0]} · ${LANG==='fr'?x[1]:x[2]}</span>`).join('')}</div>
+   <div style="margin-top:10px"><a class="btn ghost sm" href="#/diagnostic">🧭 ${LANG==='fr'?'Passer le diagnostic':'Take the diagnostic'}</a></div>
+  </div>
+  <div class="card"><h3>${LANG==='fr'?'2. Tes objectifs (domaines)':'2. Your goals (domains)'}</h3><div id="goalchips">${TOPICS.filter(t=>IDX.modules.some(m=>m.topic===t)).map(t=>`<span class="chip" data-t="${t}">${t}</span>`).join('')}</div></div>
+  <div style="margin-top:16px"><button class="btn" id="finish">${LANG==='fr'?'Commencer →':'Start →'}</button></div>`;
+  let lvl=null; const goals=new Set();
+  v.querySelectorAll('#lvlchips .chip').forEach(c=>c.onclick=()=>{v.querySelectorAll('#lvlchips .chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');lvl=+c.dataset.l;});
+  v.querySelectorAll('#goalchips .chip').forEach(c=>c.onclick=()=>{const t=c.dataset.t;goals.has(t)?goals.delete(t):goals.add(t);c.classList.toggle('on');});
+  document.getElementById('finish').onclick=()=>{S.profile.selfLevel=lvl||S.profile.diagnosticLevel||2;S.profile.goals=[...goals];S.profile.onboarded=true;
+    // auto-create a starter path
+    if(!S.paths.length){const L2=S.profile.selfLevel;const seq=IDX.modules.filter(m=>m.level<=Math.max(L2+1,2)&&(!goals.size||goals.has(m.topic))).sort((a,b)=>a.level-b.level).map(m=>m.id);S.paths.push({id:'path.start',name:LANG==='fr'?'Parcours de démarrage':'Starter path',levelTarget:L2,intensity:'standard',moduleSequence:seq,createdAt:new Date().toISOString()});}
+    save();go('#/dashboard');};
+}
+
+/* ----- Settings ----- */
+function viewSettings(v){
+  v.innerHTML=`<div class="hello"><h1>${tt('settings')}</h1><p>${LANG==='fr'?'Langue, thème, objectifs, données.':'Language, theme, goals, data.'}</p></div>
+  <div class="card"><h3>${LANG==='fr'?'Préférences':'Preferences'}</h3>
+   <div class="field"><label>${LANG==='fr'?'Objectif quotidien (cartes)':'Daily goal (cards)'}</label><input type="number" id="setgoal" min="5" max="100" value="${S.settings.dailyCardGoal}"></div>
+   <div class="row"><span class="muted">${LANG==='fr'?'Persistance':'Persistence'} : <b>${Store.durable?(LANG==='fr'?'durable (window.storage)':'durable (window.storage)'):(LANG==='fr'?'mémoire (utilise l’export)':'memory (use export)')}</b></span></div>
+  </div>
+  <div class="card"><h3>${LANG==='fr'?'Données & portabilité':'Data & portability'}</h3><p class="cap">${LANG==='fr'?'Exporte ta progression en JSON, ou importe-la sur une autre machine.':'Export your progress as JSON, or import it on another machine.'}</p>
+   <div class="row"><button class="btn ghost" id="exp">⬇ ${LANG==='fr'?'Exporter':'Export'}</button><button class="btn ghost" id="imp">⬆ ${LANG==='fr'?'Importer':'Import'}</button><button class="btn ghost" id="rst" style="color:var(--red)">${LANG==='fr'?'Réinitialiser':'Reset'}</button></div>
+   <div class="field" style="margin-top:12px"><textarea id="io" style="width:100%;min-height:120px;border:1px solid var(--line);border-radius:10px;padding:10px;font-family:ui-monospace,monospace;font-size:12px;background:var(--surface)"></textarea></div>
+  </div>`;
+  document.getElementById('setgoal').onchange=e=>{S.settings.dailyCardGoal=Math.max(5,+e.target.value||15);save();};
+  document.getElementById('exp').onclick=async()=>{document.getElementById('io').value=await Store.exportJSON();toast(LANG==='fr'?'Exporté ci-dessous':'Exported below');};
+  document.getElementById('imp').onclick=async()=>{try{await Store.importJSON(document.getElementById('io').value);await loadState();toast(LANG==='fr'?'Import réussi':'Imported');render();}catch(e){toast('⚠ '+e.message);}};
+  document.getElementById('rst').onclick=async()=>{if(confirm(LANG==='fr'?'Tout réinitialiser ?':'Reset everything?')){S=defaultState();await Store.setState(S);LANG=S.settings.lang;applyTheme();render();}};
+}
+
+/* ---------- 12. Cmd+K ---------- */
+function openCmdK(){
+  modal(`<div class="cmdk" onclick="event.stopPropagation()"><input id="cmdkin" placeholder="${tt('search')}" autocomplete="off"><div class="res" id="cmdkres"></div></div>`,true);
+  const inp=document.getElementById('cmdkin'); inp.focus(); let hl=0,results=[];
+  function search(q){
+    q=q.toLowerCase().trim(); results=[];
+    if(!q){results=[{t:tt('dashboard'),h:'#/dashboard',k:'nav'},{t:tt('review'),h:'#/review',k:'nav'},{t:tt('generate'),h:'#/generate',k:'nav'},{t:tt('glossary'),h:'#/glossary',k:'nav'}];}
+    else{
+      IDX.modules.forEach(m=>{if(norm(L(m.title)).includes(q))results.push({t:L(m.title),h:'#/module/'+m.id,k:'module'});});
+      IDX.glossary.forEach(g=>{if(norm(g.term).includes(q)||(g.aliases||[]).some(a=>norm(a).includes(q)))results.push({t:g.term+' — '+L(g.definition).slice(0,50)+'…',h:'#/glossary?q='+encodeURIComponent(g.term),k:'terme'});});
+      IDX.flashcards.forEach(c=>{if(norm(L(c.front)).includes(q))results.push({t:L(c.front),h:'#/review?module='+c.moduleId,k:'carte'});});
+      IDX.qcm.forEach(c=>{if(norm(L(c.stem)).includes(q))results.push({t:L(c.stem),h:'#/quiz?module='+c.moduleId,k:'QCM'});});
+      results=results.slice(0,20);
+    }
+    hl=0;draw();
+  }
+  function draw(){document.getElementById('cmdkres').innerHTML=results.length?results.map((r,i)=>`<div class="r ${i===hl?'hl':''}" data-i="${i}"><span>${esc(r.t).slice(0,70)}</span><span class="k">${r.k}</span></div>`).join(''):`<div class="empty">${tt('empty')}</div>`;
+    document.querySelectorAll('#cmdkres .r').forEach(el=>el.onclick=()=>{go(results[+el.dataset.i].h);closeModal();});}
+  inp.oninput=()=>search(inp.value);
+  inp.onkeydown=e=>{if(e.key==='ArrowDown'){hl=Math.min(results.length-1,hl+1);draw();e.preventDefault();}else if(e.key==='ArrowUp'){hl=Math.max(0,hl-1);draw();e.preventDefault();}else if(e.key==='Enter'){if(results[hl]){go(results[hl].h);closeModal();}}else if(e.key==='Escape')closeModal();};
+  search('');
+}
+
+/* ---------- 13. MODAL / TOAST / THEME / LANG ---------- */
+function modal(html,bareForCmdk){const root=document.getElementById('modal-root');root.innerHTML=`<div class="modal-bg" id="mbg">${bareForCmdk?html:`<div class="card" style="max-width:480px;width:92vw" onclick="event.stopPropagation()">${html}</div>`}</div>`;document.getElementById('mbg').onclick=closeModal;}
+function closeModal(){document.getElementById('modal-root').innerHTML='';}
+let toastTimer=null;
+function toast(msg,cls){const t=document.getElementById('toast');t.textContent=msg;t.className='toast show'+(cls?' '+cls:'');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.className='toast',1900);}
+function applyTheme(){document.body.dataset.theme=S.settings.theme;document.getElementById('themebtn').textContent=S.settings.theme==='dark'?'☀️':'🌙';document.documentElement.lang=LANG;document.querySelectorAll('#langseg button').forEach(b=>b.classList.toggle('on',b.dataset.lang===LANG));document.querySelectorAll('[data-t]').forEach(el=>el.textContent=tt(el.dataset.t));}
+
+/* ---------- 14. BOOT ---------- */
+(async function boot(){
+  await loadState(); recomputeMastery(); applyTheme();
+  document.getElementById('themebtn').onclick=()=>{S.settings.theme=S.settings.theme==='dark'?'light':'dark';applyTheme();save();};
+  document.getElementById('langseg').onclick=e=>{const b=e.target.closest('button');if(!b)return;LANG=b.dataset.lang;S.settings.lang=LANG;applyTheme();save();render();};
+  document.getElementById('burger').onclick=()=>document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('searchbar').onclick=openCmdK;
+  window.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openCmdK();}});
+  window.addEventListener('hashchange',render);
+  render();
+})();
+</script>
+</body>
+</html>
