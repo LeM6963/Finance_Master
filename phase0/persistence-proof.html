@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Preuve de persistance — Plateforme PE/IB</title>
+<style>
+  :root { --accent:#E8743B; --bg:#FAFAF7; --card:#fff; --ink:#1C1C1E; --muted:#6B7280; --line:#ECE9E2; --ok:#1E9E6A; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif; background:var(--bg); color:var(--ink); line-height:1.5; }
+  .wrap { max-width:720px; margin:0 auto; padding:40px 24px 80px; }
+  h1 { font-size:24px; letter-spacing:-.02em; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 28px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin:0 0 18px; box-shadow:0 1px 2px rgba(0,0,0,.03); }
+  .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  button { font:inherit; font-weight:600; border:0; border-radius:10px; padding:10px 16px; cursor:pointer; background:var(--accent); color:#fff; transition:transform .05s ease, filter .15s ease; }
+  button:hover { filter:brightness(1.05); } button:active { transform:translateY(1px); }
+  button.ghost { background:#F2EFE9; color:var(--ink); }
+  .pill { display:inline-block; font-size:13px; font-weight:600; padding:4px 10px; border-radius:999px; background:#F2EFE9; color:var(--muted); }
+  .pill.ok { background:rgba(30,158,106,.12); color:var(--ok); }
+  .big { font-size:40px; font-weight:700; letter-spacing:-.03em; }
+  label { display:block; font-size:13px; color:var(--muted); margin:14px 0 6px; }
+  textarea, input[type=text] { width:100%; font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace; border:1px solid var(--line); border-radius:10px; padding:10px; background:#FCFBF9; }
+  textarea { min-height:120px; resize:vertical; }
+  .hint { font-size:13px; color:var(--muted); margin-top:8px; }
+  code { background:#F2EFE9; padding:1px 6px; border-radius:6px; font-size:12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Preuve de persistance</h1>
+  <p class="sub">Phase 0 · couche de stockage <code>window.storage</code> avec repli mémoire + export/import JSON. Jamais <code>localStorage</code>.</p>
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between">
+      <div>Backend détecté : <span id="backend" class="pill">…</span></div>
+      <div>Durable : <span id="durable" class="pill">…</span></div>
+    </div>
+    <label>Compteur de visites persisté (incrémenté à chaque chargement de page) :</label>
+    <div class="big" id="counter">…</div>
+    <p class="hint">Test de rechargement : note la valeur, puis <b>recharge la page</b> (Cmd/Ctrl+R). Si le backend est durable, le compteur augmente de 1 à chaque rechargement — la progression survit. En repli mémoire, il repart de 1 (c'est attendu : l'export/import couvre ce cas).</p>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <button id="add">+50 XP</button>
+      <button id="streak" class="ghost">+1 jour de série</button>
+      <button id="reset" class="ghost">Réinitialiser</button>
+    </div>
+    <label>État courant :</label>
+    <textarea id="state" readonly></textarea>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <button id="export" class="ghost">Exporter JSON</button>
+      <button id="import">Importer JSON</button>
+    </div>
+    <label>Zone d'export / import (colle ici puis « Importer ») :</label>
+    <textarea id="io"></textarea>
+    <p class="hint" id="msg"></p>
+  </div>
+</div>
+
+<!-- store.js inline so this page runs on double-click (file://) -->
+<script src="./store.js"></script>
+<script>
+(async function () {
+  const store = AppStore.createStore(); // auto-detects window.storage or memory
+  document.getElementById('backend').textContent = store.backendName;
+  const dEl = document.getElementById('durable');
+  dEl.textContent = store.isDurable ? 'oui' : 'non (mémoire)';
+  if (store.isDurable) dEl.classList.add('ok');
+
+  function render(s) {
+    document.getElementById('counter').textContent = (s && s.loads) || 0;
+    document.getElementById('state').value = JSON.stringify(s, null, 2);
+  }
+
+  // Increment a load counter on every page load → the reload proof.
+  let s = (await store.getState()) || { loads: 0, xp: 0, streak: 0 };
+  s.loads = (s.loads || 0) + 1;
+  await store.setState(s);
+  render(s);
+
+  document.getElementById('add').onclick = async () => { s = await store.patchState({ xp: (s.xp||0)+50 }); render(s); };
+  document.getElementById('streak').onclick = async () => { s = await store.patchState({ streak: (s.streak||0)+1 }); render(s); };
+  document.getElementById('reset').onclick = async () => { await store.clear(); s = { loads:0, xp:0, streak:0 }; render(s); };
+
+  document.getElementById('export').onclick = async () => {
+    document.getElementById('io').value = await store.exportJSON();
+    msg('Exporté. Copie ce texte pour le transférer sur une autre machine.');
+  };
+  document.getElementById('import').onclick = async () => {
+    try { s = await store.importJSON(document.getElementById('io').value); render(s); msg('Import réussi.'); }
+    catch (e) { msg('⚠ ' + e.message); }
+  };
+  function msg(t){ document.getElementById('msg').textContent = t; }
+})();
+</script>
+</body>
+</html>

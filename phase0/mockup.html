@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maquette — Plateforme PE/IB</title>
+<style>
+/* ============================================================
+   DESIGN TOKENS — one warm accent on a calm neutral base.
+   Light is the welcoming default; [data-theme=dark] overrides.
+   ============================================================ */
+:root{
+  --accent:#E8743B; --accent-soft:#FCEDE4; --accent-ink:#B5481E;
+  --gold:#C9A227; --green:#1E9E6A; --blue:#2F6FED; --violet:#7C5CE0;
+  --bg:#FAF8F4; --surface:#FFFFFF; --surface-2:#F4F1EA;
+  --ink:#1B1A18; --ink-2:#54514B; --muted:#8A867E; --line:#ECE7DD;
+  --shadow:0 1px 2px rgba(20,16,8,.04), 0 8px 24px rgba(20,16,8,.05);
+  --radius:18px; --radius-sm:12px;
+}
+[data-theme=dark]{
+  --accent:#F2865A; --accent-soft:#3A2519; --accent-ink:#F6A782;
+  --bg:#15140F; --surface:#1E1C17; --surface-2:#26241D;
+  --ink:#F3F0E9; --ink-2:#C4BFB4; --muted:#8E8A7F; --line:#312E26;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;height:100%;}
+body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--accent-soft);}
+
+/* ---- App shell ---- */
+.app{display:grid;grid-template-columns:248px 1fr;min-height:100vh;}
+.sidebar{background:var(--surface);border-right:1px solid var(--line);padding:18px 14px;
+  display:flex;flex-direction:column;gap:4px;position:sticky;top:0;height:100vh;}
+.brand{display:flex;align-items:center;gap:10px;padding:6px 10px 16px;}
+.logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--gold));
+  display:grid;place-items:center;color:#fff;font-weight:800;font-size:15px;}
+.brand b{font-size:15px;letter-spacing:-.01em;} .brand span{display:block;font-size:11px;color:var(--muted);}
+.nav-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:14px 10px 6px;}
+.nav a{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:10px;color:var(--ink-2);
+  font-weight:500;font-size:14px;transition:background .12s,color .12s;}
+.nav a:hover{background:var(--surface-2);color:var(--ink);}
+.nav a.active{background:var(--accent-soft);color:var(--accent-ink);font-weight:600;}
+.nav a .ic{width:18px;text-align:center;opacity:.9;}
+.nav a .badge{margin-left:auto;font-size:11px;font-weight:700;background:var(--accent);color:#fff;border-radius:999px;padding:1px 7px;}
+.side-foot{margin-top:auto;padding:10px;border-top:1px solid var(--line);}
+.rankmini{display:flex;align-items:center;gap:10px;}
+.rankmini .av{width:34px;height:34px;border-radius:10px;background:var(--surface-2);display:grid;place-items:center;font-size:16px;}
+.rankmini b{font-size:13px;} .rankmini span{font-size:11px;color:var(--muted);}
+
+/* ---- Topbar ---- */
+.main{display:flex;flex-direction:column;min-width:0;}
+.topbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:14px;
+  padding:14px 28px;background:color-mix(in srgb,var(--bg) 86%,transparent);
+  backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line);}
+.search{flex:1;max-width:520px;display:flex;align-items:center;gap:10px;background:var(--surface);
+  border:1px solid var(--line);border-radius:12px;padding:9px 13px;color:var(--muted);font-size:14px;cursor:text;}
+.search .kbd{margin-left:auto;font-size:11px;border:1px solid var(--line);border-radius:6px;padding:1px 6px;background:var(--surface-2);}
+.tb-btn{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 12px;font:inherit;
+  font-size:13px;font-weight:600;color:var(--ink-2);cursor:pointer;display:flex;align-items:center;gap:7px;}
+.tb-btn:hover{color:var(--ink);}
+.seg{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.seg button{border:0;background:transparent;font:inherit;font-size:13px;font-weight:600;color:var(--muted);padding:8px 12px;cursor:pointer;}
+.seg button.on{background:var(--accent-soft);color:var(--accent-ink);}
+
+/* ---- Content ---- */
+.content{padding:26px 28px 60px;max-width:1180px;width:100%;margin:0 auto;}
+.hello h1{font-size:26px;letter-spacing:-.02em;margin:0 0 2px;}
+.hello p{color:var(--ink-2);margin:0 0 22px;}
+.grid{display:grid;gap:18px;}
+.cols-3{grid-template-columns:repeat(3,1fr);}
+.cols-2{grid-template-columns:1.4fr 1fr;}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);}
+.card h3{margin:0 0 2px;font-size:15px;letter-spacing:-.01em;}
+.card .cap{font-size:12px;color:var(--muted);margin:0 0 16px;}
+.stat .v{font-size:32px;font-weight:750;letter-spacing:-.02em;}
+.stat .l{font-size:12.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+.flame{color:var(--accent);} .up{color:var(--green);font-size:12px;font-weight:700;}
+
+/* rank ladder */
+.ladder{display:flex;align-items:center;gap:6px;margin-top:4px;}
+.ladder .step{flex:1;height:6px;border-radius:999px;background:var(--surface-2);}
+.ladder .step.done{background:linear-gradient(90deg,var(--accent),var(--gold));}
+.ladder .step.cur{background:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+.ranknames{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:8px;}
+.ranknames b{color:var(--accent-ink);}
+
+/* progress ring */
+.ring-wrap{display:flex;align-items:center;gap:18px;}
+.ring{--p:62;width:96px;height:96px;border-radius:50%;flex:none;
+  background:conic-gradient(var(--accent) calc(var(--p)*1%),var(--surface-2) 0);display:grid;place-items:center;}
+.ring::after{content:"";position:absolute;}
+.ring .inner{width:74px;height:74px;border-radius:50%;background:var(--surface);display:grid;place-items:center;text-align:center;}
+.ring .inner b{font-size:20px;} .ring .inner span{font-size:10px;color:var(--muted);display:block;}
+.goal-list{margin:0;padding:0;list-style:none;font-size:14px;}
+.goal-list li{display:flex;align-items:center;gap:10px;padding:7px 0;color:var(--ink-2);}
+.goal-list .chk{width:18px;height:18px;border-radius:6px;border:1.5px solid var(--line);display:grid;place-items:center;font-size:11px;}
+.goal-list .chk.done{background:var(--green);border-color:var(--green);color:#fff;}
+.goal-list .done-txt{text-decoration:line-through;color:var(--muted);}
+
+/* due queue */
+.due{display:flex;align-items:center;gap:14px;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--surface);}
+.due+.due{margin-top:10px;}
+.due .tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;}
+.tag.lbo{background:rgba(232,116,59,.13);color:var(--accent-ink);}
+.tag.dcf{background:rgba(47,111,237,.13);color:var(--blue);}
+.tag.acc{background:rgba(124,92,224,.13);color:var(--violet);}
+.tag.xl{background:rgba(30,158,106,.13);color:var(--green);}
+.due b{font-size:14px;} .due small{color:var(--muted);}
+.due .go{margin-left:auto;font-weight:700;color:var(--accent);font-size:13px;}
+
+/* mastery bars */
+.mrow{display:flex;align-items:center;gap:12px;margin:13px 0;}
+.mrow .name{width:128px;font-size:13.5px;font-weight:600;}
+.mrow .track{flex:1;height:9px;background:var(--surface-2);border-radius:999px;overflow:hidden;}
+.mrow .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--gold));}
+.mrow .pct{width:42px;text-align:right;font-size:12.5px;color:var(--muted);font-weight:700;}
+
+/* recommended + badges */
+.rec{display:flex;flex-direction:column;gap:6px;}
+.rec .why{font-size:12.5px;color:var(--muted);}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-weight:700;
+  border:0;border-radius:11px;padding:11px 16px;font-size:14px;cursor:pointer;align-self:flex-start;margin-top:6px;}
+.btn:hover{filter:brightness(1.05);}
+.badges{display:flex;gap:10px;flex-wrap:wrap;}
+.badge2{width:58px;text-align:center;font-size:10.5px;color:var(--ink-2);}
+.badge2 .b{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:22px;margin:0 auto 5px;background:var(--surface-2);}
+.badge2.lit .b{background:linear-gradient(135deg,var(--accent),var(--gold));color:#fff;box-shadow:var(--shadow);}
+.badge2.locked{opacity:.45;}
+
+/* english term tooltip */
+.term{border-bottom:1.5px dotted var(--accent);cursor:help;position:relative;font-style:italic;}
+.term .tip{position:absolute;left:0;bottom:130%;width:248px;background:var(--ink);color:#fff;
+  padding:10px 12px;border-radius:10px;font-size:12.5px;font-style:normal;line-height:1.45;
+  opacity:0;pointer-events:none;transform:translateY(4px);transition:.15s;z-index:20;box-shadow:var(--shadow);}
+.term .tip b{color:var(--accent);}
+.term:hover .tip{opacity:1;transform:translateY(0);}
+
+/* flashcard + qcm preview */
+.fc{perspective:1200px;}
+.fc .inner{position:relative;border-radius:16px;border:1px solid var(--line);background:var(--surface);
+  padding:26px;min-height:150px;display:grid;place-items:center;text-align:center;box-shadow:var(--shadow);}
+.fc .q{font-size:17px;font-weight:600;} .fc .a{font-size:14px;color:var(--ink-2);margin-top:8px;}
+.srs{display:flex;gap:8px;margin-top:12px;}
+.srs button{flex:1;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:9px;font:inherit;
+  font-size:12.5px;font-weight:700;cursor:pointer;}
+.srs .again{color:#C0392B;} .srs .hard{color:var(--gold);} .srs .good{color:var(--blue);} .srs .easy{color:var(--green);}
+.qcm .opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;cursor:pointer;font-size:14px;}
+.qcm .opt:hover{border-color:var(--accent);}
+.qcm .opt.right{border-color:var(--green);background:rgba(30,158,106,.08);}
+.qcm .opt.wrong{border-color:#C0392B;background:rgba(192,57,43,.07);}
+.qcm .opt .mk{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--line);flex:none;}
+.expl{font-size:13px;color:var(--ink-2);background:var(--surface-2);border-radius:12px;padding:12px 14px;margin-top:6px;}
+.flag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.04em;padding:2px 7px;border-radius:6px;vertical-align:middle;}
+.flag.v{background:rgba(30,158,106,.15);color:var(--green);} .flag.a{background:rgba(201,162,39,.18);color:#9A7B12;}
+.flag.corr{background:rgba(232,116,59,.16);color:var(--accent-ink);}
+.section-h{display:flex;align-items:center;justify-content:space-between;margin:34px 0 14px;}
+.section-h h2{font-size:18px;letter-spacing:-.01em;margin:0;}
+.section-h .muted{font-size:13px;color:var(--muted);}
+.note{font-size:12px;color:var(--accent-ink);background:var(--accent-soft);border-radius:10px;padding:8px 11px;margin-top:10px;}
+
+@media(max-width:920px){
+  .app{grid-template-columns:1fr;} .sidebar{display:none;}
+  .cols-3,.cols-2{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body data-theme="light">
+<div class="app">
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">PE</div>
+      <div><b data-i18n="brand">PE/IB Mastery</b><span data-i18n="tagline">Du Stagiaire au Managing Partner</span></div>
+    </div>
+    <nav class="nav">
+      <a class="active"><span class="ic">◆</span><span data-i18n="nav.dash">Tableau de bord</span></a>
+      <a><span class="ic">▦</span><span data-i18n="nav.modules">Modules</span></a>
+      <a><span class="ic">⚡</span><span data-i18n="nav.review">Révision</span><span class="badge">18</span></a>
+      <a><span class="ic">▤</span><span data-i18n="nav.qcm">QCM</span></a>
+      <a><span class="ic">⊞</span><span data-i18n="nav.excel">Track Excel</span></a>
+      <a><span class="ic">◈</span><span data-i18n="nav.cases">Case studies</span></a>
+      <a><span class="ic">✦</span><span data-i18n="nav.path">Mes parcours</span></a>
+      <div class="nav-label" data-i18n="nav.more">Ressources</div>
+      <a><span class="ic">≣</span><span data-i18n="nav.glossary">Glossaire</span></a>
+      <a><span class="ic">★</span><span data-i18n="nav.badges">Succès</span></a>
+    </nav>
+    <div class="side-foot">
+      <div class="rankmini">
+        <div class="av">📈</div>
+        <div><b>Associate</b><span data-i18n="rank.next">VP dans 1 240 XP</span></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+    <div class="topbar">
+      <div class="search"><span>⌕</span><span data-i18n="search">Rechercher un module, une carte, un terme…</span><span class="kbd">⌘K</span></div>
+      <div class="seg" id="lang">
+        <button class="on" data-lang="fr">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <button class="tb-btn" id="theme">🌙 <span data-i18n="theme">Sombre</span></button>
+    </div>
+
+    <div class="content">
+      <div class="hello">
+        <h1 data-i18n="hello.h">Bonjour Maxence 👋</h1>
+        <p data-i18n="hello.p">Tu as <b>18 cartes</b> à réviser aujourd'hui et il te reste 1 section pour valider ton objectif quotidien.</p>
+      </div>
+
+      <!-- TOP STATS -->
+      <div class="grid cols-3">
+        <div class="card stat">
+          <div class="l" data-i18n="stat.streak">Série</div>
+          <div class="v"><span class="flame">🔥 12</span></div>
+          <div class="cap" data-i18n="stat.streak.cap" style="margin:0">Ne casse pas la chaîne — record : 21 jours</div>
+        </div>
+        <div class="card stat">
+          <div class="l">XP</div>
+          <div class="v">7 480 <span class="up">▲ +180</span></div>
+          <div class="cap" data-i18n="stat.xp.cap" style="margin:0">+180 XP gagnés aujourd'hui</div>
+        </div>
+        <div class="card stat">
+          <div class="l" data-i18n="stat.rank">Rang</div>
+          <div class="v" style="font-size:24px;margin-top:6px">Associate</div>
+          <div class="ladder">
+            <div class="step done"></div><div class="step done"></div>
+            <div class="step cur"></div><div class="step"></div>
+            <div class="step"></div><div class="step"></div>
+          </div>
+          <div class="ranknames"><span>Stagiaire</span><b>Associate</b><span>MD</span></div>
+        </div>
+      </div>
+
+      <!-- MAIN TWO-COLUMN -->
+      <div class="grid cols-2" style="margin-top:18px">
+        <div class="card">
+          <h3 data-i18n="due.h">À réviser aujourd'hui</h3>
+          <p class="cap" data-i18n="due.cap">File de répétition espacée (SM-2) · 18 cartes dues</p>
+          <div class="due"><span class="tag lbo">LBO</span><div><b data-i18n="due.1">Effet de <span class="term">leverage<span class="tip"><b>leverage</b> — effet de levier : recours à la dette pour amplifier le rendement des fonds propres.</span></span></b><br><small>5 cartes</small></div><span class="go">→</span></div>
+          <div class="due"><span class="tag dcf">DCF</span><div><b data-i18n="due.2">WACC & coût du capital</b><br><small>4 cartes</small></div><span class="go">→</span></div>
+          <div class="due"><span class="tag acc">Compta</span><div><b data-i18n="due.3">Les 3 états financiers liés</b><br><small>6 cartes</small></div><span class="go">→</span></div>
+          <div class="due"><span class="tag xl">Excel</span><div><b data-i18n="due.4">Raccourcis : navigation & sélection</b><br><small>3 cartes</small></div><span class="go">→</span></div>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="goal.h">Objectif du jour</h3>
+          <p class="cap" data-i18n="goal.cap">15 cartes + 1 section de module</p>
+          <div class="ring-wrap">
+            <div class="ring" style="--p:62"><div class="inner"><div><b>62%</b><span data-i18n="goal.done">complété</span></div></div></div>
+            <ul class="goal-list">
+              <li><span class="chk done">✓</span><span class="done-txt" data-i18n="goal.1">Réviser 15 cartes</span></li>
+              <li><span class="chk done">✓</span><span class="done-txt" data-i18n="goal.2">1 QCM réussi</span></li>
+              <li><span class="chk"></span><span data-i18n="goal.3">Terminer 1 section de module</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- RECOMMENDED + MASTERY -->
+      <div class="grid cols-2" style="margin-top:18px">
+        <div class="card">
+          <h3 data-i18n="rec.h">Recommandé pour toi</h3>
+          <p class="cap" data-i18n="rec.cap">Basé sur tes points faibles</p>
+          <div class="rec">
+            <b style="font-size:16px" data-i18n="rec.title">Module — Paydown de dette dans un LBO</b>
+            <span class="why" data-i18n="rec.why">Ta maîtrise « LevFin » est à 38 % — le point le plus faible de ton parcours « Buy-side Associate ».</span>
+            <button class="btn" data-i18n="rec.btn">Commencer la session ▶</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3 data-i18n="mastery.h">Maîtrise par thème</h3>
+          <p class="cap" data-i18n="mastery.cap">Se remplit à mesure que tu valides cartes & QCM</p>
+          <div class="mrow"><div class="name">M&A</div><div class="track"><div class="fill" style="width:72%"></div></div><div class="pct">72%</div></div>
+          <div class="mrow"><div class="name">LBO</div><div class="track"><div class="fill" style="width:64%"></div></div><div class="pct">64%</div></div>
+          <div class="mrow"><div class="name">DCF / WACC</div><div class="track"><div class="fill" style="width:58%"></div></div><div class="pct">58%</div></div>
+          <div class="mrow"><div class="name" data-i18n="mastery.levfin">LevFin</div><div class="track"><div class="fill" style="width:38%"></div></div><div class="pct">38%</div></div>
+          <div class="mrow"><div class="name">Excel</div><div class="track"><div class="fill" style="width:81%"></div></div><div class="pct">81%</div></div>
+        </div>
+      </div>
+
+      <!-- ACHIEVEMENTS -->
+      <div class="card" style="margin-top:18px">
+        <h3 data-i18n="ach.h">Succès récents</h3>
+        <p class="cap" data-i18n="ach.cap">Des jalons concrets, pas des badges gadgets</p>
+        <div class="badges">
+          <div class="badge2 lit"><div class="b">🏗️</div><span data-i18n="ach.1">1er LBO modélisé</span></div>
+          <div class="badge2 lit"><div class="b">🔥</div><span data-i18n="ach.2">Série 7 jours</span></div>
+          <div class="badge2 lit"><div class="b">💯</div><span data-i18n="ach.3">QCM parfait</span></div>
+          <div class="badge2 locked"><div class="b">⚡</div><span data-i18n="ach.4">Excel < 30s</span></div>
+          <div class="badge2 locked"><div class="b">🎓</div><span data-i18n="ach.5">Niveau VP</span></div>
+        </div>
+      </div>
+
+      <!-- ===== LEARNING-SURFACE PREVIEW (montre la direction des écrans d'entraînement) ===== -->
+      <div class="section-h">
+        <h2 data-i18n="prev.h">Aperçu des surfaces d'entraînement</h2>
+        <span class="muted" data-i18n="prev.sub">flashcard · QCM · correction dataroom · termes EN</span>
+      </div>
+      <div class="grid cols-2">
+        <div class="card fc">
+          <h3 style="margin-bottom:12px" data-i18n="fc.h">Flashcard</h3>
+          <div class="inner">
+            <div>
+              <div class="q" data-i18n="fc.q">Qu'est-ce que l'<span class="term">accretion / dilution<span class="tip"><b>accretion/dilution</b> — relutif/dilutif : impact d'une acquisition sur le BPA (<span class="term" style="border:none">EPS</span>) de l'acquéreur.</span></span> dans une fusion ?</div>
+              <div class="a" data-i18n="fc.a">→ Clique pour révéler la réponse</div>
+            </div>
+          </div>
+          <div class="srs">
+            <button class="again" data-i18n="srs.again">À revoir</button>
+            <button class="hard" data-i18n="srs.hard">Difficile</button>
+            <button class="good" data-i18n="srs.good">Correct</button>
+            <button class="easy" data-i18n="srs.easy">Facile</button>
+          </div>
+        </div>
+
+        <div class="card qcm">
+          <h3 data-i18n="qcm.h">QCM</h3>
+          <p class="cap" data-i18n="qcm.q">Un fonds investit 200 M€ d'<span class="term">equity<span class="tip"><b>equity</b> — fonds propres / apport en capital du sponsor.</span></span>. Sortie : EV 415, dette nette 32. MoM ?</p>
+          <div class="opt"><span class="mk"></span><span>1,9x</span></div>
+          <div class="opt right"><span class="mk">✓</span><span>≈ 1,9x &nbsp;<span class="flag corr">CORRIGÉ</span></span></div>
+          <div class="opt wrong"><span class="mk">✕</span><span>2,1x</span></div>
+          <div class="expl" data-i18n="qcm.expl">
+            <b>MoM = equity de sortie ÷ equity d'entrée.</b> Equity de sortie = 415 − 32 = 383 ; 383 ÷ 200 = <b>1,9x</b>.
+          </div>
+          <div class="note" data-i18n="qcm.note">corrigé : la source (LBO Paper — Bridgepoint) indiquait 2,1x en oubliant de soustraire la dette nette à la sortie ; la valeur exacte est ≈ 1,9x.</div>
+        </div>
+      </div>
+
+      <p style="text-align:center;color:var(--muted);font-size:12.5px;margin-top:34px">
+        Maquette Phase 0 · contenu d'illustration · <span class="flag v">VERIFIED</span> <span class="flag a">APPROXIMATE</span> <span class="flag corr">CORRIGÉ</span> — les drapeaux de sourcing apparaîtront sur chaque chiffre réel.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---- Theme toggle ---- */
+const body=document.body, tbtn=document.getElementById('theme');
+tbtn.onclick=()=>{const d=body.dataset.theme==='dark';body.dataset.theme=d?'light':'dark';
+  tbtn.innerHTML=(d?'🌙 ':'☀️ ')+'<span>'+(d?(LANG==='fr'?'Sombre':'Dark'):(LANG==='fr'?'Clair':'Light'))+'</span>';};
+
+/* ---- Flashcard flip ---- */
+document.querySelector('.fc .inner').onclick=function(){
+  const a=this.querySelector('.a');
+  a.textContent=(LANG==='fr')
+    ? "Relutif si le BPA post-deal augmente, dilutif s'il baisse. Règle rapide : un achat payé en cash/dette est souvent relutif si le rendement de la cible (1/PER) dépasse le coût après impôt du financement."
+    : "Accretive if post-deal EPS rises, dilutive if it falls. Quick rule: a cash/debt-funded deal is usually accretive when the target's yield (1/PE) exceeds the after-tax cost of financing.";
+  a.style.color='var(--ink)';a.style.fontWeight='500';
+};
+
+/* ---- Bilingual switch (FR/EN) — progress is never touched ---- */
+let LANG='fr';
+const I18N={
+  en:{
+    'brand':'PE/IB Mastery','tagline':'From Intern to Managing Partner',
+    'nav.dash':'Dashboard','nav.modules':'Modules','nav.review':'Review','nav.qcm':'Quizzes',
+    'nav.excel':'Excel track','nav.cases':'Case studies','nav.path':'My paths','nav.more':'Resources',
+    'nav.glossary':'Glossary','nav.badges':'Achievements','rank.next':'VP in 1,240 XP',
+    'search':'Search a module, a card, a term…','theme':'Dark',
+    'hello.h':'Hello Maxence 👋','hello.p':'You have <b>18 cards</b> due today and 1 section left to hit your daily goal.',
+    'stat.streak':'Streak','stat.streak.cap':"Don't break the chain — best: 21 days",
+    'stat.xp.cap':'+180 XP earned today','stat.rank':'Rank',
+    'due.h':'Due today','due.cap':'Spaced-repetition queue (SM-2) · 18 cards due',
+    'due.1':'<span class="term">leverage<span class="tip"><b>leverage</b> — recours à la dette pour amplifier le rendement des fonds propres.</span></span> effect','due.2':'WACC & cost of capital','due.3':'The 3 linked financial statements','due.4':'Shortcuts: navigation & selection',
+    'goal.h':'Daily goal','goal.cap':'15 cards + 1 module section','goal.done':'done',
+    'goal.1':'Review 15 cards','goal.2':'1 quiz passed','goal.3':'Finish 1 module section',
+    'rec.h':'Recommended for you','rec.cap':'Based on your weak spots',
+    'rec.title':'Module — Debt paydown in an LBO','rec.why':'Your "LevFin" mastery is at 38% — the weakest point of your "Buy-side Associate" path.','rec.btn':'Start session ▶',
+    'mastery.h':'Mastery by topic','mastery.cap':'Fills as you clear cards & quizzes','mastery.levfin':'LevFin',
+    'ach.h':'Recent achievements','ach.cap':'Concrete milestones, not gimmick badges',
+    'ach.1':'First LBO modelled','ach.2':'7-day streak','ach.3':'Perfect quiz','ach.4':'Excel < 30s','ach.5':'VP level',
+    'prev.h':'Training-surface preview','prev.sub':'flashcard · quiz · dataroom fix · EN terms',
+    'fc.h':'Flashcard','fc.q':'What is <span class="term">accretion / dilution<span class="tip"><b>accretion/dilution</b> — impact of an acquisition on the acquirer\'s EPS.</span></span> in a merger?','fc.a':'→ Click to reveal the answer',
+    'srs.again':'Again','srs.hard':'Hard','srs.good':'Good','srs.easy':'Easy',
+    'qcm.h':'Quiz','qcm.q':'A fund invests €200m of <span class="term">equity<span class="tip"><b>equity</b> — sponsor\'s capital contribution.</span></span>. Exit: EV 415, net debt 32. MoM?',
+    'qcm.expl':'<b>MoM = exit equity ÷ entry equity.</b> Exit equity = 415 − 32 = 383; 383 ÷ 200 = <b>1.9x</b>.',
+    'qcm.note':'corrected: the source (LBO Paper — Bridgepoint) showed 2.1x, forgetting to subtract exit net debt; the correct value is ≈ 1.9x.'
+  }
+};
+const FR={}; document.querySelectorAll('[data-i18n]').forEach(el=>FR[el.getAttribute('data-i18n')]=el.innerHTML);
+document.getElementById('lang').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  document.querySelectorAll('#lang button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+  LANG=b.dataset.lang;
+  const dict = LANG==='en'?I18N.en:FR;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n'); if(dict[k]!==undefined) el.innerHTML=dict[k];
+  });
+  document.documentElement.lang=LANG;
+  tbtn.innerHTML=(body.dataset.theme==='dark'?'☀️ ':'🌙 ')+'<span>'+(body.dataset.theme==='dark'?(LANG==='fr'?'Clair':'Light'):(LANG==='fr'?'Sombre':'Dark'))+'</span>';
+});
+</script>
+</body>
+</html>
