@@ -1,0 +1,1145 @@
+{
+  "modules": [],
+  "flashcards": [],
+  "qcm": [],
+  "exercises": [],
+  "cases": [],
+  "glossary": [
+    {
+      "id": "gl.leverage",
+      "type": "glossaryTerm",
+      "level": 1,
+      "topic": "LBO",
+      "tags": ["LevFin"],
+      "difficulty": 1,
+      "source": {"flag": "VERIFIED"},
+      "term": "leverage",
+      "aliases": ["effet de levier", "levier", "leverage financier", "financial leverage"],
+      "definition": {
+        "fr": "Recours à la dette pour financer une acquisition ou amplifier le rendement des capitaux propres. En LBO, le levier se mesure souvent en multiple de dette nette / EBITDA (mid-cap FR ~4,5–5,5x). Plus le levier est élevé, plus l'IRR pour le sponsor est amplifié, à la hausse comme à la baisse.",
+        "en": "Use of debt to finance an acquisition or magnify equity returns. In an LBO, leverage is typically measured as net debt / EBITDA (French mid-cap ~4.5–5.5x). Higher leverage amplifies the sponsor's IRR, both upside and downside."
+      },
+      "related": ["gl.equity", "gl.ebitda", "gl.gearing", "gl.lbo"]
+    },
+    {
+      "id": "gl.equity",
+      "type": "glossaryTerm",
+      "level": 1,
+      "topic": "Valuation",
+      "tags": ["Valuation"],
+      "difficulty": 1,
+      "source": {"flag": "VERIFIED"},
+      "term": "equity",
+      "aliases": ["capitaux propres", "fonds propres", "equity value", "valeur des capitaux propres"],
+      "definition": {
+        "fr": "Les capitaux propres : la part de la valeur de l'entreprise qui revient aux actionnaires une fois la dette remboursée. En LBO, l'equity est le ticket investi par le sponsor et les co-investisseurs.",
+        "en": "The shareholders' stake in the firm's value, i.e. what is left for owners after debt is repaid. In an LBO, equity is the cheque written by the sponsor and co-investors."
+      },
+      "related": ["gl.equity-value", "gl.enterprise-value", "gl.leverage"]
+    },
+    {
+      "id": "gl.enterprise-value",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Valuation",
+      "tags": ["Valuation"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "enterprise value",
+      "aliases": ["Enterprise Value", "EV", "valeur d'entreprise", "VE", "valeur de l'entreprise"],
+      "definition": {
+        "fr": "La valeur de l'entreprise indépendamment de sa structure de financement : EV = equity value + dette nette (+ intérêts minoritaires + préférentielles − participations mises en équivalence). C'est ce que reflètent les multiples EV/EBITDA et EV/EBIT.",
+        "en": "The value of the business independent of its financing: EV = equity value + net debt (+ minority interest + preferred − associates). It is the basis for EV/EBITDA and EV/EBIT multiples."
+      },
+      "related": ["gl.equity-value", "gl.multiple", "gl.minority-interest"]
+    },
+    {
+      "id": "gl.equity-value",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Valuation",
+      "tags": ["Valuation"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "equity value",
+      "aliases": ["valeur des capitaux propres", "valeur des fonds propres", "market cap", "capitalisation boursière", "equity-value"],
+      "definition": {
+        "fr": "La valeur revenant aux actionnaires : equity value = enterprise value − dette nette. Pour une société cotée, c'est la capitalisation boursière (cours × nombre d'actions diluées).",
+        "en": "Value attributable to shareholders: equity value = enterprise value − net debt. For a listed company it equals market cap (share price × fully diluted shares)."
+      },
+      "related": ["gl.enterprise-value", "gl.treasury-stock-method", "gl.eps"]
+    },
+    {
+      "id": "gl.mom",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LBO",
+      "tags": ["LBO", "Returns"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "MoM",
+      "aliases": ["multiple of money", "money multiple", "MOIC", "multiple sur investissement", "multiple de cash", "cash-on-cash"],
+      "definition": {
+        "fr": "Multiple of Money : equity de sortie / equity d'entrée, où l'equity de sortie = EV de sortie − dette nette de sortie. Un MoM de 2,5x signifie que le sponsor a multiplié sa mise par 2,5. Mesure le gain absolu mais ignore le temps.",
+        "en": "Multiple of Money: exit equity / entry equity, where exit equity = exit EV − exit net debt. A 2.5x MoM means the sponsor multiplied its money by 2.5. Captures absolute gain but ignores time."
+      },
+      "related": ["gl.irr", "gl.equity", "gl.lbo"]
+    },
+    {
+      "id": "gl.irr",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LBO",
+      "tags": ["LBO", "Returns"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "IRR",
+      "aliases": ["TRI", "taux de rendement interne", "internal rate of return", "taux de rentabilité interne"],
+      "definition": {
+        "fr": "Taux de rentabilité interne : le taux d'actualisation qui annule la VAN des flux. Pour un seul flux entrée/sortie : IRR = MoM^(1/n) − 1, où n est la durée de détention. C'est la métrique de rendement reine en private equity.",
+        "en": "Internal Rate of Return: the discount rate that sets the NPV of cash flows to zero. For a single in/out: IRR = MoM^(1/n) − 1, where n is the holding period. It is the headline return metric in private equity."
+      },
+      "related": ["gl.mom", "gl.npv", "gl.lbo"]
+    },
+    {
+      "id": "gl.npv",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "DCF",
+      "tags": ["Valuation", "DCF"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "NPV",
+      "aliases": ["VAN", "valeur actuelle nette", "net present value"],
+      "definition": {
+        "fr": "Valeur Actuelle Nette : somme des flux de trésorerie futurs actualisés au coût du capital, moins l'investissement initial. Un projet crée de la valeur si sa VAN est positive.",
+        "en": "Net Present Value: the sum of future cash flows discounted at the cost of capital, less the initial outlay. A project creates value when its NPV is positive."
+      },
+      "related": ["gl.dcf", "gl.wacc", "gl.irr"]
+    },
+    {
+      "id": "gl.wacc",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "WACC",
+      "tags": ["WACC", "DCF"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "WACC",
+      "aliases": ["CMPC", "coût moyen pondéré du capital", "weighted average cost of capital", "coût du capital"],
+      "definition": {
+        "fr": "Coût Moyen Pondéré du Capital : WACC = E/V·Re + D/V·Rd·(1−T), où E/V et D/V sont les poids des capitaux propres et de la dette, Re le coût des fonds propres (via le CAPM), Rd le coût de la dette et T le taux d'IS (France ~25%). C'est le taux d'actualisation d'un DCF unlevered (FCFF).",
+        "en": "Weighted Average Cost of Capital: WACC = E/V·Re + D/V·Rd·(1−T), where E/V and D/V are equity and debt weights, Re the cost of equity (via CAPM), Rd the cost of debt and T the tax rate (France ~25%). It discounts unlevered (FCFF) DCFs."
+      },
+      "related": ["gl.capm", "gl.dcf", "gl.fcff", "gl.beta"]
+    },
+    {
+      "id": "gl.capm",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "WACC",
+      "tags": ["WACC"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "CAPM",
+      "aliases": ["MEDAF", "modèle d'évaluation des actifs financiers", "capital asset pricing model"],
+      "definition": {
+        "fr": "Modèle d'évaluation des actifs financiers : Re = Rf + β·(Rm − Rf), où Rf est le taux sans risque, β le bêta de l'action et (Rm − Rf) la prime de risque marché. Sert à estimer le coût des fonds propres dans le WACC.",
+        "en": "Capital Asset Pricing Model: Re = Rf + β·(Rm − Rf), where Rf is the risk-free rate, β the equity beta and (Rm − Rf) the market risk premium. Used to estimate the cost of equity in WACC."
+      },
+      "related": ["gl.wacc", "gl.beta"]
+    },
+    {
+      "id": "gl.beta",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "WACC",
+      "tags": ["WACC"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "beta",
+      "aliases": ["bêta", "beta", "βL", "βu", "bêta levier", "bêta désendetté", "unlevered beta", "levered beta"],
+      "definition": {
+        "fr": "Mesure de la sensibilité d'une action aux mouvements du marché. Le bêta levered (βL) intègre la dette ; on le désendette pour comparer des comparables : βu = βL / (1 + (1−T)·D/E), puis on le ré-endette à la structure cible.",
+        "en": "Measure of a stock's sensitivity to market moves. Levered beta (βL) reflects debt; you unlever it to compare peers: βu = βL / (1 + (1−T)·D/E), then relever to the target's capital structure."
+      },
+      "related": ["gl.capm", "gl.wacc"]
+    },
+    {
+      "id": "gl.ebitda",
+      "type": "glossaryTerm",
+      "level": 1,
+      "topic": "Accounting",
+      "tags": ["Accounting", "Valuation"],
+      "difficulty": 1,
+      "source": {"flag": "VERIFIED"},
+      "term": "EBITDA",
+      "aliases": ["EBE", "excédent brut d'exploitation", "earnings before interest taxes depreciation and amortization"],
+      "definition": {
+        "fr": "Résultat avant intérêts, impôts, dotations aux amortissements et provisions ; proche de l'EBE français. Proxy de la génération de cash opérationnelle, base des multiples EV/EBITDA et du calcul du levier.",
+        "en": "Earnings Before Interest, Taxes, Depreciation and Amortization; close to the French EBE. A proxy for operating cash generation and the basis for EV/EBITDA multiples and leverage."
+      },
+      "related": ["gl.ebit", "gl.multiple", "gl.leverage"]
+    },
+    {
+      "id": "gl.ebit",
+      "type": "glossaryTerm",
+      "level": 1,
+      "topic": "Accounting",
+      "tags": ["Accounting"],
+      "difficulty": 1,
+      "source": {"flag": "VERIFIED"},
+      "term": "EBIT",
+      "aliases": ["résultat d'exploitation", "REX", "operating income", "earnings before interest and taxes"],
+      "definition": {
+        "fr": "Résultat d'exploitation : bénéfice après amortissements mais avant intérêts et impôts. Contrairement à l'EBITDA, il tient compte de l'intensité capitalistique via les D&A.",
+        "en": "Operating income: profit after depreciation/amortization but before interest and taxes. Unlike EBITDA it reflects capital intensity through D&A."
+      },
+      "related": ["gl.ebitda", "gl.fcff"]
+    },
+    {
+      "id": "gl.fcff",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "DCF",
+      "tags": ["DCF"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "FCFF",
+      "aliases": ["free cash flow to firm", "flux de trésorerie disponible pour l'entreprise", "free cash flow", "FCF", "unlevered free cash flow", "flux libre"],
+      "definition": {
+        "fr": "Flux de trésorerie disponible pour l'entreprise (unlevered) : EBIT·(1−T) + D&A − variation de BFR − capex. Indépendant de la structure financière, il s'actualise au WACC pour donner l'enterprise value.",
+        "en": "Unlevered free cash flow to the firm: EBIT·(1−T) + D&A − change in working capital − capex. Independent of financing, it is discounted at the WACC to yield enterprise value."
+      },
+      "related": ["gl.fcfe", "gl.wacc", "gl.dcf", "gl.working-capital"]
+    },
+    {
+      "id": "gl.fcfe",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "DCF",
+      "tags": ["DCF"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "FCFE",
+      "aliases": ["free cash flow to equity", "flux de trésorerie disponible pour l'actionnaire", "levered free cash flow", "flux pour l'actionnaire"],
+      "definition": {
+        "fr": "Flux de trésorerie disponible pour l'actionnaire (levered) : FCFF − intérêts·(1−T) + variation nette de dette. S'actualise au coût des fonds propres (Re) pour donner directement l'equity value.",
+        "en": "Levered free cash flow to equity: FCFF − after-tax interest + net change in debt. Discounted at the cost of equity (Re) to yield equity value directly."
+      },
+      "related": ["gl.fcff", "gl.capm", "gl.equity-value"]
+    },
+    {
+      "id": "gl.dcf",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "DCF",
+      "tags": ["DCF", "Valuation"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "DCF",
+      "aliases": ["discounted cash flow", "actualisation des flux de trésorerie", "méthode des flux actualisés", "DCF model"],
+      "definition": {
+        "fr": "Méthode d'actualisation des flux de trésorerie : on projette les FCFF, on les actualise au WACC, on ajoute une valeur terminale (Gordon ou multiple de sortie), puis on déduit la dette nette pour obtenir l'equity value. C'est une valorisation intrinsèque.",
+        "en": "Discounted Cash Flow: project FCFF, discount at WACC, add a terminal value (Gordon growth or exit multiple), then subtract net debt to reach equity value. It is an intrinsic valuation method."
+      },
+      "related": ["gl.fcff", "gl.wacc", "gl.terminal-value", "gl.npv"]
+    },
+    {
+      "id": "gl.comps",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Valuation",
+      "tags": ["Valuation"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "comps",
+      "aliases": ["comparables", "trading comps", "comparables boursiers", "transaction comps", "comparables transactionnels", "multiples de marché", "comparable companies analysis"],
+      "definition": {
+        "fr": "Analyse par les comparables : on valorise une cible en appliquant les multiples (EV/EBITDA, EV/EBIT, P/E) de sociétés cotées similaires (trading comps) ou de transactions précédentes (transaction comps). Valorisation relative, par opposition au DCF.",
+        "en": "Comparable analysis: value a target by applying the multiples (EV/EBITDA, EV/EBIT, P/E) of similar listed peers (trading comps) or precedent transactions (transaction comps). A relative valuation, as opposed to a DCF."
+      },
+      "related": ["gl.multiple", "gl.dcf", "gl.enterprise-value"]
+    },
+    {
+      "id": "gl.multiple",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Valuation",
+      "tags": ["Valuation"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "multiple",
+      "aliases": ["multiple de valorisation", "valuation multiple", "EV/EBITDA", "P/E", "PER", "multiple d'entrée", "multiple de sortie", "entry multiple", "exit multiple"],
+      "definition": {
+        "fr": "Ratio de valorisation reliant la valeur à un agrégat financier (EV/EBITDA, EV/EBIT, P/E). En LBO on distingue le multiple d'entrée (à l'achat) et le multiple de sortie ; les acheter bas et revendre haut crée du multiple expansion.",
+        "en": "A valuation ratio linking value to a financial metric (EV/EBITDA, EV/EBIT, P/E). In an LBO we distinguish entry and exit multiples; buying low and selling high creates multiple expansion."
+      },
+      "related": ["gl.comps", "gl.multiple-expansion", "gl.enterprise-value"]
+    },
+    {
+      "id": "gl.eps",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Accounting",
+      "tags": ["Accounting", "M&A"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "EPS",
+      "aliases": ["BPA", "bénéfice par action", "earnings per share", "résultat par action"],
+      "definition": {
+        "fr": "Bénéfice par action : résultat net (part du groupe) / nombre d'actions diluées. Métrique clé en M&A coté : une opération est relutive si elle augmente le BPA de l'acquéreur, dilutive si elle le réduit.",
+        "en": "Earnings Per Share: net income (group share) / fully diluted shares. A key metric in public M&A: a deal is accretive if it raises the acquirer's EPS, dilutive if it lowers it."
+      },
+      "related": ["gl.accretion-dilution", "gl.treasury-stock-method", "gl.equity-value"]
+    },
+    {
+      "id": "gl.accretion-dilution",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "M&A",
+      "tags": ["M&A"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "accretion/dilution",
+      "aliases": ["accretion dilution", "relution/dilution", "relution", "dilution", "analyse de relution", "accretion-dilution"],
+      "definition": {
+        "fr": "Analyse de relution/dilution : on teste si une acquisition augmente (relutif) ou réduit (dilutif) le BPA pro forma de l'acquéreur. Règle rapide : payer en cash/dette est souvent relutif si le rendement de la cible dépasse le coût du financement ; payer en actions est dilutif si le P/E de la cible dépasse celui de l'acquéreur.",
+        "en": "Accretion/dilution analysis: tests whether an acquisition raises (accretive) or lowers (dilutive) the acquirer's pro forma EPS. Rule of thumb: cash/debt-funded deals are often accretive when the target's yield beats the financing cost; stock deals are dilutive when the target's P/E exceeds the acquirer's."
+      },
+      "related": ["gl.eps", "gl.synergies"]
+    },
+    {
+      "id": "gl.sponsor",
+      "type": "glossaryTerm",
+      "level": 1,
+      "topic": "LBO",
+      "tags": ["LBO"],
+      "difficulty": 1,
+      "source": {"flag": "VERIFIED"},
+      "term": "sponsor",
+      "aliases": ["financial sponsor", "sponsor financier", "fonds de private equity", "fonds LBO", "PE firm"],
+      "definition": {
+        "fr": "Le fonds de private equity qui mène un LBO et apporte l'equity (ex. Hivest, Ardian, PAI Partners, Eurazeo). Le sponsor structure la dette, pilote la création de valeur et organise la sortie.",
+        "en": "The private equity fund that leads an LBO and provides the equity (e.g. Hivest, Ardian, PAI Partners, Eurazeo). The sponsor structures the debt, drives value creation and orchestrates the exit."
+      },
+      "related": ["gl.lbo", "gl.gp", "gl.secondary-buyout"]
+    },
+    {
+      "id": "gl.paydown",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LevFin",
+      "tags": ["LevFin", "LBO"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "paydown",
+      "aliases": ["debt paydown", "remboursement de dette", "amortissement de dette", "désendettement", "deleveraging"],
+      "definition": {
+        "fr": "Remboursement de la dette pendant la période de détention LBO, grâce au cash généré. Le désendettement transfère mécaniquement de la valeur des créanciers vers l'actionnaire et constitue un levier de création de valeur.",
+        "en": "Repayment of debt during the LBO holding period using cash generated. Paying down debt mechanically transfers value from lenders to equity and is a core value-creation lever."
+      },
+      "related": ["gl.cash-sweep", "gl.leverage", "gl.mom"]
+    },
+    {
+      "id": "gl.covenant",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "LevFin",
+      "tags": ["LevFin"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "covenant",
+      "aliases": ["covenants", "clause de sauvegarde", "ratio financier", "covenant-lite", "cov-lite", "maintenance covenant", "incurrence covenant"],
+      "definition": {
+        "fr": "Engagement contractuel imposé par les prêteurs (ex. levier max, DSCR min). Les maintenance covenants sont testés périodiquement ; les structures cov-lite n'imposent que des incurrence covenants, testés seulement lors d'un événement (nouvelle dette, dividende).",
+        "en": "A contractual lender protection (e.g. max leverage, min DSCR). Maintenance covenants are tested periodically; cov-lite structures impose only incurrence covenants, tested only on a trigger event (new debt, dividend)."
+      },
+      "related": ["gl.dscr", "gl.term-loan-b", "gl.unitranche"]
+    },
+    {
+      "id": "gl.unitranche",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "LevFin",
+      "tags": ["LevFin"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "unitranche",
+      "aliases": ["dette unitranche", "unitranche debt"],
+      "definition": {
+        "fr": "Financement par un prêteur unique (souvent un fonds de dette privée) fusionnant dette senior et junior en une seule tranche, à un taux mixte. Rapide à exécuter, très utilisé sur le mid-cap LBO européen.",
+        "en": "A single-tranche financing from one lender (often a private debt fund) blending senior and junior debt at a single blended rate. Fast to execute and widely used in European mid-cap LBOs."
+      },
+      "related": ["gl.senior-debt", "gl.mezzanine", "gl.covenant"]
+    },
+    {
+      "id": "gl.mezzanine",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "LevFin",
+      "tags": ["LevFin"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "mezzanine",
+      "aliases": ["dette mezzanine", "mezz", "dette junior", "junior debt", "subordinated debt", "dette subordonnée"],
+      "definition": {
+        "fr": "Dette junior subordonnée à la dette senior, plus risquée et plus chère, souvent assortie d'un PIK et d'un equity kicker (warrants). Elle comble l'écart entre la dette senior et l'equity dans la structure LBO.",
+        "en": "Junior debt subordinated to senior debt, riskier and pricier, often carrying a PIK coupon and an equity kicker (warrants). It bridges the gap between senior debt and equity in an LBO structure."
+      },
+      "related": ["gl.senior-debt", "gl.pik", "gl.unitranche"]
+    },
+    {
+      "id": "gl.pik",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "LevFin",
+      "tags": ["LevFin"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "PIK",
+      "aliases": ["payment in kind", "paiement en nature", "intérêts capitalisés", "PIK interest", "PIK note"],
+      "definition": {
+        "fr": "Payment-In-Kind : les intérêts ne sont pas payés en cash mais capitalisés sur le principal, qui grossit dans le temps. Préserve la trésorerie d'exploitation mais accroît la dette à rembourser à la sortie.",
+        "en": "Payment-In-Kind: interest is not paid in cash but capitalized onto the principal, which grows over time. Preserves operating cash but increases the debt owed at exit."
+      },
+      "related": ["gl.mezzanine", "gl.cash-sweep"]
+    },
+    {
+      "id": "gl.senior-debt",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LevFin",
+      "tags": ["LevFin"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "senior debt",
+      "aliases": ["dette senior", "senior secured", "senior-debt", "dette de premier rang", "TLA", "term loan A"],
+      "definition": {
+        "fr": "Dette de premier rang, garantie par des sûretés et remboursée en priorité en cas de défaut. La moins chère de la structure ; en LBO elle inclut souvent un Term Loan A amortissable, un Term Loan B in fine et un revolver.",
+        "en": "First-ranking debt, secured by collateral and repaid first in a default. The cheapest layer of the structure; in an LBO it typically includes an amortizing Term Loan A, a bullet Term Loan B and a revolver."
+      },
+      "related": ["gl.term-loan-b", "gl.revolver", "gl.mezzanine"]
+    },
+    {
+      "id": "gl.term-loan-b",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "LevFin",
+      "tags": ["LevFin"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "Term Loan B",
+      "aliases": ["TLB", "term-loan-b", "term loan b", "prêt à terme B"],
+      "definition": {
+        "fr": "Tranche de dette senior à amortissement quasi nul (bullet / in fine), de maturité longue (6–7 ans), placée auprès d'investisseurs institutionnels et de CLO. Souvent cov-lite, c'est le pilier du financement LBO large-cap.",
+        "en": "A senior debt tranche with little to no amortization (bullet), long maturity (6–7 years), syndicated to institutional investors and CLOs. Often cov-lite, it is the backbone of large-cap LBO financing."
+      },
+      "related": ["gl.senior-debt", "gl.covenant", "gl.bookrunner"]
+    },
+    {
+      "id": "gl.revolver",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LevFin",
+      "tags": ["LevFin"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "revolver",
+      "aliases": ["RCF", "revolving credit facility", "ligne de crédit renouvelable", "crédit revolving"],
+      "definition": {
+        "fr": "Ligne de crédit renouvelable que l'entreprise tire et rembourse selon ses besoins de trésorerie. Sert surtout à financer le BFR et les pics saisonniers ; souvent peu ou pas tirée à la clôture du LBO.",
+        "en": "A revolving credit facility the company draws and repays as cash needs fluctuate. Mainly funds working capital and seasonal swings; often undrawn or lightly drawn at LBO close."
+      },
+      "related": ["gl.senior-debt", "gl.working-capital", "gl.bridge"]
+    },
+    {
+      "id": "gl.bridge",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LevFin",
+      "tags": ["LevFin", "M&A"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "bridge",
+      "aliases": ["bridge loan", "prêt relais", "crédit relais", "bridge financing", "bridge-to-bond"],
+      "definition": {
+        "fr": "Prêt relais à court terme finançant une acquisition en attendant un financement permanent (émission obligataire, augmentation de capital). Le bridge-to-bond est ensuite refinancé sur le marché high yield.",
+        "en": "A short-term bridge loan that funds an acquisition pending permanent financing (a bond issue, equity raise). A bridge-to-bond is later refinanced in the high yield market."
+      },
+      "related": ["gl.revolver", "gl.bookrunner"]
+    },
+    {
+      "id": "gl.goodwill",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Accounting",
+      "tags": ["Accounting", "M&A"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "goodwill",
+      "aliases": ["écart d'acquisition", "survaleur", "goodwill comptable"],
+      "definition": {
+        "fr": "Écart d'acquisition : différence entre le prix payé et la juste valeur de l'actif net acquis. Inscrit à l'actif, il n'est plus amorti (IFRS/US GAAP) mais soumis à des tests de dépréciation (impairment).",
+        "en": "The excess of purchase price over the fair value of net assets acquired. Recorded as an asset, it is no longer amortized (IFRS/US GAAP) but tested for impairment."
+      },
+      "related": ["gl.synergies", "gl.minority-interest"]
+    },
+    {
+      "id": "gl.working-capital",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Accounting",
+      "tags": ["Accounting"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "working capital",
+      "aliases": ["BFR", "besoin en fonds de roulement", "net working capital", "NWC", "working-capital", "fonds de roulement"],
+      "definition": {
+        "fr": "Besoin en Fonds de Roulement : actifs d'exploitation courants (stocks + créances clients) − passifs d'exploitation courants (dettes fournisseurs). Une hausse du BFR consomme du cash ; sa maîtrise est un levier opérationnel clé en LBO.",
+        "en": "Net Working Capital: current operating assets (inventory + receivables) − current operating liabilities (payables). An increase in NWC consumes cash; managing it is a key operating lever in an LBO."
+      },
+      "related": ["gl.fcff", "gl.revolver", "gl.cash-sweep"]
+    },
+    {
+      "id": "gl.dscr",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "ProjectFinance",
+      "tags": ["ProjectFinance", "LevFin"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "DSCR",
+      "aliases": ["debt service coverage ratio", "ratio de couverture du service de la dette", "ratio de couverture"],
+      "definition": {
+        "fr": "Ratio de couverture du service de la dette : cash flow disponible pour le service de la dette / (intérêts + remboursement de principal) sur une période. Un DSCR > 1 signifie que le projet couvre ses échéances ; pilier des covenants en project finance.",
+        "en": "Debt Service Coverage Ratio: cash flow available for debt service / (interest + principal due) over a period. A DSCR > 1 means the project covers its obligations; a cornerstone covenant in project finance."
+      },
+      "related": ["gl.llcr", "gl.plcr", "gl.covenant"]
+    },
+    {
+      "id": "gl.llcr",
+      "type": "glossaryTerm",
+      "level": 4,
+      "topic": "ProjectFinance",
+      "tags": ["ProjectFinance"],
+      "difficulty": 4,
+      "source": {"flag": "VERIFIED"},
+      "term": "LLCR",
+      "aliases": ["loan life coverage ratio", "ratio de couverture sur la durée du prêt"],
+      "definition": {
+        "fr": "Loan Life Coverage Ratio : valeur actuelle des cash flows disponibles sur la durée résiduelle du prêt / dette en cours. Mesure forward-looking de la capacité à rembourser, complémentaire du DSCR.",
+        "en": "Loan Life Coverage Ratio: the NPV of cash flows available over the remaining loan life / outstanding debt. A forward-looking measure of repayment capacity, complementing the DSCR."
+      },
+      "related": ["gl.dscr", "gl.plcr"]
+    },
+    {
+      "id": "gl.plcr",
+      "type": "glossaryTerm",
+      "level": 4,
+      "topic": "ProjectFinance",
+      "tags": ["ProjectFinance"],
+      "difficulty": 4,
+      "source": {"flag": "VERIFIED"},
+      "term": "PLCR",
+      "aliases": ["project life coverage ratio", "ratio de couverture sur la durée du projet"],
+      "definition": {
+        "fr": "Project Life Coverage Ratio : valeur actuelle des cash flows sur toute la durée du projet (au-delà de la maturité du prêt) / dette en cours. Toujours ≥ LLCR ; capture le cash 'tail' au-delà du prêt.",
+        "en": "Project Life Coverage Ratio: the NPV of cash flows over the entire project life (beyond loan maturity) / outstanding debt. Always ≥ LLCR; it captures the cash 'tail' beyond the loan."
+      },
+      "related": ["gl.dscr", "gl.llcr"]
+    },
+    {
+      "id": "gl.terminal-value",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "DCF",
+      "tags": ["DCF", "Valuation"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "terminal value",
+      "aliases": ["valeur terminale", "TV", "terminal-value", "valeur résiduelle", "Gordon Shapiro", "perpetuity growth"],
+      "definition": {
+        "fr": "Valeur terminale : valeur de l'entreprise au-delà de l'horizon de projection. Méthode de Gordon : TV = FCF·(1+g)/(WACC−g) ; ou méthode du multiple de sortie (EV/EBITDA terminal). Elle représente souvent 60–80% de la valeur d'un DCF.",
+        "en": "Terminal value: the firm's value beyond the explicit forecast horizon. Gordon growth: TV = FCF·(1+g)/(WACC−g); or exit-multiple method (terminal EV/EBITDA). It often accounts for 60–80% of a DCF's value."
+      },
+      "related": ["gl.dcf", "gl.wacc", "gl.multiple"]
+    },
+    {
+      "id": "gl.gearing",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LevFin",
+      "tags": ["LevFin", "Accounting"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "gearing",
+      "aliases": ["ratio d'endettement", "levier d'endettement", "debt-to-equity", "D/E", "ratio dette/capitaux propres"],
+      "definition": {
+        "fr": "Ratio d'endettement : dette nette / capitaux propres (D/E). Mesure le poids de la dette dans la structure financière ; à distinguer du levier exprimé en dette nette / EBITDA.",
+        "en": "Gearing: net debt / equity (D/E). Measures the weight of debt in the capital structure; distinct from leverage expressed as net debt / EBITDA."
+      },
+      "related": ["gl.leverage", "gl.beta", "gl.equity"]
+    },
+    {
+      "id": "gl.roe",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Accounting",
+      "tags": ["Accounting"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "ROE",
+      "aliases": ["return on equity", "rentabilité des capitaux propres", "rentabilité financière"],
+      "definition": {
+        "fr": "Rentabilité des capitaux propres : résultat net / capitaux propres. La décomposition de DuPont la relie à la marge, à la rotation de l'actif et au levier : un levier accru gonfle le ROE tant que le ROCE dépasse le coût de la dette.",
+        "en": "Return on Equity: net income / shareholders' equity. The DuPont breakdown links it to margin, asset turnover and leverage: more leverage lifts ROE as long as ROCE exceeds the cost of debt."
+      },
+      "related": ["gl.roce", "gl.leverage", "gl.gearing"]
+    },
+    {
+      "id": "gl.roce",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Accounting",
+      "tags": ["Accounting"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "ROCE",
+      "aliases": ["return on capital employed", "rentabilité des capitaux employés", "ROIC", "return on invested capital", "rentabilité économique"],
+      "definition": {
+        "fr": "Rentabilité des capitaux employés : NOPAT (EBIT·(1−T)) / capitaux employés (dette nette + capitaux propres). On crée de la valeur lorsque le ROCE dépasse le WACC.",
+        "en": "Return on Capital Employed: NOPAT (EBIT·(1−T)) / capital employed (net debt + equity). Value is created when ROCE exceeds the WACC."
+      },
+      "related": ["gl.roe", "gl.wacc", "gl.ebit"]
+    },
+    {
+      "id": "gl.treasury-stock-method",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "Valuation",
+      "tags": ["Valuation", "Accounting"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "treasury stock method",
+      "aliases": ["TSM", "méthode du rachat d'actions", "treasury-stock-method", "méthode des actions auto-détenues"],
+      "definition": {
+        "fr": "Méthode de calcul des actions diluées : les options dans la monnaie sont supposées exercées, et le produit des exercices sert à racheter des actions au cours de marché. Sert à passer du nombre d'actions de base au nombre dilué pour l'equity value.",
+        "en": "Treasury Stock Method: in-the-money options are assumed exercised, and the proceeds used to buy back shares at the market price. Used to convert basic shares to fully diluted shares for equity value."
+      },
+      "related": ["gl.equity-value", "gl.eps"]
+    },
+    {
+      "id": "gl.minority-interest",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "Accounting",
+      "tags": ["Accounting", "Valuation"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "minority interest",
+      "aliases": ["intérêts minoritaires", "non-controlling interest", "NCI", "minority-interest", "participations ne donnant pas le contrôle"],
+      "definition": {
+        "fr": "Intérêts minoritaires : part des capitaux propres d'une filiale consolidée à 100% qui ne revient pas à la maison mère. On les ajoute à l'equity value pour reconstituer l'enterprise value, car l'EBITDA consolidé inclut 100% de la filiale.",
+        "en": "Minority (non-controlling) interest: the portion of a fully consolidated subsidiary's equity not owned by the parent. Added to equity value to build up enterprise value, since consolidated EBITDA includes 100% of the subsidiary."
+      },
+      "related": ["gl.enterprise-value", "gl.goodwill"]
+    },
+    {
+      "id": "gl.dividend-recap",
+      "type": "glossaryTerm",
+      "level": 4,
+      "topic": "LBO",
+      "tags": ["LBO", "LevFin"],
+      "difficulty": 4,
+      "source": {"flag": "VERIFIED"},
+      "term": "dividend recap",
+      "aliases": ["dividend recapitalization", "recapitalisation par dividende", "dividend-recap", "recap", "dividende exceptionnel par dette"],
+      "definition": {
+        "fr": "Recapitalisation par dividende : la société portefeuille lève de la dette supplémentaire pour verser un dividende exceptionnel au sponsor, qui récupère ainsi une partie de sa mise sans céder de parts. Améliore l'IRR mais accroît le levier et le risque.",
+        "en": "Dividend recapitalization: the portfolio company raises extra debt to pay a special dividend to the sponsor, returning part of its invested capital without selling. Boosts IRR but increases leverage and risk."
+      },
+      "related": ["gl.lbo", "gl.leverage", "gl.irr"]
+    },
+    {
+      "id": "gl.build-up",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "LBO",
+      "tags": ["LBO", "M&A"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "build-up",
+      "aliases": ["buy-and-build", "build up", "build-up", "buy and build", "stratégie de croissance externe", "roll-up", "consolidation"],
+      "definition": {
+        "fr": "Stratégie de croissance externe : une plateforme acquiert plusieurs cibles plus petites (add-ons) pour grossir et se revendre à un multiple supérieur (arbitrage de multiple). Très répandue en mid-cap LBO européen.",
+        "en": "Buy-and-build: a platform company acquires several smaller targets (add-ons) to scale up and exit at a higher multiple (multiple arbitrage). Very common in European mid-cap LBOs."
+      },
+      "related": ["gl.lbo", "gl.multiple-expansion", "gl.synergies"]
+    },
+    {
+      "id": "gl.lbo",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LBO",
+      "tags": ["LBO"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "LBO",
+      "aliases": ["leveraged buyout", "rachat avec effet de levier", "acquisition par effet de levier", "buyout"],
+      "definition": {
+        "fr": "Leveraged Buy-Out : acquisition d'une société financée majoritairement par de la dette portée par la cible elle-même, l'equity du sponsor étant minoritaire. La valeur se crée par la croissance de l'EBITDA, le désendettement et l'expansion de multiple.",
+        "en": "Leveraged Buy-Out: acquisition of a company funded mostly by debt serviced by the target itself, with the sponsor's equity as the minority slice. Value is created through EBITDA growth, debt paydown and multiple expansion."
+      },
+      "related": ["gl.sponsor", "gl.leverage", "gl.mom", "gl.irr"]
+    },
+    {
+      "id": "gl.secondary-buyout",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "LBO",
+      "tags": ["LBO"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "secondary buyout",
+      "aliases": ["SBO", "secondary-buyout", "LBO secondaire", "rachat secondaire", "sponsor-to-sponsor"],
+      "definition": {
+        "fr": "LBO secondaire : un sponsor revend la société portefeuille à un autre fonds de private equity. Voie de sortie très courante en Europe ; on parle de tertiary buyout au tour suivant.",
+        "en": "Secondary buyout: a sponsor sells the portfolio company to another private equity fund. A very common exit route in Europe; the next round is a tertiary buyout."
+      },
+      "related": ["gl.lbo", "gl.sponsor"]
+    },
+    {
+      "id": "gl.gp",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LBO",
+      "tags": ["LBO", "Fit"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "GP",
+      "aliases": ["general partner", "société de gestion", "gérant", "management company"],
+      "definition": {
+        "fr": "General Partner : la société de gestion qui gère le fonds, sélectionne les deals et perçoit les management fees (~2%) et le carried interest. Engage aussi son propre capital (GP commitment) aux côtés des LPs.",
+        "en": "General Partner: the management firm that runs the fund, sources deals and earns management fees (~2%) and carried interest. It also invests its own capital (GP commitment) alongside the LPs."
+      },
+      "related": ["gl.lp", "gl.carried-interest", "gl.dry-powder"]
+    },
+    {
+      "id": "gl.lp",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LBO",
+      "tags": ["LBO", "Fit"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "LP",
+      "aliases": ["limited partner", "investisseur du fonds", "souscripteur", "limited partners"],
+      "definition": {
+        "fr": "Limited Partner : investisseur qui souscrit au fonds (assureurs, fonds de pension, fonds souverains, family offices) sans participer à la gestion, à responsabilité limitée à son engagement. Touche les distributions après le carried du GP.",
+        "en": "Limited Partner: an investor that commits capital to the fund (insurers, pension funds, sovereign funds, family offices) without managing it, with liability capped at its commitment. Receives distributions after the GP's carry."
+      },
+      "related": ["gl.gp", "gl.carried-interest", "gl.dry-powder"]
+    },
+    {
+      "id": "gl.carried-interest",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "LBO",
+      "tags": ["LBO", "Fit"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "carried interest",
+      "aliases": ["carry", "carried-interest", "intéressement aux plus-values", "intérêt différé"],
+      "definition": {
+        "fr": "Part des plus-values du fonds revenant au GP (typiquement 20%), au-delà d'un rendement préférentiel (hurdle ~8%) versé d'abord aux LPs. Aligne les intérêts de l'équipe de gestion avec ceux des investisseurs.",
+        "en": "The share of the fund's profits paid to the GP (typically 20%), above a preferred return (hurdle ~8%) paid first to LPs. It aligns the management team with investors."
+      },
+      "related": ["gl.gp", "gl.lp", "gl.management-package"]
+    },
+    {
+      "id": "gl.management-package",
+      "type": "glossaryTerm",
+      "level": 4,
+      "topic": "LBO",
+      "tags": ["LBO", "Fit"],
+      "difficulty": 4,
+      "source": {"flag": "VERIFIED"},
+      "term": "management package",
+      "aliases": ["management-package", "package management", "intéressement des dirigeants", "MIP", "management incentive plan", "sweet equity"],
+      "definition": {
+        "fr": "Dispositif d'intéressement des dirigeants de la société sous LBO : co-investissement et instruments (sweet equity, actions de préférence, ratchet) leur offrant un rendement surproportionné si le deal réussit. Élément clé de l'alignement sponsor/management.",
+        "en": "The incentive scheme for managers of an LBO company: co-investment and instruments (sweet equity, preferred shares, ratchet) giving them outsized returns if the deal succeeds. A key sponsor/management alignment tool."
+      },
+      "related": ["gl.carried-interest", "gl.sponsor", "gl.lbo"]
+    },
+    {
+      "id": "gl.earn-out",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "M&A",
+      "tags": ["M&A"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "earn-out",
+      "aliases": ["earnout", "earn out", "earn-out", "complément de prix", "clause d'earn-out", "paiement différé conditionnel"],
+      "definition": {
+        "fr": "Complément de prix conditionnel : une partie du prix d'acquisition est versée plus tard si la cible atteint des objectifs (CA, EBITDA). Permet de combler un écart de valorisation entre acheteur et vendeur tout en partageant le risque.",
+        "en": "Earn-out: part of the purchase price is paid later if the target hits agreed targets (revenue, EBITDA). Bridges a valuation gap between buyer and seller while sharing risk."
+      },
+      "related": ["gl.spa", "gl.due-diligence"]
+    },
+    {
+      "id": "gl.opa",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "M&A",
+      "tags": ["M&A", "ECM"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "OPA",
+      "aliases": ["offre publique d'achat", "tender offer", "takeover bid", "OPE", "offre publique d'échange", "public takeover"],
+      "definition": {
+        "fr": "Offre Publique d'Achat : offre adressée aux actionnaires d'une société cotée pour racheter leurs titres en cash (OPA) ou en titres (OPE), généralement avec une prime sur le cours. En France, encadrée par l'AMF.",
+        "en": "A public tender offer to a listed company's shareholders to buy their shares in cash (OPA) or in stock (OPE), usually at a premium to the market price. In France it is regulated by the AMF."
+      },
+      "related": ["gl.take-private", "gl.greenshoe", "gl.bookrunner"]
+    },
+    {
+      "id": "gl.synergies",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "M&A",
+      "tags": ["M&A"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "synergies",
+      "aliases": ["synergies", "synergie", "cost synergies", "revenue synergies", "synergies de coûts", "synergies de revenus"],
+      "definition": {
+        "fr": "Gains de valeur attendus d'un rapprochement : synergies de coûts (économies d'échelle, suppression de doublons) et de revenus (cross-selling, accès marché). Souvent surestimées ; les synergies de coûts sont jugées plus crédibles que celles de revenus.",
+        "en": "Value gains expected from a combination: cost synergies (scale, removing overlaps) and revenue synergies (cross-selling, market access). Often overestimated; cost synergies are seen as more credible than revenue synergies."
+      },
+      "related": ["gl.accretion-dilution", "gl.goodwill", "gl.build-up"]
+    },
+    {
+      "id": "gl.due-diligence",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "M&A",
+      "tags": ["M&A"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "due diligence",
+      "aliases": ["due diligence", "DD", "audit d'acquisition", "diligences", "due-diligence", "VDD", "vendor due diligence"],
+      "definition": {
+        "fr": "Diligences : audit approfondi de la cible (financier, juridique, fiscal, commercial, ESG) mené avant l'acquisition pour valider la thèse d'investissement et identifier les risques. La VDD (vendor DD) est commandée par le vendeur en amont.",
+        "en": "Due diligence: a thorough audit of the target (financial, legal, tax, commercial, ESG) run before acquisition to validate the investment thesis and surface risks. Vendor due diligence (VDD) is commissioned upfront by the seller."
+      },
+      "related": ["gl.dataroom", "gl.spa", "gl.information-memorandum"]
+    },
+    {
+      "id": "gl.spa",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "M&A",
+      "tags": ["M&A"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "SPA",
+      "aliases": ["share purchase agreement", "contrat de cession", "protocole de cession", "sale and purchase agreement", "contrat d'acquisition"],
+      "definition": {
+        "fr": "Share Purchase Agreement : le contrat de cession qui formalise l'acquisition. Il fixe le prix (souvent via un mécanisme locked-box ou completion accounts), les déclarations et garanties (reps & warranties), les conditions suspensives et l'earn-out éventuel.",
+        "en": "Share Purchase Agreement: the contract that formalizes the acquisition. It sets the price (often via a locked-box or completion accounts mechanism), reps & warranties, conditions precedent and any earn-out."
+      },
+      "related": ["gl.earn-out", "gl.due-diligence", "gl.nbo"]
+    },
+    {
+      "id": "gl.teaser",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "M&A",
+      "tags": ["M&A"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "teaser",
+      "aliases": ["teaser", "blind teaser", "profil anonyme", "document de présentation anonyme"],
+      "definition": {
+        "fr": "Document de présentation anonymisé d'une cible, envoyé par la banque conseil aux acheteurs potentiels en début de process pour susciter l'intérêt sans révéler l'identité de la société.",
+        "en": "A short anonymized one-pager on a target, sent by the sell-side adviser to potential buyers at the start of a process to spark interest without disclosing the company's identity."
+      },
+      "related": ["gl.information-memorandum", "gl.nbo", "gl.nda"]
+    },
+    {
+      "id": "gl.information-memorandum",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "M&A",
+      "tags": ["M&A"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "information memorandum",
+      "aliases": ["IM", "CIM", "confidential information memorandum", "mémorandum d'information", "information-memorandum", "info memo"],
+      "definition": {
+        "fr": "Mémorandum d'information confidentiel : document détaillé sur la cible (activité, marché, financials, business plan) remis aux acheteurs ayant signé un NDA, après le teaser. Base de la première offre indicative.",
+        "en": "Confidential Information Memorandum: a detailed document on the target (business, market, financials, business plan) shared with buyers after they sign an NDA, following the teaser. Basis for the first indicative offer."
+      },
+      "related": ["gl.teaser", "gl.nbo", "gl.due-diligence"]
+    },
+    {
+      "id": "gl.nbo",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "M&A",
+      "tags": ["M&A"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "NBO",
+      "aliases": ["non-binding offer", "offre indicative", "lettre d'intention", "LOI", "letter of intent", "IOI", "indicative offer", "binding offer", "offre ferme"],
+      "definition": {
+        "fr": "Non-Binding Offer : offre indicative non engageante soumise après lecture de l'IM, fixant une fourchette de prix et les conditions. Les meilleurs candidats passent ensuite en phase 2 (due diligence) puis remettent une binding offer (offre ferme).",
+        "en": "Non-Binding Offer: an indicative, non-committal offer submitted after reading the IM, setting a price range and conditions. The best bidders then advance to phase 2 (due diligence) and submit a binding offer."
+      },
+      "related": ["gl.information-memorandum", "gl.spa", "gl.due-diligence"]
+    },
+    {
+      "id": "gl.cash-sweep",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "LevFin",
+      "tags": ["LevFin", "LBO"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "cash sweep",
+      "aliases": ["cash-sweep", "cash sweep", "balayage de trésorerie", "excess cash flow sweep", "ECF sweep", "remboursement anticipé obligatoire"],
+      "definition": {
+        "fr": "Mécanisme par lequel une part du cash flow excédentaire de la société sous LBO sert obligatoirement à rembourser la dette par anticipation. Accélère le désendettement et renforce la création de valeur pour l'equity.",
+        "en": "Cash sweep: a mechanism whereby a share of the LBO company's excess cash flow must be used to prepay debt. It speeds up deleveraging and boosts equity value creation."
+      },
+      "related": ["gl.paydown", "gl.covenant", "gl.circularity"]
+    },
+    {
+      "id": "gl.circularity",
+      "type": "glossaryTerm",
+      "level": 4,
+      "topic": "Excel",
+      "tags": ["Excel", "LBO"],
+      "difficulty": 4,
+      "source": {"flag": "VERIFIED"},
+      "term": "circularity",
+      "aliases": ["circular reference", "référence circulaire", "circularité", "circularity", "boucle de calcul"],
+      "definition": {
+        "fr": "Référence circulaire dans un modèle : les intérêts dépendent de la dette moyenne, qui dépend du cash flow, qui dépend des intérêts. On la résout en activant le calcul itératif d'Excel ou via un interrupteur de circularité (circuit breaker).",
+        "en": "A circular reference in a model: interest depends on average debt, which depends on cash flow, which depends on interest. Resolved by enabling Excel's iterative calculation or using a circularity switch (circuit breaker)."
+      },
+      "related": ["gl.cash-sweep", "gl.lbo"]
+    },
+    {
+      "id": "gl.nol",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "Accounting",
+      "tags": ["Accounting", "M&A"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "NOL",
+      "aliases": ["net operating loss", "déficit reportable", "carry-forward", "report déficitaire", "tax loss carryforward", "déficits fiscaux"],
+      "definition": {
+        "fr": "Net Operating Loss : déficit fiscal reportable qui réduit l'impôt futur en s'imputant sur les bénéfices à venir. Actif d'impôt différé pris en compte en valorisation et en M&A (avec des limites en cas de changement de contrôle).",
+        "en": "Net Operating Loss: a tax loss carryforward that reduces future tax by offsetting upcoming profits. A deferred tax asset considered in valuation and M&A (subject to limits on a change of control)."
+      },
+      "related": ["gl.goodwill", "gl.due-diligence"]
+    },
+    {
+      "id": "gl.run-rate",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "Accounting",
+      "tags": ["Accounting", "Valuation"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "run-rate",
+      "aliases": ["run rate", "run-rate", "annualisé", "annualisation", "annualized", "rythme annualisé", "RR EBITDA"],
+      "definition": {
+        "fr": "Annualisation d'une performance récente comme si elle se maintenait sur 12 mois (ex. EBITDA run-rate = dernier trimestre × 4). Utilisé pour refléter une base normalisée ou pro forma incluant des acquisitions et synergies déjà engagées.",
+        "en": "Run-rate: annualizing a recent performance as if it persisted for 12 months (e.g. run-rate EBITDA = last quarter × 4). Used to reflect a normalized or pro forma base including committed acquisitions and synergies."
+      },
+      "related": ["gl.ebitda", "gl.synergies"]
+    },
+    {
+      "id": "gl.multiple-expansion",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "LBO",
+      "tags": ["LBO", "Valuation"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "multiple expansion",
+      "aliases": ["multiple-expansion", "expansion de multiple", "multiple arbitrage", "arbitrage de multiple", "multiple uplift", "re-rating"],
+      "definition": {
+        "fr": "Création de valeur en revendant la société à un multiple supérieur au multiple d'achat (ex. acheter à 8x, vendre à 10x EV/EBITDA). Levier le plus incertain car dépendant du marché ; les fonds prudents ne le supposent pas dans leur base case.",
+        "en": "Value creation from selling the company at a higher multiple than at purchase (e.g. buy at 8x, sell at 10x EV/EBITDA). The least controllable lever as it is market-driven; prudent funds assume none in the base case."
+      },
+      "related": ["gl.multiple", "gl.lbo", "gl.build-up"]
+    },
+    {
+      "id": "gl.take-private",
+      "type": "glossaryTerm",
+      "level": 4,
+      "topic": "M&A",
+      "tags": ["M&A", "LBO"],
+      "difficulty": 4,
+      "source": {"flag": "VERIFIED"},
+      "term": "take-private",
+      "aliases": ["take private", "take-private", "P2P", "public-to-private", "retrait de la cote", "delisting", "sortie de bourse"],
+      "definition": {
+        "fr": "Public-to-Private : un sponsor rachète une société cotée via une OPA pour la retirer de la cote et la gérer en LBO loin des contraintes du marché. Nécessite souvent une prime de 20–40% sur le cours.",
+        "en": "Public-to-private: a sponsor buys a listed company via a tender offer to delist it and run it as an LBO away from public market constraints. Usually requires a 20–40% premium to the share price."
+      },
+      "related": ["gl.opa", "gl.lbo", "gl.sponsor"]
+    },
+    {
+      "id": "gl.dip-financing",
+      "type": "glossaryTerm",
+      "level": 4,
+      "topic": "Restructuring",
+      "tags": ["Restructuring", "LevFin"],
+      "difficulty": 4,
+      "source": {"flag": "VERIFIED"},
+      "term": "DIP financing",
+      "aliases": ["debtor-in-possession financing", "dip-financing", "DIP", "financement DIP", "financement du débiteur en possession", "new money"],
+      "definition": {
+        "fr": "Debtor-In-Possession financing : nouveau financement accordé à une entreprise en procédure (Chapter 11 aux US, équivalents en sauvegarde/redressement en France) avec un rang super-prioritaire, lui permettant de poursuivre son activité pendant la restructuration.",
+        "en": "Debtor-In-Possession financing: new money lent to a company in bankruptcy (Chapter 11 in the US, safeguard/redressement equivalents in France) with super-priority status, letting it keep operating during restructuring."
+      },
+      "related": ["gl.senior-debt", "gl.covenant"]
+    },
+    {
+      "id": "gl.bookrunner",
+      "type": "glossaryTerm",
+      "level": 3,
+      "topic": "ECM",
+      "tags": ["ECM", "DCM"],
+      "difficulty": 3,
+      "source": {"flag": "VERIFIED"},
+      "term": "bookrunner",
+      "aliases": ["bookrunner", "book runner", "chef de file", "teneur de livre", "lead manager", "joint bookrunner", "syndicate"],
+      "definition": {
+        "fr": "Banque chef de file qui dirige le placement d'une émission (IPO, obligation, syndication de dette) : elle constitue le livre d'ordres (book), fixe le prix et alloue les titres. Plusieurs joint bookrunners se partagent souvent un mandat.",
+        "en": "Lead bank that runs the placement of an issue (IPO, bond, loan syndication): it builds the order book, sets the price and allocates the securities. Mandates often have several joint bookrunners."
+      },
+      "related": ["gl.greenshoe", "gl.term-loan-b", "gl.bridge"]
+    },
+    {
+      "id": "gl.greenshoe",
+      "type": "glossaryTerm",
+      "level": 4,
+      "topic": "ECM",
+      "tags": ["ECM"],
+      "difficulty": 4,
+      "source": {"flag": "VERIFIED"},
+      "term": "greenshoe",
+      "aliases": ["greenshoe", "green shoe", "over-allotment option", "option de surallocation", "clause de rallonge"],
+      "definition": {
+        "fr": "Option de surallocation lors d'une IPO permettant aux bookrunners de placer jusqu'à ~15% de titres supplémentaires. Utilisée pour stabiliser le cours post-IPO et répondre à une forte demande.",
+        "en": "Over-allotment option in an IPO letting bookrunners place up to ~15% extra shares. Used to stabilize the post-IPO price and meet strong demand."
+      },
+      "related": ["gl.bookrunner", "gl.opa"]
+    },
+    {
+      "id": "gl.cap-table",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "VC",
+      "tags": ["VC", "LBO"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "cap table",
+      "aliases": ["cap-table", "capitalization table", "table de capitalisation", "tableau de capitalisation", "captable"],
+      "definition": {
+        "fr": "Table de capitalisation : récapitulatif de l'actionnariat d'une société — qui détient quoi (actions ordinaires, préférentielles, options, BSPCE) et selon quel pourcentage, pleinement dilué. Outil clé en VC et pour le management package en LBO.",
+        "en": "Capitalization table: a breakdown of a company's ownership — who holds what (common, preferred, options, warrants) and at what fully diluted percentage. A key tool in VC and for the LBO management package."
+      },
+      "related": ["gl.liquidation-preference", "gl.management-package", "gl.treasury-stock-method"]
+    },
+    {
+      "id": "gl.dry-powder",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "LBO",
+      "tags": ["LBO"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "dry powder",
+      "aliases": ["dry-powder", "dry powder", "capital non investi", "poudre sèche", "uncalled capital", "capital disponible"],
+      "definition": {
+        "fr": "Capital levé mais non encore investi par un fonds, disponible pour de nouveaux deals (uncalled commitments). Un niveau élevé de dry powder dans l'industrie pousse les prix d'acquisition à la hausse.",
+        "en": "Capital raised but not yet invested by a fund, available for new deals (uncalled commitments). High industry-wide dry powder pushes acquisition prices up."
+      },
+      "related": ["gl.gp", "gl.lp", "gl.sponsor"]
+    },
+    {
+      "id": "gl.liquidation-preference",
+      "type": "glossaryTerm",
+      "level": 4,
+      "topic": "VC",
+      "tags": ["VC"],
+      "difficulty": 4,
+      "source": {"flag": "VERIFIED"},
+      "term": "liquidation preference",
+      "aliases": ["liquidation-preference", "liq pref", "préférence de liquidation", "preference de liquidation", "1x preference", "participating preferred"],
+      "definition": {
+        "fr": "Préférence de liquidation : droit des actionnaires préférentiels (VC) d'être remboursés avant les ordinaires en cas de vente ou liquidation, souvent à 1x leur investissement. Une clause participating leur permet en plus de partager le reliquat.",
+        "en": "Liquidation preference: the right of preferred (VC) shareholders to be repaid before common holders on a sale or liquidation, often at 1x their investment. A participating preference also lets them share the remaining proceeds."
+      },
+      "related": ["gl.cap-table", "gl.equity"]
+    },
+    {
+      "id": "gl.net-debt",
+      "type": "glossaryTerm",
+      "level": 1,
+      "topic": "Valuation",
+      "tags": ["Valuation", "LevFin"],
+      "difficulty": 1,
+      "source": {"flag": "VERIFIED"},
+      "term": "net debt",
+      "aliases": ["dette nette", "net-debt", "endettement net", "DN"],
+      "definition": {
+        "fr": "Dette nette : dette financière brute − trésorerie et équivalents. Pont entre enterprise value et equity value (equity value = EV − dette nette) et base du levier (dette nette / EBITDA).",
+        "en": "Net debt: gross financial debt − cash and equivalents. The bridge between enterprise value and equity value (equity value = EV − net debt) and the basis for leverage (net debt / EBITDA)."
+      },
+      "related": ["gl.enterprise-value", "gl.equity-value", "gl.leverage"]
+    },
+    {
+      "id": "gl.dataroom",
+      "type": "glossaryTerm",
+      "level": 2,
+      "topic": "M&A",
+      "tags": ["M&A"],
+      "difficulty": 2,
+      "source": {"flag": "VERIFIED"},
+      "term": "dataroom",
+      "aliases": ["data room", "dataroom", "VDR", "virtual data room", "salle de données virtuelle"],
+      "definition": {
+        "fr": "Salle de données virtuelle sécurisée où le vendeur met à disposition les documents de la cible (contrats, financials, juridique) pour la due diligence des acheteurs, avec un suivi des accès.",
+        "en": "A secure virtual data room where the seller hosts the target's documents (contracts, financials, legal) for buyers' due diligence, with access tracking."
+      },
+      "related": ["gl.due-diligence", "gl.information-memorandum"]
+    },
+    {
+      "id": "gl.nda",
+      "type": "glossaryTerm",
+      "level": 1,
+      "topic": "M&A",
+      "tags": ["M&A"],
+      "difficulty": 1,
+      "source": {"flag": "VERIFIED"},
+      "term": "NDA",
+      "aliases": ["non-disclosure agreement", "accord de confidentialité", "NDA", "confidentiality agreement", "engagement de confidentialité"],
+      "definition": {
+        "fr": "Accord de confidentialité signé par un acheteur potentiel avant de recevoir l'information memorandum et d'accéder à la dataroom. Il encadre l'usage des informations sensibles de la cible.",
+        "en": "Non-Disclosure Agreement signed by a prospective buyer before receiving the information memorandum and accessing the dataroom. It governs the use of the target's sensitive information."
+      },
+      "related": ["gl.teaser", "gl.information-memorandum", "gl.dataroom"]
+    }
+  ]
+}
